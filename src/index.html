@@ -9,11 +9,13 @@
 
 <body>
     
+    <!-- Header at the top of the screen, contains timer, gyroscope, and robot model diagram. -->
     <header>
         <!-- Tells whether robot is connected to dashboard. -->
         <div id="robot-state">Unknown state</div>
         <button id="connect-button">Connect</button>
        
+        <!-- Countdown timer for game -->
         <div id="timer"><p><b>2:15</b></p></div>
 
         <div id="headerHolder">
@@ -40,13 +42,17 @@
         </div>
     </header>
     
-    <!-- The main body of the dashboard, by default contains the gyro monitor and the robot diagram -->
+    <!-- Main dashboard body, this contains the cameras. -->
     <article scroll="no">
 
-        <!-- You'll need to mess around with the CSS of #camera (found in css/style.css) to get it to work. More explanation in that CSS rule. -->
+        <!-- Live Camera feeds from robot webcams. -->
          <div class="cameras">
             <div id="camera1"></div>
             <div id="camera2"></div>
+        </div>
+        
+        <div id="elevator">
+            <p>5%</p>
         </div>
         
     </article>
@@ -59,6 +65,7 @@
             <button id="example-button">Change example value</button>
             <p id="example-readout">Value is undefined</p>
         </div>
+        
         <!-- Autonomous selector -->
         <div class="select-container">
             <select id="auto-select">
@@ -66,11 +73,21 @@
                 <!-- This gets populated by JS -->
             </select>
         </div>
+        
         <div>
             <p>Adjust arm height</p>
             <input id="arm-position" type="range" min="0" max="1200" value="770">
         </div>
+        
+        <!--Buttons to switch between each screen. -->
+        <div id="tabSwitchButtons" style="margin-right:10px">
+            <button id="driveButton"><b>Drive Menu</b></button>
+            <button id="configButton"><b>Configuration Menu</b></button>
+            <button id="debugButton"><b>Debug Menu</b></button>
+        </div>
+        
     </aside>
+    
     <div id="login">
         <input id="connect-address" type="text" value="localhost" disabled>
         <button id="connect" disabled>Connecting</button>

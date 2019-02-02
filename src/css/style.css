@@ -1,12 +1,17 @@
-* {
+* 
+{
     box-sizing: border-box;
     margin: 0;
     padding: 0;
 }
-::-webkit-scrollbar {
+
+::-webkit-scrollbar 
+{
     display: none;
 }
-body {
+
+body 
+{
     font: 16px sans-serif;
     -webkit-user-select: none;
     -moz-user-select: none;
@@ -15,9 +20,11 @@ body {
     color: white;
     overflow: hidden;
     background-color: #d66621;
+    
 }
 
-button, input[type="text"], input[type="number"], .select-container, select {
+button, input[type="text"], input[type="number"], .select-container, select 
+{
     color: white;
     background: #444;
     border: none;
@@ -25,27 +32,37 @@ button, input[type="text"], input[type="number"], .select-container, select {
     padding: 6px 8px;
     cursor: pointer;
     outline: 0;
-    border-radius:5px;
+    border-radius:20px;
 }
-.select-container {
+
+.select-container 
+{
     padding: 0;
     display: inline-block;
 }
-select {
+
+select 
+{
     border: none;
     background: none;
     color: white;
     height: 25px;
 }
-input[type="text"], input[type="number"] {
+
+input[type="text"], input[type="number"] 
+{
     cursor: text;
 }
-input[type="checkbox"] {
+
+input[type="checkbox"] 
+{
     -webkit-filter: saturate(0);
     filter: saturate(0);
 }
+
 /* Major interface panes, aside, article, header, etc. */
-body > * {
+body > * 
+{
     padding: 10px;
     position: fixed;
     overflow: scroll;
@@ -56,6 +73,7 @@ body > * {
 {
     float: left;
 }
+
 #timer
 {
     font-family:monospace;
@@ -65,7 +83,8 @@ body > * {
 
 }
 
-header {
+header 
+{
     width:100vw;
     height: 20vh;
     top: 0;
@@ -90,10 +109,12 @@ header {
     width:49.5%;
     float: left;
     border-radius: 10px;
+    box-shadow: 5px 10px 8px rgba(255,255,255,.2);
 
     /* You'll need to mess with this a bit to get your camera to work. Replace the url with a live-updating image feed from your camera. Using other camera streaming systems will require some tweaking. */
     background-image: url('http://10.25.39.8:5801/?action=stream');
 }
+
 #camera2 
 {
     padding: 10;
@@ -106,19 +127,23 @@ header {
     float: right;
     margin-left:2px;
     border-radius: 10px;
+    box-shadow: 5px 10px 8px rgba(255,255,255,.2);
 
 
     /* You'll need to mess with this a bit to get your camera to work. Replace the url with a live-updating image feed from your camera. Using other camera streaming systems will require some tweaking. */
     background-image: url('http://10.25.39.8:5802/?action=stream');
 }
 
-article {
+article 
+{
     top: 20vh;
     height: 80vh;
     width: 100vw;
     overflow: hidden;
 }
-svg * {
+
+svg * 
+{
     stroke: white;
     fill: #222;
     stroke-width: 2;
@@ -127,56 +152,83 @@ svg * {
     -ms-transform-origin: center;
     transform-origin: center;*/
 }
-text {
+
+text 
+{
     font-size: 16px;
     letter-spacing: 2px;
     stroke: none;
     fill: white;
 }
 
-#gyro {
-    width: 175px;
-    height: 175px;
+#gyro 
+{
+    width: auto;
+    height: 75px;
     margin-left: 30px;
-    margin-top: 15px;
     float: left;
+    
 
 }
 
-#gyro-arm {
+#gyro-arm 
+{
     -webkit-transform-origin: bottom;
     -ms-transform-origin: bottom;
     transform-origin: bottom;
 }
-#gyro-number {
+
+#gyro-number 
+{
     font-size: 25px;
     text-anchor: middle;
 }
-#robot-diagram {
+
+#robot-diagram 
+{
     position: absolute;
     bottom: 1px;
     margin-left: .5vw;
    /* right: 1vw; */
 }
-#robot-arm {
+
+#robot-arm 
+{
     -webkit-transform-origin: right;
     -ms-transform-origin: right;
     transform-origin: right;
 }
-#team {
+
+#team 
+{
     font-size: 28px;
     letter-spacing: -1px;
 }
-aside {
+
+aside 
+{
     right: 0;
     top: 0;
     width: 15vw;
     height: 100vh;
 }
-aside > * {
+
+aside > * 
+{
     margin-bottom: 20px;
 }
-#login {
+
+#tabSwitchButtons button
+{
+    font-size:23px !important;
+    margin: 10px;
+    padding: 10px;
+    width:100%;
+    margin-right:10px !important;
+}
+
+#login 
+{
     position: fixed;
     display: none;
     flex-direction: row;
@@ -188,18 +240,27 @@ aside > * {
     bottom: 0;
     background-color: rgba(0, 0, 0, 0.8)
 }
-body.login #login {
+
+body.login #login 
+{
     display: flex;
 }
-#login :disabled {
+
+#login :disabled
+{
     opacity: 0.6;
 }
-#login > * {
+
+#login > * 
+{
     height: 40px;
 }
-#login > button {
+
+#login > button 
+{
     margin-left: 5px;
 }
+
 #connect-button
 {
     float: left;
