@@ -1,3 +1,7 @@
+# Team 2539's FRC Dashboard for Deep Space 2019
+This dashboard is based on the FRC Dashboard project and has been modified for use by FRC Team 2539.
+
+
 [<img src="images/icon.png" align="right" width="150">](https://github.com/FRCDashboard/FRCDashboard)
 # FRC Dashboard
 FRC Dashboard is a fully customizable dashboard for [FIRST Robotics Competition (FRC)](http://firstinspires.org/robotics/frc) which is based on web languages (JavaScript/CSS/HTML). It's completely legal for competition, and can be used to give your whole drive team significantly richer control of your robot.
