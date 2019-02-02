@@ -1,0 +1,207 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+::-webkit-scrollbar {
+    display: none;
+}
+body {
+    font: 16px sans-serif;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    color: white;
+    overflow: hidden;
+    background-color: #d66621;
+}
+
+button, input[type="text"], input[type="number"], .select-container, select {
+    color: white;
+    background: #444;
+    border: none;
+    font-size: 14px;
+    padding: 6px 8px;
+    cursor: pointer;
+    outline: 0;
+    border-radius:5px;
+}
+.select-container {
+    padding: 0;
+    display: inline-block;
+}
+select {
+    border: none;
+    background: none;
+    color: white;
+    height: 25px;
+}
+input[type="text"], input[type="number"] {
+    cursor: text;
+}
+input[type="checkbox"] {
+    -webkit-filter: saturate(0);
+    filter: saturate(0);
+}
+/* Major interface panes, aside, article, header, etc. */
+body > * {
+    padding: 10px;
+    position: fixed;
+    overflow: scroll;
+    background: #d66621;
+}
+
+#headerHolder
+{
+    float: left;
+}
+#timer
+{
+    font-family:monospace;
+    font-size: 95px;
+    float: left;
+    padding:1vh;
+
+}
+
+header {
+    width:100vw;
+    height: 20vh;
+    top: 0;
+}
+
+.cameras
+{
+    width: 81%;
+    height: 100vh;
+    margin-left:.5%;
+    margin:top: .5%;
+}
+
+#camera1 
+{
+    padding: 10;
+    overflow: hidden;
+    background-color: #333;
+    background-size: cover;
+    /*background-color:red; */
+    height:45%;
+    width:49.5%;
+    float: left;
+    border-radius: 10px;
+
+    /* You'll need to mess with this a bit to get your camera to work. Replace the url with a live-updating image feed from your camera. Using other camera streaming systems will require some tweaking. */
+    background-image: url('http://10.25.39.8:5801/?action=stream');
+}
+#camera2 
+{
+    padding: 10;
+    overflow: hidden;
+    background-color: #333;
+    background-size: cover;
+    /*background-color:blue; */
+    height:45%;
+    width:49.5%;
+    float: right;
+    margin-left:2px;
+    border-radius: 10px;
+
+
+    /* You'll need to mess with this a bit to get your camera to work. Replace the url with a live-updating image feed from your camera. Using other camera streaming systems will require some tweaking. */
+    background-image: url('http://10.25.39.8:5802/?action=stream');
+}
+
+article {
+    top: 20vh;
+    height: 80vh;
+    width: 100vw;
+    overflow: hidden;
+}
+svg * {
+    stroke: white;
+    fill: #222;
+    stroke-width: 2;
+    /*  
+    -webkit-transform-origin: center;
+    -ms-transform-origin: center;
+    transform-origin: center;*/
+}
+text {
+    font-size: 16px;
+    letter-spacing: 2px;
+    stroke: none;
+    fill: white;
+}
+
+#gyro {
+    width: 175px;
+    height: 175px;
+    margin-left: 30px;
+    margin-top: 15px;
+    float: left;
+
+}
+
+#gyro-arm {
+    -webkit-transform-origin: bottom;
+    -ms-transform-origin: bottom;
+    transform-origin: bottom;
+}
+#gyro-number {
+    font-size: 25px;
+    text-anchor: middle;
+}
+#robot-diagram {
+    position: absolute;
+    bottom: 1px;
+    margin-left: .5vw;
+   /* right: 1vw; */
+}
+#robot-arm {
+    -webkit-transform-origin: right;
+    -ms-transform-origin: right;
+    transform-origin: right;
+}
+#team {
+    font-size: 28px;
+    letter-spacing: -1px;
+}
+aside {
+    right: 0;
+    top: 0;
+    width: 15vw;
+    height: 100vh;
+}
+aside > * {
+    margin-bottom: 20px;
+}
+#login {
+    position: fixed;
+    display: none;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.8)
+}
+body.login #login {
+    display: flex;
+}
+#login :disabled {
+    opacity: 0.6;
+}
+#login > * {
+    height: 40px;
+}
+#login > button {
+    margin-left: 5px;
+}
+#connect-button
+{
+    float: left;
+    margin: 1vh;
+}
