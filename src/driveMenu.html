@@ -81,10 +81,11 @@
         
         <!--Buttons to switch between each screen. -->
         <div id="tabSwitchButtons" style="margin-right:10px">
-            <button id="driveButton"><b>Drive Menu</b></button>
-            <button id="configButton"><b>Configuration Menu</b></button>
-            <button id="debugButton"><b>Debug Menu</b></button>
+            <button id="driveButton"> <a href="driveMenu.html"><b>Drive Menu</b></a></button>
+            <button id="configButton"> <a href="configMenu.html" ><b>Configuration Menu</b></a></button>
+            <button id="debugButton"> <a href="" ><b>Debug Menu</b> </a> </button>
         </div>
+    
         
     </aside>
     
@@ -92,6 +93,7 @@
         <input id="connect-address" type="text" value="localhost" disabled>
         <button id="connect" disabled>Connecting</button>
     </div>
+    
     <script src="networktables/networktables.js"></script>
     <script src="connection.js"></script>
     <script src="ui.js"></script>

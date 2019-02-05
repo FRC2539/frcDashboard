@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>FRC Dashboard</title>
+    <link href="css/style.css" rel="stylesheet">
+</head>
+
+<body>
+    
+    <!-- Header at the top of the screen. -->
+    <header>
+        <!-- Tells whether robot is connected to dashboard. -->
+        <div id="robot-state">Unknown state</div>
+        <button id="connect-button">Connect</button>
+       
+        <!-- Countdown timer for game -->
+        <div id="timer"><p><b>2:15</b></p></div>
+            
+        </div>
+    </header>
+    
+    <!-- Main dashboard body. -->
+    <article scroll="no">
+        
+        <script>
+            function httpGetAsync(name, val)
+            {
+                var host = location.protocol + '//' + location.host + '/?action=command&' + name + '=' + val;
+                var xmlHttp = new XMLHttpRequest();
+                xmlHttp.open("GET", host, true);
+                xmlHttp.send(null);
+            }
+            function updateInt(prop, name, val) {
+                document.querySelector(prop).value = val;
+                httpGetAsync(name, val);
+            }
+            function update(name, val) {
+                httpGetAsync(name, val);
+            }
+            </script>
+<!--
+        <div class="stream">
+            <img src="/stream.mjpg" /><p />
+            <a href="/settings.json">Settings JSON</a>
+        </div>
+-->
+        <div class="settings">
+                
+        </div>
+        
+    </article>
+            
+    <!-- The sidebar of the dashboard. Designed for smaller control elements like selection boxes and small buttons. -->
+    <aside>
+         <!--Buttons to switch between each screen. -->
+        
+        <div id="tabSwitchButtons" style="margin-right:10px">
+            <button id="driveButton"> <a href="driveMenu.html"><b>Drive Menu</b></a></button>
+            <button id="configButton"> <a href="configMenu.html" ><b>Configuration Menu</b></a></button>
+            <button id="debugButton"> <a href="" ><b>Debug Menu</b> </a> </button>
+        </div>
+        
+    </aside>
+    
+    <div id="login">
+        <input id="connect-address" type="text" value="localhost" disabled>
+        <button id="connect" disabled>Connecting</button>
+    </div>
+    
+    <script src="networktables/networktables.js"></script>
+    <script src="connection.js"></script>
+    <script src="ui.js"></script>
+    
+    
+</body>
+
+</html>

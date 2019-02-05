@@ -218,13 +218,20 @@ aside > *
     margin-bottom: 20px;
 }
 
-#tabSwitchButtons button
+#tabSwitchButtons
 {
     font-size:23px !important;
+    color: white !important;
     margin: 10px;
     padding: 10px;
     width:100%;
     margin-right:10px !important;
+    background: #444;
+    border: none;
+    cursor: pointer;
+    outline: 0;
+    border-radius:20px;
+    
 }
 
 #login 
@@ -263,6 +270,8 @@ body.login #login
 
 #connect-button
 {
-    float: left;
-    margin: 1vh;
+    
+#settings
+{
+    padding-left: 10vw;
 }
