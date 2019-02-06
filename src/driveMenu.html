@@ -20,7 +20,7 @@
 
         <div id="headerHolder">
             <!-- Gyroscope -->
-            <svg id="gyro">
+            <svg id="gyro" width="12vw" height="12vw" viewbox="0 0 166 225">
                 <circle cx="85" cy="85" r="83"></circle>
                 <circle cx="85" cy="85" r="50"></circle>
                 <rect id="gyro-arm" x="80" y="5" width="10" height="80"></rect>
@@ -29,7 +29,6 @@
             
             <!-- Example robot diagram, arm moves when encoder value changes -->
             <svg id="robot-diagram" width="332" height="450">
-                <text x="40" y="340">Robo McRobotface</text>
                 <rect x="75" y="360" width="230" height="40"></rect>
                 <rect x="85" y="370" width="210" height="40"></rect>
                 <rect id="robot-arm" x="5" y="375" width="80" height="10"></rect>
@@ -80,10 +79,10 @@
         </div>
         
         <!--Buttons to switch between each screen. -->
-        <div id="tabSwitchButtons" style="margin-right:10px">
-            <button id="driveButton"> <a href="driveMenu.html"><b>Drive Menu</b></a></button>
-            <button id="configButton"> <a href="configMenu.html" ><b>Configuration Menu</b></a></button>
-            <button id="debugButton"> <a href="" ><b>Debug Menu</b> </a> </button>
+        <div id="tabSwitchButtons">
+            <button id="driveButton" onclick="window.location.href = 'driveMenu.html';"><b>Drive Menu</b></button>
+            <button id="configButton" onclick="window.location.href = 'configMenu.html';" ><b>Configuration Menu</b></button>
+            <button id="debugButton" onclick="window.location.href = 'debugMenu.html';" ><b>Debug Menu</b></button>
         </div>
     
         
