@@ -6,23 +6,24 @@
         <title>Team 2539's FRC Dashboard of Awesomeness!</title>
         <link href="css/style.css" rel="stylesheet">
     
-        <link rel = "stylesheet" href = "jqm/jquery.mobile-1.4.5.min.css">
-        <script href = "jqm/jquery-1.11.5.min.js"></script>
-        <script href = "jqm/jquery.mobile-1.4.5.min.js"></script>
+        <link rel="stylesheet" href="css/krypton-jquery-mobile-theme.css">
+        <link rel="stylesheet" href="css/jquery.mobile.icons.min.css">
+        <link rel="stylesheet" href="js/jquery.mobile-1.4.5/jquery.mobile.structure-1.4.5.min.css">
+        <link rel="stylesheet" href="css/ohsnap.css">
+        <link rel="stylesheet" href="css/custom.css">
+		
+		
     </head>
 
     <body>
+		
         <div data-role = "page" id = "driveMenu">   
+		Drive
             <!-- Header at the top of the screen, contains timer, gyroscope, and robot model diagram. -->
             <header>
                 <!-- Tells whether robot is connected to dashboard. -->
-                <button id="configButton" onclick="window.location.href = '#configMenu';" ><b>Configuration Menu</b></button>
                 <div id="robot-state">Unknown state</div>
-                <button id="connect-button">Connect</button> <button id="connect-button">Connect2</button>
-                
-                        
-
-
+				
                 <!-- Countdown timer for game -->
                 <div id="timer"><p><b>2:15</b></p></div>
                 <div id="headerHolder">
@@ -45,7 +46,9 @@
                         <text id="team" x="185" y="405" text-anchor="middle">2539</text>
                     </svg>
                     
+					
                 </div>
+				<a  class="ui-btn ui-corner-all ui-btn-icon-left ui" style="float:right" href="#sideBar"><</a>
             </header>
             
             <!-- Main dashboard body, this contains the cameras. -->
@@ -63,106 +66,113 @@
                 
             </article>
             
-            <!-- The sidebar of the dashboard. Designed for smaller control elements like selection boxes and small buttons. -->
-            <aside>
-                <!-- Example button which toggles /SmartDashboard/exampleValue NetworkTables value.
-                    The <p> below then says the value. -->
-                <div id="example-section">
-                    <button id="example-button">Change example value</button>
-                    <p id="example-readout">Value is undefined</p>
-                </div>
-                
-                <!-- Autonomous selector -->
-                <div class="select-container">
-                    <select id="auto-select">
-                        <option>No auto modes found</option>
-                        <!-- This gets populated by JS -->
-                    </select>
-                </div>
-                
-                <div>
-                    <p>Adjust arm height</p>
-                    <input id="arm-position" type="range" min="0" max="1200" value="770">
-                </div>
-                
-                <!--Buttons to switch between each screen. -->
-                <div id="tabSwitchButtons">
-                    <button id="configButton" onclick="window.location.href = '#configMenu';" ><b>Configuration Menu</b></button>
-                    <button id="debugButton" onclick="window.location.href = '#debugMenu';" ><b>Debug Menu</b></button>
-                </div>
             
-                
-            </aside>
             
             <div id="login">
                 <input id="connect-address" type="text" value="localhost" disabled>
                 <button id="connect" disabled>Connecting</button>
             </div>
-            
+            <!-- The sidebar of the dashboard. Designed for smaller control elements like selection boxes and small buttons. -->
+					<div data-role="panel" id="sideBar"  data-display="overlay" data-position="right">
+						<!-- Example button which toggles /SmartDashboard/exampleValue NetworkTables value.
+							The <p> below then says the value. -->
+						<div id="example-section">
+							<button id="example-button">Change example value</button>
+							<p id="example-readout">Value is undefined</p>
+						</div>
+						
+						<!-- Autonomous selector -->
+						<div class="select-container">
+							<select id="auto-select">
+								<option>No auto modes found</option>
+								<!-- This gets populated by JS -->
+							</select>
+						</div>
+						
+						<div>
+							<p>Adjust arm height</p>
+							<input id="arm-position" type="range" min="0" max="1200" value="770">
+						</div>
+						
+						<!--Buttons to switch between each screen. -->
+						<div id="tabSwitchButtons">
+
+							<a href="#configMenu" class="ui-btn ui-corner-all ui-btn-icon-left ui ui-icon-navigation">Config</a>
+							<a href="#debugMenu" class="ui-btn ui-corner-all ui-btn-icon-left ui ui-icon-alert">Debug</a>
+							<!--<button id="configButton" onclick="window.location.href = '#configMenu';" ><b>Configuration Menu</b></button>
+							<button id="debugButton" onclick="window.location.href = '#debugMenu';" ><b>Debug Menu</b></button>-->
+						</div>
+					
+						
+					</div>
         </div> 
+		
+		
         
         <div data-role = "page" id = "debugMenu">
-            <!-- Header at the top of the screen. -->
-            <header>
-                <!-- Tells whether robot is connected to dashboard. -->
-                <div id="robot-state">Unknown state</div>
-                    <button id="connect-button">Connect</button>
-                
-                    <!-- Countdown timer for game -->
-                <div id="timer"><p><b>2:15</b></p></div>
-                        
-            </header>
-                
-            <!-- Main dashboard body. -->
-            <article scroll="no">
-                
-            </article>
-                    
-            <!-- The sidebar of the dashboard. Designed for smaller control elements like selection boxes and small buttons. -->
-            <aside>
-                <!--Buttons to switch between each screen. -->
-                <div id="tabSwitchButtons">
-                    <button id="driveButton" onclick="window.location.href = '#driveMenu';"><b>Drive Menu</b></button>
-                    <button id="configButton" onclick="window.location.href = '#configMenu';" ><b>Configuration Menu</b></button>
-                </div>
-                  
-            </aside>
-            
+            Debug
+            <a  class="ui-btn ui-corner-all ui-btn-icon-left ui" style="float:right" href="#sideBar2"><</a>
+			<div data-role="collapsible" data-collapsed="true">
+                <h4>Heading</h4>
+                <ul data-role="listview">
+                    <li><a href="#">List item 1</a></li>
+                    <li><a href="#">List item 2</a></li>
+                    <li><a href="#">List item 3</a></li>
+                </ul>
+            </div>
+			<!-- The sidebar of the dashboard. Designed for smaller control elements like selection boxes and small buttons. -->
+			<div data-role="panel" id="sideBar2"  data-display="overlay" data-position="right">
+									
+				<!--Buttons to switch between each screen. -->
+				<div id="tabSwitchButtons">
+					<a href="#driveMenu" class="ui-btn ui-corner-all ui-btn-icon-left ui-icon-video">Drive</a>
+					<a href="#configMenu" class="ui-btn ui-corner-all ui-btn-icon-left ui ui-icon-navigation">Config</a>
+
+					<!--<button id="configButton" onclick="window.location.href = '#configMenu';" ><b>Configuration Menu</b></button>
+					<button id="debugButton" onclick="window.location.href = '#debugMenu';" ><b>Debug Menu</b></button>-->
+				</div>
+					
+						
+			</div>
         </div>
 
         <div data-role = "page" id = "configMenu">
-            <!-- Header at the top of the screen. -->
-            <header>
-                <!-- Tells whether robot is connected to dashboard. -->
-                <div id="robot-state">Unknown state</div>
-                <button id="connect-button">Connect</button>
-                
-                <!-- Countdown timer for game -->
-                <div id="timer"><p><b>2:15</b></p></div>
-                        
-            </header>
-                    
-            <!-- Main dashboard body. -->
-            <article scroll="no">
-                
-            </article>
-                    
-            <!-- The sidebar of the dashboard. Designed for smaller control elements like selection boxes and small buttons. -->
-            <aside>
-                <!--Buttons to switch between each screen. -->
-                <div id="tabSwitchButtons">
-                    <button id="driveButton" onclick="window.location.href = '#driveMenu';"><b>Drive Menu</b></button>
-                    <button id="debugButton" onclick="window.location.href = '#debugMenu';" ><b>Debug Menu</b></button>
-                </div>
-                
-            </aside>
-            
+			Config
+            <a  class="ui-btn ui-corner-all ui-btn-icon-left ui" style="float:right" href="#sideBar3"><</a>
+			<br />
+			<!-- The sidebar of the dashboard. Designed for smaller control elements like selection boxes and small buttons. -->
+			<div data-role="panel" id="sideBar3"  data-display="overlay" data-position="right">
+									
+				<!--Buttons to switch between each screen. -->
+				<div id="tabSwitchButtons">
+					<a href="#driveMenu" class="ui-btn ui-corner-all ui-btn-icon-left ui-icon-video">Drive</a>
+					<a href="#debugMenu" class="ui-btn ui-corner-all ui-btn-icon-left ui ui-icon-alert">Debug</a>
+					<!--<button id="configButton" onclick="window.location.href = '#configMenu';" ><b>Configuration Menu</b></button>
+					<button id="debugButton" onclick="window.location.href = '#debugMenu';" ><b>Debug Menu</b></button>-->
+				</div>
+			
+				
+			</div>
         </div>
-    
-        <script src="networktables/networktables.js"></script>
+		
+		
+		
+		<!-- Insert this line above script imports  -->
+		<script>if (typeof module === 'object') {window.module = module; module = undefined;}</script>
+
+		<!-- normal script imports etc  -->	
+		
+		<script src="js/jquery-3.1.1.min.js"></script>
+		<script src="js/jquery-migrate-3.0.0.min.js"></script>
+		<script src="js/jquery.mobile-1.4.5/jquery.mobile-1.4.5.min.js"></script>
+		<script src="js/configure-jquery-mobile.js"></script>
+
+		<script src="networktables/networktables.js"></script>
         <script src="connection.js"></script>
         <script src="ui.js"></script>
-
+        
+		<!-- Insert this line after script imports -->
+		<script>if (window.module) module = window.module;</script>
     </body>
 
 </html>

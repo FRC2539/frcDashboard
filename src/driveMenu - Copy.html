@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <meta name = "viewport" content = "width = device-width, initial-scale = 1" charset="utf-8">
+        <title>Team 2539's FRC Dashboard of Awesomeness!</title>
+        <!--<link href="css/style.css" rel="stylesheet">-->
+    
+        <link rel="stylesheet" href="css/krypton-jquery-mobile-theme.css">
+        <link rel="stylesheet" href="css/jquery.mobile.icons.min.css">
+        <link rel="stylesheet" href="js/jquery.mobile-1.4.5/jquery.mobile.structure-1.4.5.min.css">
+        <link rel="stylesheet" href="css/ohsnap.css">
+        <link rel="stylesheet" href="css/custom.css">
+		
+		
+    </head>
+
+    <body>
+        <div data-role = "page" id = "driveMenu">   
+            <!-- Header at the top of the screen, contains timer, gyroscope, and robot model diagram. -->
+            <header>
+                <!-- Tells whether robot is connected to dashboard. -->
+                <button id="configButton" onclick="window.location.href = '#configMenu';" ><b>Configuration Menu</b></button>
+                <div id="robot-state">Unknown state</div>
+                <button id="connect-button">Connect</button> <button id="connect-button">Connect2</button>
+                
+                        
+<a href="course/default.htm">test</a>
+
+                <!-- Countdown timer for game -->
+                <div id="timer"><p><b>2:15</b></p></div>
+                <div id="headerHolder">
+                    <!-- Gyroscope -->
+                    <svg id="gyro" width="12vw" height="12vw" viewbox="0 0 166 225">
+                        <circle cx="85" cy="85" r="83"></circle>
+                        <circle cx="85" cy="85" r="50"></circle>
+                        <rect id="gyro-arm" x="80" y="5" width="10" height="80"></rect>
+                        <text id="gyro-number" x="90" y="115">0º</text>
+                    </svg>
+                    
+                    <!-- Example robot diagram, arm moves when encoder value changes -->
+                    <svg id="robot-diagram" width="332" height="450">
+                        <rect x="75" y="360" width="230" height="40"></rect>
+                        <rect x="85" y="370" width="210" height="40"></rect>
+                        <rect id="robot-arm" x="5" y="375" width="80" height="10"></rect>
+                        <circle cx="100" cy="410" r="25"></circle>
+                        <circle cx="260" cy="410" r="25"></circle>
+                        <rect x="60" y="380" width="250" height="30"></rect>
+                        <text id="team" x="185" y="405" text-anchor="middle">2539</text>
+                    </svg>
+                    
+                </div>
+            </header>
+            
+            <!-- Main dashboard body, this contains the cameras. -->
+            <article scroll="no">
+
+                <!-- Live Camera feeds from robot webcams. -->
+                <div class="cameras">
+                    <div id="camera1"></div>
+                    <div id="camera2"></div>
+                </div>
+                
+                <div id="elevator">
+                    <p>5%</p>
+                </div>
+                
+            </article>
+            
+            <!-- The sidebar of the dashboard. Designed for smaller control elements like selection boxes and small buttons. -->
+            <aside>
+                <!-- Example button which toggles /SmartDashboard/exampleValue NetworkTables value.
+                    The <p> below then says the value. -->
+                <div id="example-section">
+                    <button id="example-button">Change example value</button>
+                    <p id="example-readout">Value is undefined</p>
+                </div>
+                
+                <!-- Autonomous selector -->
+                <div class="select-container">
+                    <select id="auto-select">
+                        <option>No auto modes found</option>
+                        <!-- This gets populated by JS -->
+                    </select>
+                </div>
+                
+                <div>
+                    <p>Adjust arm height</p>
+                    <input id="arm-position" type="range" min="0" max="1200" value="770">
+                </div>
+                
+                <!--Buttons to switch between each screen. -->
+                <div id="tabSwitchButtons">
+                    <button id="configButton" onclick="window.location.href = '#configMenu';" ><b>Configuration Menu</b></button>
+                    <button id="debugButton" onclick="window.location.href = '#debugMenu';" ><b>Debug Menu</b></button>
+                </div>
+            
+                
+            </aside>
+            
+            <div id="login">
+                <input id="connect-address" type="text" value="localhost" disabled>
+                <button id="connect" disabled>Connecting</button>
+            </div>
+            
+        </div> 
+        
+        <div data-role = "page" id = "debugMenu">
+            <!-- Header at the top of the screen. -->
+            <header>
+                <!-- Tells whether robot is connected to dashboard. -->
+                <div id="robot-state">Unknown state</div>
+                    <button id="connect-button">Connect</button>
+                
+                    <!-- Countdown timer for game -->
+                <div id="timer"><p><b>2:15</b></p></div>
+                        
+            </header>
+                
+            <!-- Main dashboard body. -->
+            <article scroll="no">
+                
+            </article>
+                    
+            <!-- The sidebar of the dashboard. Designed for smaller control elements like selection boxes and small buttons. -->
+            <aside>
+                <!--Buttons to switch between each screen. -->
+                <div id="tabSwitchButtons">
+                    <button id="driveButton" onclick="window.location.href = '#driveMenu';"><b>Drive Menu</b></button>
+                    <button id="configButton" onclick="window.location.href = '#configMenu';" ><b>Configuration Menu</b></button>
+                </div>
+                  
+            </aside>
+            
+        </div>
+
+        <div data-role = "page" id = "configMenu">
+            <!-- Header at the top of the screen. -->
+            <header>
+                <!-- Tells whether robot is connected to dashboard. -->
+                <div id="robot-state">Unknown state</div>
+                <button id="connect-button">Connect</button>
+                
+                <!-- Countdown timer for game -->
+                <div id="timer"><p><b>2:15</b></p></div>
+                        
+            </header>
+                    
+            <!-- Main dashboard body. -->
+            <article scroll="no">
+                
+            </article>
+                    
+            <!-- The sidebar of the dashboard. Designed for smaller control elements like selection boxes and small buttons. -->
+            <aside>
+                <!--Buttons to switch between each screen. -->
+                <div id="tabSwitchButtons">
+                    <button id="driveButton" onclick="window.location.href = '#driveMenu';"><b>Drive Menu</b></button>
+                    <button id="debugButton" onclick="window.location.href = '#debugMenu';" ><b>Debug Menu</b></button>
+                </div>
+                
+            </aside>
+            
+        </div>
+		
+		<!-- Insert this line above script imports  -->
+		<script>if (typeof module === 'object') {window.module = module; module = undefined;}</script>
+
+		<!-- normal script imports etc  -->	
+		
+		<script src="js/jquery-3.1.1.min.js"></script>
+		<script src="js/jquery-migrate-3.0.0.min.js"></script>
+		<script src="js/jquery.mobile-1.4.5/jquery.mobile-1.4.5.min.js"></script>
+
+		<script src="networktables/networktables.js"></script>
+        <script src="connection.js"></script>
+        <script src="ui.js"></script>
+        
+		<!-- Insert this line after script imports -->
+		<script>if (window.module) module = window.module;</script>
+    </body>
+
+</html>

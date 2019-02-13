@@ -19,9 +19,17 @@ body
     user-select: none;
     color: white;
     overflow: hidden;
-    background-color: #d66621;
+    background-color: #d66621 !important;
     
 }
+
+.ui-page { 
+    background:#d66621;
+	background-color: #d66621 !important;
+	color: #FFF;
+}
+
+.ui-body-c, .ui-overlay-c { text-shadow:0 0 0; }
 
 button, input[type="text"], input[type="number"], .select-container, select 
 {
@@ -67,7 +75,7 @@ body > *
     padding: 10px;
     position: fixed;
     overflow: scroll;
-    background: #d66621;
+    /*background: #d66621;*/
 }
 
 #headerHolder

@@ -1,0 +1,158 @@
+.ui-overlay-a .ui-header .ui-btn,
+.ui-overlay-a .ui-footer .ui-btn
+{
+    background-color: #f7931e;
+    color: #ffffff;
+    text-shadow: 0 1px 0 #444444;
+}
+
+.ui-overlay-a .ui-header .ui-btn:hover,
+.ui-overlay-a .ui-footer .ui-btn:hover
+{
+    background-color: #ffa32e;
+}
+
+#config .ui-bar h2
+{
+    margin-bottom: 1em;
+}
+
+.camera
+{
+    margin: 0.5em;
+    background-color: #000;
+    text-align: center;
+    max-height: 360px;
+}
+
+.camera > img[src="/img/waiting.gif"]
+{
+    margin: 3em auto;
+    width: 40% !important;
+}
+
+#main .ui-grid-a > div
+{
+    position: relative;
+}
+
+.randomized {
+    width: 7em;
+    display: inline-block;
+    position: relative;
+    float: left;
+    margin-left: 1em;
+    margin-top: 1em;
+    text-align: center;
+}
+
+.randomized > div {
+    height: 3em;
+    width: 3em;
+    display: inline-block;
+    background-color: gray;
+    box-sizing: border-box;
+    border: 3px ridge white;
+}
+
+.randomized.current > div.red {
+    background-color: red;
+}
+
+.randomized.current > div.blue {
+    background-color: blue;
+}
+
+.randomized.current > div.ours {
+    opacity: 1;
+    border-style: double;
+}
+
+#elevator-state {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 90px;
+    height: 100%;
+}
+
+#height-label {
+    position: relative;
+    height: 10%;
+    font-weight: bold;
+    text-align: center;
+    z-index: 1;
+}
+
+#elevator-graphic {
+    height: 90%;
+    border-right: 2px solid #000;
+}
+
+#elevator-graphic #intake-position {
+    position: relative;
+    border-bottom: 2px solid #000;
+    height: 100%;
+    box-sizing: border-box;
+}
+
+#elevator-graphic #cube.has-cube {
+    position: absolute;
+    bottom: 2px;
+    right: 2px;
+    width: 80px;
+    height: 80px;
+    border: 1px solid #000;
+    background-color: #ff0;
+    box-sizing: border-box;
+}
+
+#networktables, #networktables ul {
+    list-style-type: none !important;
+    padding: 0;
+}
+
+#networktables ul {
+    margin: -10px 0;
+}
+
+#networktables .ui-collapsible-content
+{
+    border-left-width: 5px;
+    margin-top: 1px;
+    padding-top: -1px;
+}
+
+#networktables h3 span
+{
+    float: right;
+}
+
+.value
+{
+    font-size: 16px;
+    color: darkgoldenrod;
+}
+
+.ui-grid-a,
+.ui-grid-b
+{
+    padding-left: 5px;
+}
+
+.ui-grid-a > div,
+.ui-grid-b > div
+{
+    padding-right: 1em;
+}
+
+.ui-grid-b .ui-grid-b .ui-block-c
+{
+    padding-right: 0px;
+}
+
+#debug div.ui-footer
+{
+    box-sizing: border-box;
+    text-align: right;
+}
