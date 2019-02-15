@@ -71,7 +71,7 @@ function createWindow() {
         // Send connection message to the window if if the message is ready
         if (connectedFunc) connectedFunc();
     });
-    // When the user chooses the address of the bot than try to connect
+    // When the user chooses the address of the robot then try to connect
     ipc.on('connect', (ev, address, port) => {
         console.log(`Trying to connect to ${address}` + (port ? ':' + port : ''));
         let callback = (connected, err) => {

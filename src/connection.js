@@ -45,12 +45,15 @@ function onRobotConnection(connected) {
 function setLogin() {
   // Add Enter key handler
   // Enable the input and the button
-  address.disabled = connect.disabled = false;
-  connect.textContent = 'Connect';
+  //address.disabled = connect.disabled = false;
+  //connect.textContent = 'Connect';
   // Add the default address and select 2539
   address.value = 'roborio-2539-frc.local';
-  address.focus();
-  address.setSelectionRange(8, 12);
+  //address.focus();
+  //address.setSelectionRange(8, 12);
+  ipc.send('connect', address.value);
+  address.disabled = connect.disabled = true;
+  connect.textContent = 'Connecting...';
 }
 // On click try to connect and disable the input and the button
 connect.onclick = () => {
