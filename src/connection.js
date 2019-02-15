@@ -30,10 +30,11 @@ function onRobotConnection(connected) {
   console.log(state);
   ui.robotState.textContent = state;
 
-  buttonConnect.onclick = () => {
+/*   buttonConnect.onclick = () => {
     document.body.classList.toggle('login', true);
     loginShown = true;
-  };
+  }; */
+  
   if (connected) {
     // On connect hide the connect popup
     document.body.classList.toggle('login', false);

@@ -1,5 +1,5 @@
 $(document).ready(function($) {
-    console.log('Debug Javascript File has loaded...');
+    //console.log('Debug Javascript File has loaded...');
 
     function addItem($container, id, name, last) {
         var li = '<li';
@@ -22,7 +22,7 @@ $(document).ready(function($) {
         }
         key = key.split('/');
         key.shift();
-        console.log('Global Listener has fired...');
+        //console.log('Global Listener has fired...');
         var id = 'nt';
         var $parent = $('#networktables');
         for (var i in key)
