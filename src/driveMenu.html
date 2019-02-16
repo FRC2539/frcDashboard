@@ -106,22 +106,12 @@
 							<input id="arm-position" type="range" min="0" max="1200" value="770">
 						</div>
 						
-						<!--Buttons to switch between each screen. -->
-						<div id="tabSwitchButtons">
-
-							<a href="#configMenu" class="ui-btn ui-corner-all ui-btn-icon-left ui ui-icon-navigation">Config</a>
-							<a href="#debugMenu" class="ui-btn ui-corner-all ui-btn-icon-left ui ui-icon-alert">Debug</a>
-							<!--<button id="configButton" onclick="window.location.href = '#configMenu';" ><b>Configuration Menu</b></button>
-							<button id="debugButton" onclick="window.location.href = '#debugMenu';" ><b>Debug Menu</b></button>-->
-						</div>
-					
-						
 					</div>
         </div> 
         <!-- *********************************************************************************-->        
 
         <!-- *********************************************************************************-->
-        <!-- Create the debuging menu page.-->
+        <!-- Create the debug menu page.-->
         <div data-role="page" data-title="2539 Debug Console" id="debugMenu">
 
             <!-- Create the header bar at the top of the page.-->
@@ -294,21 +284,29 @@
 		<!-- *********************************************************************************-->
         <div data-role="page" data-title="Single Camera Drive Page" id="singleDriveMenu">
             <div role="main" class="ui-content">
-                <!-- Create the header bar at the top of the page.-->
-                <div data-role="header" data-position="fixed" class="ui-bar">
+
+                <a href="#singleDrivePanel" class="ui-btn ui-corner-all ui-btn-icon-left ui ui-icon-navigation" style="width:10vw; position:absolute;">Menu</a>
+
+                <!-- Create the sidebar at the right of the page.-->
+                <div data-role="panel" id="singleDrivePanel" data-position="right" data-display="overlay">
                     <!--Buttons to switch between each screen. -->
                     <div id="tabSwitchButtons">
                         <a href="#debugMenu" class="ui-btn ui-corner-all ui-btn-icon-left ui ui-icon-navigation">Debug Menu</a>
                         <a href="#driveMenu" class="ui-btn ui-corner-all ui-btn-icon-left ui ui-icon-alert">Drive Menu</a>
                         <a href="#configMenu" class="ui-btn ui-corner-all ui-btn-icon-left ui ui-icon-alert">Configuration Menu</a>
-                        <a href="#singleDriveMenu" class="ui-btn ui-corner-all ui-btn-icon-left ui ui-icon-alert" style="float:right;">Refresh</a>
+                        <a href="#singleDriveMenu" class="ui-btn ui-corner-all ui-btn-icon-left ui ui-icon-alert">Refresh</a>
                     </div>
                 </div>
+
                 <div class="cameras">
                     <div id="cameraSingle">
 
                     </div> 
                 </div>
+
+                <!-- Countdown timer for game -->
+                <div id="timer"><p><b>2:15</b></p></div>
+
             </div>
         </div>
  		<!-- *********************************************************************************-->
