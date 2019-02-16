@@ -164,115 +164,218 @@
                     </div>
                 </div>
 
-                <form id="save-config">
-                    <div class="ui-grid-b">
-                        <div class="ui-block-a">
-                            <h2>Drive Train</h2>
+                <div data-role="tabs" id="configTabs">
+                    <div data-role="navbar">
+                        <ul>
+                            <li><a href="#driveTrainSettings">Drive Train</a></li>
+                            <li><a href="#elevatorSettings">Elevator</a></li>
+                            <li><a href="#cameraSettings">Camera</a></li>
+                            <li><a href="#armSettings">Arm</a></li>
+                            <li><a href="#hatchCargoSettings">Hatch and Cargo</a></li>
+                        </ul>
+                    </div>
 
-                            <input type="hidden" data-key="/DriveTrain/maxSpeed">
-                            <label>
-                                Normal Speed
-                                <input type="number" step="1" min="0" data-key="/DriveTrain/normalSpeed" required>
-                            </label>
-                            <label>
-                                Precise Speed
-                                <input type="number" step="1" min="0" data-key="/DriveTrain/preciseSpeed" required>
-                            </label>
-                            <label>
-                                Encoder Ticks / Inch
-                                <input type="number" step="0.01" min="0" data-key="/DriveTrain/ticksPerInch" required>
-                            </label>
-                            <label title="Distance between wheels (inches)">
-                                Drive Base Width
-                                <input type="number" step="0.005" min="0" data-key="/DriveTrain/width" required>
-                            </label>
-                            <label>
-                                Deadband Value
-                                <input type="number" step="0.01" min="0" data-key="/DriveTrain/deadband" required>
-                            </label>
+                    <form id="save-config">
+                            <!-- Drive Train Settings -->
+                            <div id="driveTrainSettings">
+                                <h2>Drive Train</h2>
 
-                            <div class="ui-grid-b">
-                                <div class="ui-block-a">
-                                    <label>
-                                        P
-                                        <input type="number" step="0.0001" min="0" data-key="/DriveTrain/Speed/P" required>
-                                    </label>
+                                <input type="hidden" data-key="/DriveTrain/maxSpeed">
+                                <label>
+                                    Normal Speed
+                                    <input type="number" step="1" min="0" data-key="/DriveTrain/normalSpeed" required>
+                                </label>
+                                <label>
+                                    Precise Speed
+                                    <input type="number" step="1" min="0" data-key="/DriveTrain/preciseSpeed" required>
+                                </label>
+                                <label>
+                                    Encoder Ticks / Inch
+                                    <input type="number" step="0.01" min="0" data-key="/DriveTrain/ticksPerInch" required>
+                                </label>
+                                <label title="Distance between wheels (inches)">
+                                    Drive Base Width
+                                    <input type="number" step="0.005" min="0" data-key="/DriveTrain/width" required>
+                                </label>
+                                <label>
+                                    Deadband Value
+                                    <input type="number" step="0.01" min="0" data-key="/DriveTrain/deadband" required>
+                                </label>
+
+                                <div class="ui-grid-b">
+                                    <div class="ui-block-a">
+                                        <label>
+                                            P
+                                            <input type="number" step="0.0001" min="0" data-key="/DriveTrain/Speed/P" required>
+                                        </label>
+                                    </div>
+                                    <div class="ui-block-b">
+                                        <label>
+                                            I
+                                            <input type="number" step="0.0001" min="0" data-key="/DriveTrain/Speed/I" required>
+                                        </label>
+                                    </div>
+                                    <div class="ui-block-c">
+                                        <label>
+                                            D
+                                            <input type="number" step="0.0001" min="0" data-key="/DriveTrain/Speed/D" required>
+                                        </label>
+                                    </div>
                                 </div>
-                                <div class="ui-block-b">
-                                    <label>
-                                        I
-                                        <input type="number" step="0.0001" min="0" data-key="/DriveTrain/Speed/I" required>
-                                    </label>
-                                </div>
-                                <div class="ui-block-c">
-                                    <label>
-                                        D
-                                        <input type="number" step="0.0001" min="0" data-key="/DriveTrain/Speed/D" required>
-                                    </label>
+                                <div class="ui-grid-b">
+                                    <div class="ui-block-a">
+                                        <label>
+                                            F
+                                            <input type="number" step="0.0001" min="0" data-key="/DriveTrain/Speed/F" required>
+                                        </label>
+                                    </div>
+                                    <div class="ui-block-b">
+                                        <label>
+                                            I Zone
+                                            <input type="number" step="1" min="0" data-key="/DriveTrain/Speed/IZone" required>
+                                        </label>
+                                    </div>
+                                    <div class="ui-block-c">
+                                        <label>
+                                            Ramp Rate
+                                            <input type="number" step="0.0001" min="0" data-key="/DriveTrain/Speed/RampRate" required>
+                                        </label>
+                                    </div>
                                 </div>
                             </div>
-                            <div class="ui-grid-b">
-                                <div class="ui-block-a">
-                                    <label>
-                                        F
-                                        <input type="number" step="0.0001" min="0" data-key="/DriveTrain/Speed/F" required>
-                                    </label>
-                                </div>
-                                <div class="ui-block-b">
-                                    <label>
-                                        I Zone
-                                        <input type="number" step="1" min="0" data-key="/DriveTrain/Speed/IZone" required>
-                                    </label>
-                                </div>
-                                <div class="ui-block-c">
-                                    <label>
-                                        Ramp Rate
-                                        <input type="number" step="0.0001" min="0" data-key="/DriveTrain/Speed/RampRate" required>
-                                    </label>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="ui-block-b">
-                            <h2>Elevator Levels</h2>
+                            
+                            <!-- Elevator Settings -->
+                            <div id="elevatorSettings">
+                                <h2>Elevator Levels</h2>
 
-                            <label>
-                                Elevator Ground
-                                <input type="number" step="1" data-key="/Elevator/ground" required>
-                            </label>
-                            <label>
-                                Elevator Exchange
-                                <input type="number" step="1" data-key="/Elevator/exchange" required>
-                            </label>
-                            <label>
-                                Elevator Portal
-                                <input type="number" step="1" data-key="/Elevator/portal" required>
-                            </label>
-                            <label>
-                                Elevator Switch
-                                <input type="number" step="1" data-key="/Elevator/switch" required>
-                            </label>
-                            <label>
-                                Elevator Scale
-                                <input type="number" step="1" data-key="/Elevator/scale" required>
-                            </label>
-                            <label>
-                                Elevator Hang
-                                <input type="number" step="1" data-key="/Elevator/hang" required>
-                            </lable>
+                                <label>
+                                    Elevator Ground
+                                    <input type="number" step="1" data-key="/Elevator/ground" required>
+                                </label>
+                                <label>
+                                    Elevator Exchange
+                                    <input type="number" step="1" data-key="/Elevator/exchange" required>
+                                </label>
+                                <label>
+                                    Elevator Portal
+                                    <input type="number" step="1" data-key="/Elevator/portal" required>
+                                </label>
+                                <label>
+                                    Elevator Switch
+                                    <input type="number" step="1" data-key="/Elevator/switch" required>
+                                </label>
+                                <label>
+                                    Elevator Scale
+                                    <input type="number" step="1" data-key="/Elevator/scale" required>
+                                </label>
+                                <label>
+                                    Elevator Hang
+                                    <input type="number" step="1" data-key="/Elevator/hang" required>
+                                </label>
+                            </div>
+
+                            <!-- Camera Settings -->
+                            <div id="cameraSettings">
+                                    <h2>Camera Control</h2>
+
+                                    <label>
+                                        Width
+                                        <input type="number" step="1" data-key="/Elevator/ground" required>
+                                    </label>
+
+                                    <label>
+                                        Height
+                                        <input type="number" step="1" data-key="/Elevator/exchange" required>
+                                    </label>
+
+                                    <label>
+                                        FPS
+                                        <input type="number" step="1" data-key="/Elevator/portal" required>
+                                    </label>
+
+                                    <label>
+                                        Quality
+                                        <input type="number" step="1" data-key="/Elevator/switch" required>
+                                    </label>
+                            </div>
+
+                            <!-- Arm Settings -->
+                            <div id="armSettings">
+                                    <h2>Arm Levels</h2>
+
+                                    <label>
+                                            Arm Ground
+                                            <input type="number" step="1" data-key="/Elevator/ground" required>
+                                        </label>
+                                        <label>
+                                            Arm Exchange
+                                            <input type="number" step="1" data-key="/Elevator/exchange" required>
+                                        </label>
+                                        <label>
+                                            Arm Portal
+                                            <input type="number" step="1" data-key="/Elevator/portal" required>
+                                        </label>
+                                        <label>
+                                            Arm Switch
+                                            <input type="number" step="1" data-key="/Elevator/switch" required>
+                                        </label>
+                                        <label>
+                                            Arm Scale
+                                            <input type="number" step="1" data-key="/Elevator/scale" required>
+                                        </label>
+                                        <label>
+                                            Arm Hang
+                                            <input type="number" step="1" data-key="/Elevator/hang" required>
+                                        </label>
+                            </div>
+
+                            <!-- Hatch Panel and Cargo Height Adjustments -->
+                            <div id="hatchCargoSettings">
+                                    <h2>Hatch and Cargo Height Adjust</h2>
+
+                                    <label>
+                                        Hatch 1
+                                        <input type="number" step="1" data-key="/Elevator/ground" required>
+                                    </label>
+
+                                    <label>
+                                        Hatch 2
+                                        <input type="number" step="1" data-key="/Elevator/exchange" required>
+                                    </label>
+
+                                    <label>
+                                        Hatch 3
+                                        <input type="number" step="1" data-key="/Elevator/portal" required>
+                                    </label>
+
+                                    <label>
+                                        Cargo 1
+                                        <input type="number" step="1" data-key="/Elevator/switch" required>
+                                    </label>
+
+                                    <label>
+                                        Cargo 2
+                                        <input type="number" step="1" data-key="/Elevator/switch" required>
+                                    </label>
+
+                                    <label>
+                                        Cargo 3
+                                        <input type="number" step="1" data-key="/Elevator/switch" required>
+                                    </label>
+                            </div>
+
+                        <!-- Save Changes -->
+                        <div id="saveConfig">
+                            <div class="ui-block-a"><div class="ui-bar">
+                            </div></div>
+                            <div class="ui-block-b"><div class="ui-bar">
+                                <input type="submit" value="Save Changes">
+                            </div></div>
+                            <div class="ui-block-c"><div class="ui-bar">
+                            </div></div>
                         </div>
-                        <div class="ui-block-c">
-                        </div>
-                    </div>
-                    <div class="ui-grid-b">
-                        <div class="ui-block-a"><div class="ui-bar">
-                        </div></div>
-                        <div class="ui-block-b"><div class="ui-bar">
-                            <input type="submit" value="Save Changes">
-                        </div></div>
-                        <div class="ui-block-c"><div class="ui-bar">
-                        </div></div>
-                    </div>
-                </form>
+                    </form>
+                </div>
 
                 <div data-role="footer" data-position="fixed" class="ui-bar">
                     <button id="close-dashboard" class="ui-btn ui-corner-all ui-icon-delete ui-btn-icon-right">Close Dashboard</button>

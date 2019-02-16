@@ -120,7 +120,7 @@ header
     width:49.5%;
     float: left;
     border-radius: 10px;
-    
+
     /* You'll need to mess with this a bit to get your camera to work. Replace the url with a live-updating image feed from your camera. Using other camera streaming systems will require some tweaking. */
     background-image: url('http://10.25.39.8:5801/?action=stream');
 }
@@ -301,6 +301,9 @@ body.login #login
 label
 {
     color:white !important;
+    width: 25% !important;
+    display: inline-block !important;
+    font-size: 13px !important;
 }
 
 h2
