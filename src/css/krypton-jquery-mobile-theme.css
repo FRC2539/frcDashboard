@@ -226,9 +226,11 @@ html .ui-body-a .ui-bar-inherit,
 html body .ui-group-theme-a .ui-bar-inherit {
 	background-color: #f7931e /*{a-bar-background-color}*/;
 	border-color: #dddddd /*{a-bar-border}*/;
-	color: #ffffff /*{a-bar-color}*/;
-	text-shadow: 0 /*{a-bar-shadow-x}*/ 1px /*{a-bar-shadow-y}*/ 0 /*{a-bar-shadow-radius}*/ #444444 /*{a-bar-shadow-color}*/;
+	/*
+	color: #ffffff {a-bar-color};
+	text-shadow: 0 {a-bar-shadow-x} 1px {a-bar-shadow-y} 0 {a-bar-shadow-radius} #444444 {a-bar-shadow-color};
 	font-weight: bold;
+	*/
 }
 .ui-bar-a {
 	border-width: 1px;

@@ -81,11 +81,13 @@ body > *
 #headerHolder
 {
     float: left;
+    color:white !important;
 }
 
 #timer
 {
     font-family:monospace;
+    color: white !important;
     font-size: 95px;
     float: left;
     padding:1vh;
@@ -141,6 +143,20 @@ header
 
     /* You'll need to mess with this a bit to get your camera to work. Replace the url with a live-updating image feed from your camera. Using other camera streaming systems will require some tweaking. */
     background-image: url('http://10.25.39.8:5802/?action=stream');
+}
+
+#cameraSingle
+{
+    padding: 10;
+    overflow: hidden;
+    background-color: #333;
+    background-size: cover;
+    /*background-color:red; */
+    border-radius: 10px;
+    height: 88vh;
+
+    /* You'll need to mess with this a bit to get your camera to work. Replace the url with a live-updating image feed from your camera. Using other camera streaming systems will require some tweaking. */
+    background-image: url('http://10.25.39.8:5801/?action=stream');
 }
 
 article 
@@ -208,6 +224,10 @@ text
     transform-origin: right;
 }
 
+#robot-state
+{
+    color:white !important;
+}
 #team 
 {
     font-size: 28px;
@@ -276,4 +296,14 @@ body.login #login
 #settings
 {
     padding-left: 10vw;
+}
+
+label
+{
+    color:white !important;
+}
+
+h2
+{
+    color:white !important;
 }
