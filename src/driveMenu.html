@@ -22,14 +22,14 @@
         <div data-role = "page" id = "driveMenu">   
             <!-- Create the header bar at the top of the page.-->
             <div data-role="header" data-position="fixed" class="ui-bar">
-                    <!--Buttons to switch between each screen. -->
-                    <div id="tabSwitchButtons">
-                        <a href="#configMenu" class="ui-btn ui-corner-all ui-btn-icon-left ui ui-icon-navigation">Configuration Menu</a>
-                        <a href="#debugMenu" class="ui-btn ui-corner-all ui-btn-icon-left ui ui-icon-alert">Debug Menu</a>
-                        <a href="#singleDriveMenu" class="ui-btn ui-corner-all ui-btn-icon-left ui ui-icon-alert">Single Camera Menu</a>                        
-                        <a href="#driveMenu" class="ui-btn ui-corner-all ui-btn-icon-left ui ui-icon-alert" style="float:right;">Refresh</a>
-                    </div>
+                <!--Buttons to switch between each screen. -->
+                <div id="tabSwitchButtons">
+                    <a href="#configMenu" class="ui-btn ui-corner-all ui-btn-icon-left ui ui-icon-navigation">Configuration Menu</a>
+                    <a href="#debugMenu" class="ui-btn ui-corner-all ui-btn-icon-left ui ui-icon-alert">Debug Menu</a>
+                    <a href="#singleDriveMenu" class="ui-btn ui-corner-all ui-btn-icon-left ui ui-icon-eye">Single Camera Menu</a>                        
+                    <a href="#driveMenu" class="ui-btn ui-corner-all ui-btn-icon-left ui ui-icon-refresh" style="float:right;">Refresh</a>
                 </div>
+            </div>
 
             <!-- Header at the top of the screen, contains timer, gyroscope, and robot model diagram. -->
             <header>
@@ -72,9 +72,9 @@
                     <div id="camera2"></div>
                 </div>
                 
-                <div id="elevator">
+                <!-- <div id="elevator">
                     <p>5%</p>
-                </div>
+                </div> -->
                 
             </article>
             
@@ -95,8 +95,10 @@
 						
 						<!-- Autonomous selector -->
 						<div class="select-container">
-							<select id="auto-select">
-								<option>No auto modes found</option>
+							<select id="auto-select" style="color:black;">
+                                    <option value="1">Left</option>
+                                    <option value="2">Center</option>
+                                    <option value="3">Right</option>
 								<!-- This gets populated by JS -->
 							</select>
 						</div>
@@ -120,8 +122,8 @@
                 <div id="tabSwitchButtons">
                     <a href="#configMenu" class="ui-btn ui-corner-all ui-btn-icon-left ui ui-icon-navigation">Configuration Menu</a>
                     <a href="#driveMenu" class="ui-btn ui-corner-all ui-btn-icon-left ui ui-icon-alert">Drive Menu</a>
-                    <a href="#singleDriveMenu" class="ui-btn ui-corner-all ui-btn-icon-left ui ui-icon-alert">Single Camera Menu</a>                        
-                    <a href="#debugMenu" class="ui-btn ui-corner-all ui-btn-icon-left ui ui-icon-alert" style="float:right;">Refresh</a>                
+                    <a href="#singleDriveMenu" class="ui-btn ui-corner-all ui-btn-icon-left ui ui-icon-eye">Single Camera Menu</a>                        
+                    <a href="#debugMenu" class="ui-btn ui-corner-all ui-btn-icon-left ui ui-icon-refresh" style="float:right;">Refresh</a>                
                 </div>
             </div>
 
@@ -157,10 +159,12 @@
                 <div data-role="header" data-position="fixed" class="ui-bar">
                     <!--Buttons to switch between each screen. -->
                     <div id="tabSwitchButtons">
-                        <a href="#debugMenu" class="ui-btn ui-corner-all ui-btn-icon-left ui ui-icon-navigation">Debug Menu</a>
-                        <a href="#driveMenu" class="ui-btn ui-corner-all ui-btn-icon-left ui ui-icon-alert">Drive Menu</a>
-                        <a href="#singleDriveMenu" class="ui-btn ui-corner-all ui-btn-icon-left ui ui-icon-alert">Single Camera Menu</a>                        
-                        <a href="#configMenu" class="ui-btn ui-corner-all ui-btn-icon-left ui ui-icon-alert" style="float:right;">Refresh</a>
+                        <a href="#driveMenu" class="ui-btn ui-corner-all ui-btn-icon-left ui ui-icon-navigation">Drive Menu</a>
+                        <a href="#debugMenu" class="ui-btn ui-corner-all ui-btn-icon-left ui ui-icon-alert">Debug Menu</a>
+                        <a href="#singleDriveMenu" class="ui-btn ui-corner-all ui-btn-icon-left ui ui-icon-eye">Single Camera Menu</a>                        
+                        <a href="#configMenu" class="ui-btn ui-corner-all ui-btn-icon-left ui ui-icon-refresh" style="float:right;">Refresh</a>
+                        <a href="#reset" class="ui-btn ui-corner-all ui-btn-icon-left ui ui-icon-alert" style="float:right;">Reset</a>
+
                     </div>
                 </div>
 
@@ -280,22 +284,22 @@
 
                                     <label>
                                         Width
-                                        <input type="number" step="1" data-key="/Elevator/ground" required>
+                                        <input type="number" step="1" data-key="/Camera/width" required>
                                     </label>
 
                                     <label>
                                         Height
-                                        <input type="number" step="1" data-key="/Elevator/exchange" required>
+                                        <input type="number" step="1" data-key="/Camera/height" required>
                                     </label>
 
                                     <label>
                                         FPS
-                                        <input type="number" step="1" data-key="/Elevator/portal" required>
+                                        <input type="number" step="1" data-key="/Camera/fps" required>
                                     </label>
 
                                     <label>
                                         Quality
-                                        <input type="number" step="1" data-key="/Elevator/switch" required>
+                                        <input type="number" step="1" data-key="/Camera/FPS" required>
                                     </label>
                             </div>
 
@@ -305,27 +309,27 @@
 
                                     <label>
                                             Arm Ground
-                                            <input type="number" step="1" data-key="/Elevator/ground" required>
+                                            <input type="number" step="1" data-key="/Arm/ground" required>
                                         </label>
                                         <label>
                                             Arm Exchange
-                                            <input type="number" step="1" data-key="/Elevator/exchange" required>
+                                            <input type="number" step="1" data-key="/Arm/exchange" required>
                                         </label>
                                         <label>
                                             Arm Portal
-                                            <input type="number" step="1" data-key="/Elevator/portal" required>
+                                            <input type="number" step="1" data-key="/Arm/portal" required>
                                         </label>
                                         <label>
                                             Arm Switch
-                                            <input type="number" step="1" data-key="/Elevator/switch" required>
+                                            <input type="number" step="1" data-key="/Arm/switch" required>
                                         </label>
                                         <label>
                                             Arm Scale
-                                            <input type="number" step="1" data-key="/Elevator/scale" required>
+                                            <input type="number" step="1" data-key="/Arm/scale" required>
                                         </label>
                                         <label>
                                             Arm Hang
-                                            <input type="number" step="1" data-key="/Elevator/hang" required>
+                                            <input type="number" step="1" data-key="/Arm/hang" required>
                                         </label>
                             </div>
 
@@ -335,32 +339,32 @@
 
                                     <label>
                                         Hatch 1
-                                        <input type="number" step="1" data-key="/Elevator/ground" required>
+                                        <input type="number" step="1" data-key="/HC/hatch1" required>
                                     </label>
 
                                     <label>
                                         Hatch 2
-                                        <input type="number" step="1" data-key="/Elevator/exchange" required>
+                                        <input type="number" step="1" data-key="/HC/hatch2" required>
                                     </label>
 
                                     <label>
                                         Hatch 3
-                                        <input type="number" step="1" data-key="/Elevator/portal" required>
+                                        <input type="number" step="1" data-key="/HC/hatch3" required>
                                     </label>
 
                                     <label>
                                         Cargo 1
-                                        <input type="number" step="1" data-key="/Elevator/switch" required>
+                                        <input type="number" step="1" data-key="/HC/cargo1" required>
                                     </label>
 
                                     <label>
                                         Cargo 2
-                                        <input type="number" step="1" data-key="/Elevator/switch" required>
+                                        <input type="number" step="1" data-key="/HC/cargo2" required>
                                     </label>
 
                                     <label>
                                         Cargo 3
-                                        <input type="number" step="1" data-key="/Elevator/switch" required>
+                                        <input type="number" step="1" data-key="/HC/cargo3" required>
                                     </label>
                             </div>
 
@@ -394,10 +398,10 @@
                 <div data-role="panel" id="singleDrivePanel" data-position="right" data-display="overlay">
                     <!--Buttons to switch between each screen. -->
                     <div id="tabSwitchButtons">
-                        <a href="#debugMenu" class="ui-btn ui-corner-all ui-btn-icon-left ui ui-icon-navigation">Debug Menu</a>
-                        <a href="#driveMenu" class="ui-btn ui-corner-all ui-btn-icon-left ui ui-icon-alert">Drive Menu</a>
                         <a href="#configMenu" class="ui-btn ui-corner-all ui-btn-icon-left ui ui-icon-alert">Configuration Menu</a>
-                        <a href="#singleDriveMenu" class="ui-btn ui-corner-all ui-btn-icon-left ui ui-icon-alert">Refresh</a>
+                        <a href="#debugMenu" class="ui-btn ui-corner-all ui-btn-icon-left ui ui-icon-alert">Debug Menu</a>
+                        <a href="#driveMenu" class="ui-btn ui-corner-all ui-btn-icon-left ui ui-icon-navigation">Drive Menu</a>
+                        <a href="#singleDriveMenu" class="ui-btn ui-corner-all ui-btn-icon-left ui ui-icon-refresh">Refresh</a>
                     </div>
                 </div>
 

@@ -19,6 +19,7 @@ let ui = {
     },
     autoSelect: document.getElementById('auto-select'),
     armPosition: document.getElementById('arm-position')
+    autoModeSelect:document.getElementById('/Autonomous/autoModeSelect', this.value)
 };
 
 // Key Listeners
@@ -99,7 +100,7 @@ ui.gyro.container.onclick = function() {
 };
 // Update NetworkTables when autonomous selector is changed
 ui.autoSelect.onchange = function() {
-    NetworkTables.putValue('/SmartDashboard/autonomous/selected', this.value);
+    NetworkTables.putValue('/Autonomous/autoModeSelect', this.value);
 };
 // Get value of arm height slider when it's adjusted
 ui.armPosition.oninput = function() {
