@@ -95,7 +95,8 @@
 						
 						<!-- Autonomous selector -->
 						<div class="select-container">
-							<select id="auto-select" style="color:black;">
+                            <select id="auto-select" style="color:black;">
+                                    <option value="0">Select</option>
                                     <option value="1">Left</option>
                                     <option value="2">Center</option>
                                     <option value="3">Right</option>
@@ -179,7 +180,7 @@
                         </ul>
                     </div>
 
-                    <form id="save-config">
+                    <form id="save-config" novalidate>
                             <!-- Drive Train Settings -->
                             <div id="driveTrainSettings">
                                 <h2>Drive Train</h2>
@@ -301,6 +302,17 @@
                                         Quality
                                         <input type="number" step="1" data-key="/Camera/drive/FPS" required>
                                     </label>
+
+                                    <label>
+                                        Port
+                                        <input type="number" step="1" data-key="/Camera/drive/Port" required>
+                                    </label>
+
+                                    <label>
+                                        Server
+                                        <input type="number" step="1" data-key="/Camera/drive/Server" required>
+                                    </label>
+                                    
 <hr>
                                     <h2>Process Camera Control</h2>
 
@@ -321,7 +333,17 @@
 
                                     <label>
                                         Quality
-                                        <input type="number" step="1" data-key="/Camera/proccess/FPS" required>
+                                        <input type="number" step="1" data-key="/Camera/proccess/Quality" required>
+                                    </label>
+
+                                    <label>
+                                        Port
+                                        <input type="number" step="1" data-key="/Camera/proccess/Port" required>
+                                    </label>
+
+                                    <label>
+                                        Server
+                                        <input type="number" step="1" data-key="/Camera/proccess/Server" required>
                                     </label>
                             </div>
 
@@ -395,7 +417,7 @@
                             <div class="ui-block-a"><div class="ui-bar">
                             </div></div>
                             <div class="ui-block-b"><div class="ui-bar">
-                                <input type="submit" value="Save Changes">
+                                <input type="submit" id="configSave" name="configSave" value="Save Changes">
                             </div></div>
                             <div class="ui-block-c"><div class="ui-bar">
                             </div></div>
@@ -475,6 +497,9 @@
         <script src="ui.js"></script>
         <script src="debug.js"></script>
         <script src="connection.js"></script>
+
+        <script src="js/config.js"></script>
+        <script src="js/tools.js"></script>
 	
 		<!-- Insert this line after script imports -->
 		<script>if (window.module) module = window.module;</script>

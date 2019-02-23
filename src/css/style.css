@@ -139,7 +139,7 @@ header
     border-radius: 10px;
 
     /* You'll need to mess with this a bit to get your camera to work. Replace the url with a live-updating image feed from your camera. Using other camera streaming systems will require some tweaking. */
-    background-image: url('http://10.25.39.8:5802/?action=stream');
+    background-image: url('http://10.25.39.8:5802?action=stream');
 }
 
 #cameraSingle
@@ -156,7 +156,7 @@ header
     display: block;
 
     /* You'll need to mess with this a bit to get your camera to work. Replace the url with a live-updating image feed from your camera. Using other camera streaming systems will require some tweaking. */
-    background-image: url('http://10.25.39.8:5801/?action=stream');
+    background-image: url('http://10.25.39.8:5801/stream.mjpg');
 }
 
 article 

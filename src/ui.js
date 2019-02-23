@@ -13,10 +13,6 @@ let ui = {
     robotDiagram: {
         arm: document.getElementById('robot-arm')
     },
-    example: {
-        button: document.getElementById('example-button'),
-        readout: document.getElementById('example-readout').firstChild
-    },
     autoSelect: document.getElementById('auto-select'),
     armPosition: document.getElementById('arm-position'),
     _autoModeSelect: document.getElementById('/Autonomous/autoModeSelect', this.value),
@@ -93,10 +89,10 @@ NetworkTables.addKeyListener('/SmartDashboard/autonomous/selected', (key, value)
 });
 
 // The rest of the doc is listeners for UI elements being clicked on
-ui.example.button.onclick = function() {
+//ui.example.button.onclick = function() {
     // Set NetworkTables values to the opposite of whether button has active class.
-    NetworkTables.putValue('/SmartDashboard/example_variable', this.className != 'active');
-};
+//    NetworkTables.putValue('/SmartDashboard/example_variable', this.className != 'active');
+//};
 // Reset gyro value to 0 on click
 ui.gyro.container.onclick = function() {
     // Store previous gyro val, will now be subtracted from val for callibration
@@ -109,9 +105,9 @@ ui.autoSelect.onchange = function() {
     NetworkTables.putValue('/Autonomous/autoModeSelect', this.value);
 };
 // Get value of arm height slider when it's adjusted
-ui.armPosition.oninput = function() {
-    NetworkTables.putValue('/SmartDashboard/arm/encoder', parseInt(this.value));
-};
+//ui.armPosition.oninput = function() {
+//    NetworkTables.putValue('/SmartDashboard/arm/encoder', parseInt(this.value));
+//};
 
 addEventListener('error',(ev)=>{
     ipc.send('windowError',{mesg:ev.message,file:ev.filename,lineNumber:ev.lineno})
