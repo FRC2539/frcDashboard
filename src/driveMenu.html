@@ -88,10 +88,10 @@
 					<div data-role="panel" id="sideBar"  data-display="overlay" data-position="right">
 						<!-- Example button which toggles /SmartDashboard/exampleValue NetworkTables value.
 							The <p> below then says the value. -->
-						<div id="example-section">
+						<!-- <div id="example-section">
 							<button id="example-button">Change example value</button>
 							<p id="example-readout">Value is undefined</p>
-						</div>
+						</div> -->
 						
 						<!-- Autonomous selector -->
 						<div class="select-container">
@@ -103,11 +103,11 @@
 							</select>
 						</div>
 						
-						<div>
+						<!-- <div>
 							<p>Adjust arm height</p>
 							<input id="arm-position" type="range" min="0" max="1200" value="770">
 						</div>
-						
+						 -->
 					</div>
         </div> 
         <!-- *********************************************************************************-->        
@@ -280,26 +280,48 @@
 
                             <!-- Camera Settings -->
                             <div id="cameraSettings">
-                                    <h2>Camera Control</h2>
+                                    <h2>Drive Camera Control</h2>
 
                                     <label>
                                         Width
-                                        <input type="number" step="1" data-key="/Camera/width" required>
+                                        <input type="number" step="1" data-key="/Camera/drive/width" required>
                                     </label>
 
                                     <label>
                                         Height
-                                        <input type="number" step="1" data-key="/Camera/height" required>
+                                        <input type="number" step="1" data-key="/Camera/drive/height" required>
                                     </label>
 
                                     <label>
                                         FPS
-                                        <input type="number" step="1" data-key="/Camera/fps" required>
+                                        <input type="number" step="1" data-key="/Camera/drive/fps" required>
                                     </label>
 
                                     <label>
                                         Quality
-                                        <input type="number" step="1" data-key="/Camera/FPS" required>
+                                        <input type="number" step="1" data-key="/Camera/drive/FPS" required>
+                                    </label>
+<hr>
+                                    <h2>Process Camera Control</h2>
+
+                                    <label>
+                                        Width
+                                        <input type="number" step="1" data-key="/Camera/process/width" required>
+                                    </label>
+
+                                    <label>
+                                        Height
+                                        <input type="number" step="1" data-key="/Camera/process/height" required>
+                                    </label>
+
+                                    <label>
+                                        FPS
+                                        <input type="number" step="1" data-key="/Camera/process/fps" required>
+                                    </label>
+
+                                    <label>
+                                        Quality
+                                        <input type="number" step="1" data-key="/Camera/proccess/FPS" required>
                                     </label>
                             </div>
 
@@ -392,10 +414,33 @@
         <div data-role="page" data-title="Single Camera Drive Page" id="singleDriveMenu">
             <div role="main" class="ui-content">
 
-                <a href="#singleDrivePanel" class="ui-btn ui-corner-all ui-btn-icon-left ui ui-icon-navigation" style="width:10vw; position:absolute;">Menu</a>
+                <!-- <a href="#singleDrivePanel" class="ui-btn ui-corner-all ui-btn-icon-left ui ui-icon-navigation" style="width:10vw; float:right;">Menu</a> -->
+				<a  class="ui-btn ui-corner-all ui-btn-icon-left ui" style="float:right" href="#sideBar"><</a>
 
-                <!-- Create the sidebar at the right of the page.-->
-                <div data-role="panel" id="singleDrivePanel" data-position="right" data-display="overlay">
+                <div data-role="panel" id="sideBar"  data-display="overlay" data-position="right">
+                    <!-- Example button which toggles /SmartDashboard/exampleValue NetworkTables value.
+                        The <p> below then says the value. -->
+                    <!-- <div id="example-section">
+                        <button id="example-button">Change example value</button>
+                        <p id="example-readout">Value is undefined</p>
+                    </div> -->
+                    
+                    <!-- Autonomous selector -->
+                    <div class="select-container">
+                        <select id="auto-select" style="color:black;">
+                                <option value="0">Select</option>
+                                <option value="1">Left</option>
+                                <option value="2">Center</option>
+                                <option value="3">Right</option>
+                            <!-- This gets populated by JS -->
+                        </select>
+                    </div>
+                    
+                    <!-- <div>
+                        <p>Adjust arm height</p>
+                        <input id="arm-position" type="range" min="0" max="1200" value="770">
+                    </div> -->
+                    
                     <!--Buttons to switch between each screen. -->
                     <div id="tabSwitchButtons">
                         <a href="#configMenu" class="ui-btn ui-corner-all ui-btn-icon-left ui ui-icon-alert">Configuration Menu</a>
@@ -403,6 +448,7 @@
                         <a href="#driveMenu" class="ui-btn ui-corner-all ui-btn-icon-left ui ui-icon-navigation">Drive Menu</a>
                         <a href="#singleDriveMenu" class="ui-btn ui-corner-all ui-btn-icon-left ui ui-icon-refresh">Refresh</a>
                     </div>
+                    
                 </div>
 
                 <div class="cameras">

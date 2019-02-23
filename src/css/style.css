@@ -144,15 +144,15 @@ header
 
 #cameraSingle
 {
-    padding: 10;
+    /* padding: 10; */
     overflow: hidden;
     background-color: #333;
     background-size: cover;
     /*background-color:red; */
     border-radius: 10px;
-    height: 542px;
-    width: 722.333333px;
-    margin:auto;
+    height: 93%;
+    width: 93%;
+    margin: 0 auto;
     display: block;
 
     /* You'll need to mess with this a bit to get your camera to work. Replace the url with a live-updating image feed from your camera. Using other camera streaming systems will require some tweaking. */

@@ -18,8 +18,14 @@ let ui = {
         readout: document.getElementById('example-readout').firstChild
     },
     autoSelect: document.getElementById('auto-select'),
-    armPosition: document.getElementById('arm-position')
-    autoModeSelect:document.getElementById('/Autonomous/autoModeSelect', this.value)
+    armPosition: document.getElementById('arm-position'),
+    _autoModeSelect: document.getElementById('/Autonomous/autoModeSelect', this.value),
+    get autoModeSelect() {
+        return this._autoModeSelect;
+    },
+    set autoModeSelect(value) {
+        this._autoModeSelect = value;
+    },
 };
 
 // Key Listeners
