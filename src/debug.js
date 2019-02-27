@@ -179,6 +179,53 @@ $(document).ready(function($) {
         );
     });
 
+    $('#reset').click(function(e) {
+        // console.log("Reset hath been tttriggered")
+        NetworkTables.putValue("/DriveTrain/normalSpeed", 0);
+        NetworkTables.putValue("/DriveTrain/preciseSpeed", 0);
+        NetworkTables.putValue("/DriveTrain/ticksPerInch", 0);
+        NetworkTables.putValue("/DriveTrain/width", 0);
+        NetworkTables.putValue("/DriveTrain/deadband", 0);
+
+        NetworkTables.putValue("/DriveTrain/Speed/P", 0);
+        NetworkTables.putValue("/DriveTrain/Speed/I", 0);
+        NetworkTables.putValue("/DriveTrain/Speed/D", 0);
+
+        NetworkTables.putValue("/DriveTrain/Speed/F", 0);
+        NetworkTables.putValue("/DriveTrain/Speed/IZone", 0);
+        NetworkTables.putValue("/DriveTrain/Speed/RampRate", 0);
+
+        NetworkTables.putValue("/Elevator/ground", 0);
+        NetworkTables.putValue("/Elevator/exchange", 0);
+        NetworkTables.putValue("/Elevator/portal", 0);
+        NetworkTables.putValue("/Elevator/switch", 0);
+        NetworkTables.putValue("/Elevator/scale", 0);
+        NetworkTables.putValue("/Elevator/hang", 0);
+
+        NetworkTables.putValue("Camera/drive/width", 0);
+        NetworkTables.putValue("Camera/drive/height", 0);
+        NetworkTables.putValue("Camera/drive/fps", 0);
+        NetworkTables.putValue("Camera/drive/quality", 0);
+        NetworkTables.putValue("Camera/drive/port", 0);
+        NetworkTables.putValue("Camera/drive/server", 0);
+
+        NetworkTables.putValue("Camera/process/width", 0);
+        NetworkTables.putValue("Camera/process/height", 0);
+        NetworkTables.putValue("Camera/process/fps", 0);
+        NetworkTables.putValue("Camera/process/quality", 0);
+        NetworkTables.putValue("Camera/process/port", 0);
+        NetworkTables.putValue("Camera/process/server", 0);
+
+        NetworkTables.putValue("Arm/ground", 0);
+        NetworkTables.putValue("Arm/exchange", 0);
+        NetworkTables.putValue("Arm/portal", 0);
+        NetworkTables.putValue("Arm/switch", 0);
+        NetworkTables.putValue("Arm/scale", 0);
+        NetworkTables.putValue("Arm/hang", 0);
+
+
+    });
+
     $('#close-dashboard').click(function(e) {
         window.close();
     });
