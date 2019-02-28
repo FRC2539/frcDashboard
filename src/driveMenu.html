@@ -209,7 +209,7 @@
         
                     <form id="save-config" novalidate>
                             <!-- Drive Train Settings -->
-                            <div id="driveTrainSettings">
+                            <div id="driveTrainSettings" style="overflow-x: auto;">
                                 <h2>Drive Train</h2>
 
                                 <input type="hidden" data-key="/DriveTrain/maxSpeed">
@@ -277,37 +277,62 @@
                             </div>
                             
                             <!-- Elevator Settings -->
-                            <div id="elevatorSettings">
+                            <div id="elevatorSettings" style="overflow-x: auto;">
                                 <h2>Elevator Levels</h2>
 
                                 <label>
-                                    Elevator Ground
-                                    <input type="number" step="1" data-key="/Elevator/ground" required>
+                                    Elevator Floor
+                                    <input type="number" step="1" data-key="/Elevator/floor" required>
                                 </label>
+
                                 <label>
-                                    Elevator Exchange
-                                    <input type="number" step="1" data-key="/Elevator/exchange" required>
+                                    Elevator Above Floor
+                                    <input type="number" step="1" data-key="/Elevator/aboveFloor" required>
                                 </label>
+
                                 <label>
-                                    Elevator Portal
-                                    <input type="number" step="1" data-key="/Elevator/portal" required>
+                                    Elevator Low Hatches
+                                    <input type="number" step="1" data-key="/Elevator/lowHatches" required>
                                 </label>
+
                                 <label>
-                                    Elevator Switch
-                                    <input type="number" step="1" data-key="/Elevator/switch" required>
+                                    Elevator Mid Hatches
+                                    <input type="number" step="1" data-key="/Elevator/midHatches" required>
                                 </label>
+
                                 <label>
-                                    Elevator Scale
-                                    <input type="number" step="1" data-key="/Elevator/scale" required>
+                                    Elevator High Hatches
+                                    <input type="number" step="1" data-key="/Elevator/highHatches" required>
                                 </label>
+
                                 <label>
-                                    Elevator Hang
-                                    <input type="number" step="1" data-key="/Elevator/hang" required>
+                                    Elevator Cargo Balls
+                                    <input type="number" step="1" data-key="/Elevator/cargoBalls" required>
+                                </label>
+
+                                <label>
+                                    Elevator Low Balls
+                                    <input type="number" step="1" data-key="/Elevator/lowBalls" required>
+                                </label>
+
+                                <label>
+                                    Elevator Mid Balls
+                                    <input type="number" step="1" data-key="/Elevator/midBalls" required>
+                                </label>
+
+                                <label>
+                                    Elevator High Balls
+                                    <input type="number" step="1" data-key="/Elevator/highBalls" required>
+                                </label>
+
+                                <label>
+                                    Elevator Start
+                                    <input type="number" step="1" data-key="/Elevator/start" required>
                                 </label>
                             </div>
 
                             <!-- Camera Settings -->
-                            <div id="cameraSettings">
+                            <div id="cameraSettings" style="overflow-x: auto;">
                                     <h2>Drive Camera Control</h2>
 
                                     <label>
@@ -375,32 +400,57 @@
                             </div>
 
                             <!-- Arm Settings -->
-                            <div id="armSettings">
+                            <div id="armSettings" style="overflow-x: auto;">
                                     <h2>Arm Levels</h2>
 
-                                    <label>
-                                            Arm Ground
-                                            <input type="number" step="1" data-key="/Arm/ground" required>
-                                        </label>
                                         <label>
-                                            Arm Exchange
-                                            <input type="number" step="1" data-key="/Arm/exchange" required>
+                                            Arm Floor
+                                            <input type="number" step="1" data-key="/Arm/floor" required>
                                         </label>
+
                                         <label>
-                                            Arm Portal
-                                            <input type="number" step="1" data-key="/Arm/portal" required>
+                                            Arm Above Floor
+                                            <input type="number" step="1" data-key="/Arm/aboveFloor" required>
                                         </label>
+
                                         <label>
-                                            Arm Switch
-                                            <input type="number" step="1" data-key="/Arm/switch" required>
+                                            Arm Low Hatches
+                                            <input type="number" step="1" data-key="/Arm/lowHatches" required>
                                         </label>
+
                                         <label>
-                                            Arm Scale
-                                            <input type="number" step="1" data-key="/Arm/scale" required>
+                                            Arm Mid Hatches
+                                            <input type="number" step="1" data-key="/Arm/midHatches" required>
                                         </label>
+
                                         <label>
-                                            Arm Hang
-                                            <input type="number" step="1" data-key="/Arm/hang" required>
+                                            Arm High Hatches
+                                            <input type="number" step="1" data-key="/Arm/highHatches" required>
+                                        </label>
+
+                                        <label>
+                                            Arm Cargo Balls
+                                            <input type="number" step="1" data-key="/Arm/cargoBalls" required>
+                                        </label>
+
+                                        <label>
+                                            Arm Low Balls
+                                            <input type="number" step="1" data-key="/Arm/lowBalls" required>
+                                        </label>
+
+                                        <label>
+                                            Arm Mid Balls
+                                            <input type="number" step="1" data-key="/Arm/midBalls" required>
+                                        </label>
+
+                                        <label>
+                                            Arm High Balls
+                                            <input type="number" step="1" data-key="/Arm/highBalls" required>
+                                        </label>
+
+                                        <label>
+                                            Arm Start
+                                            <input type="number" step="1" data-key="/Arm/start" required>
                                         </label>
                             </div>
 

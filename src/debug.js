@@ -181,26 +181,39 @@ $(document).ready(function($) {
 
     $('#reset').click(function(e) {
         // console.log("Reset hath been tttriggered")
-        NetworkTables.putValue("/DriveTrain/normalSpeed", 0);
-        NetworkTables.putValue("/DriveTrain/preciseSpeed", 0);
+        NetworkTables.putValue("/DriveTrain/normalSpeed", 2500);
+        NetworkTables.putValue("/DriveTrain/preciseSpeed", 2500);
         NetworkTables.putValue("/DriveTrain/ticksPerInch", 0);
-        NetworkTables.putValue("/DriveTrain/width", 0);
-        NetworkTables.putValue("/DriveTrain/deadband", 0);
+        NetworkTables.putValue("/DriveTrain/width", 23.5);
+        NetworkTables.putValue("/DriveTrain/deadband", 0.05);
 
-        NetworkTables.putValue("/DriveTrain/Speed/P", 0);
-        NetworkTables.putValue("/DriveTrain/Speed/I", 0);
-        NetworkTables.putValue("/DriveTrain/Speed/D", 0);
+        NetworkTables.putValue("/DriveTrain/Speed/P", 1);
+        NetworkTables.putValue("/DriveTrain/Speed/I", 0.001);
+        NetworkTables.putValue("/DriveTrain/Speed/D", 31);
 
-        NetworkTables.putValue("/DriveTrain/Speed/F", 0);
-        NetworkTables.putValue("/DriveTrain/Speed/IZone", 0);
+        NetworkTables.putValue("/DriveTrain/Speed/F", 0.7);
+        NetworkTables.putValue("/DriveTrain/Speed/IZone", 30);
         NetworkTables.putValue("/DriveTrain/Speed/RampRate", 0);
 
-        NetworkTables.putValue("/Elevator/ground", 0);
-        NetworkTables.putValue("/Elevator/exchange", 0);
-        NetworkTables.putValue("/Elevator/portal", 0);
-        NetworkTables.putValue("/Elevator/switch", 0);
-        NetworkTables.putValue("/Elevator/scale", 0);
-        NetworkTables.putValue("/Elevator/hang", 0);
+        NetworkTables.putValue("/Elevator/ground", 0.0);
+        NetworkTables.putValue("/Elevator/exchange", 0.0);
+        NetworkTables.putValue("/Elevator/portal", 0.0);
+        NetworkTables.putValue("/Elevator/switch", 0.0);
+        NetworkTables.putValue("/Elevator/scale", 0.0);
+        NetworkTables.putValue("/Elevator/hang", 0.0);
+
+        NetworkTables.putValue("/Elevator/floor", 0.0);
+        NetworkTables.putValue("/Elevator/aboveFloor", 0.0);
+        NetworkTables.putValue("/Elevator/lowHatches", 0.0);
+        NetworkTables.putValue("/Elevator/midHatches", 55.0);
+        NetworkTables.putValue("/Elevator/highHatches", 130.0);
+        NetworkTables.putValue("/Elevator/cargoBalls", 50.0);
+        NetworkTables.putValue("/Elevator/lowBalls", 0.0);
+        NetworkTables.putValue("/Elevator/midBalls", 90.0);
+        NetworkTables.putValue("/Elevator/highBalls", 135.0);
+        NetworkTables.putValue("/Elevator/start", 0.0);
+
+
 
         NetworkTables.putValue("Camera/drive/width", 0);
         NetworkTables.putValue("Camera/drive/height", 0);
@@ -222,6 +235,18 @@ $(document).ready(function($) {
         NetworkTables.putValue("Arm/switch", 0);
         NetworkTables.putValue("Arm/scale", 0);
         NetworkTables.putValue("Arm/hang", 0);
+
+        NetworkTables.putValue("/Arm/floor", 0.0);
+        NetworkTables.putValue("/Arm/aboveFloor", 5.0);
+        NetworkTables.putValue("/Arm/lowHatches", 31.0);
+        NetworkTables.putValue("/Arm/midHatches", 40.0);
+        NetworkTables.putValue("/Arm/highHatches", 35.0);
+        NetworkTables.putValue("/Arm/cargoBalls", 55.0);
+        NetworkTables.putValue("/Arm/lowBalls", 70.0);
+        NetworkTables.putValue("/Arm/midBalls", 55.0);
+        NetworkTables.putValue("/Arm/highBalls", 70.0);
+        NetworkTables.putValue("/Arm/start", 90.0);
+
 
 
     });
