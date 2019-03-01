@@ -116,7 +116,7 @@ header
     background-color: #333;
     background-size: cover;
     /*background-color:red; */
-    height:45%;
+    height:65%;
     width:49.5%;
     float: left;
     border-radius: 10px;
@@ -132,7 +132,7 @@ header
     background-color: #333;
     background-size: cover;
     /*background-color:blue; */
-    height:45%;
+    height:65%;
     width:49.5%;
     float: right;
     margin-left:2px;

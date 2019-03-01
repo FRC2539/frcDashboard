@@ -181,6 +181,8 @@ $(document).ready(function($) {
 
     $('#reset').click(function(e) {
         // console.log("Reset hath been tttriggered")
+        alert('Config values have been reset');
+        
         NetworkTables.putValue("/DriveTrain/normalSpeed", 2500);
         NetworkTables.putValue("/DriveTrain/preciseSpeed", 2500);
         NetworkTables.putValue("/DriveTrain/ticksPerInch", 0);
@@ -248,7 +250,10 @@ $(document).ready(function($) {
         NetworkTables.putValue("/Arm/start", 90.0);
 
 
+    });
 
+    $('#refresh').click(function(e) {
+        console.log('REFRESH LOADEDED');
     });
 
     $('#close-dashboard').click(function(e) {

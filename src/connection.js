@@ -49,6 +49,7 @@ function setLogin() {
   //address.disabled = connect.disabled = false;
   //connect.textContent = 'Connect';
   // Add the default address and select 2539
+  console.log('setLogin has run')
   address.value = 'roborio-2539-frc.local';
   //address.focus();
   //address.setSelectionRange(8, 12);
