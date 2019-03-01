@@ -94,15 +94,22 @@ NetworkTables.addKeyListener('/SmartDashboard/autonomous/selected', (key, value)
 //    NetworkTables.putValue('/SmartDashboard/example_variable', this.className != 'active');
 //};
 // Reset gyro value to 0 on click
-ui.gyro.container.onclick = function() {
+//ui.gyro.container.onclick = function() {
     // Store previous gyro val, will now be subtracted from val for callibration
-    ui.gyro.offset = ui.gyro.val;
+//    ui.gyro.offset = ui.gyro.val;
     // Trigger the gyro to recalculate value.
-    updateGyro('/SmartDashboard/drive/navx/yaw', ui.gyro.val);
-};
+//    updateGyro('/SmartDashboard/drive/navx/yaw', ui.gyro.val);
+//};
+
+//set default auto of none if it doesn't exist
+NetworkTables.putValue('/Autonomous/autoModeSelect', 0);
+console.log("set default nt auto")
+
 // Update NetworkTables when autonomous selector is changed
 ui.autoSelect.onchange = function() {
     NetworkTables.putValue('/Autonomous/autoModeSelect', this.value);
+    console.log("set auto: "+this.value)
+    $('#auto-result').text("Auto Set to: "+this.value+" NT value: "+NetworkTables.getValue('/Autonomous/autoModeSelect', 0))
 };
 // Get value of arm height slider when it's adjusted
 //ui.armPosition.oninput = function() {

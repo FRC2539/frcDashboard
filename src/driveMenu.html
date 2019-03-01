@@ -27,7 +27,7 @@
                     <a href="#configMenu" class="ui-btn ui-corner-all ui-btn-icon-left ui ui-icon-navigation">Configuration Menu</a>
                     <a href="#debugMenu" class="ui-btn ui-corner-all ui-btn-icon-left ui ui-icon-alert">Debug Menu</a>
                     <a href="#singleDriveMenu" class="ui-btn ui-corner-all ui-btn-icon-left ui ui-icon-eye">Single Camera Menu</a>                        
-                    <a onclick="setLogin()" id="#refresh" class="ui-btn ui-corner-all ui-btn-icon-left ui ui-icon-refresh" style="float:right;">Refresh</a>
+                    <a href="#" id="refresh" class="btn-refresh ui-btn ui-corner-all ui-btn-icon-left ui ui-icon-refresh" style="float:right;">Refresh</a>
                 </div>
             </div>
 
@@ -106,7 +106,8 @@
 
 								<!-- This gets populated by JS -->
 							</select>
-						</div>
+                        </div>
+                        <div id='auto-result'></div>
 						
 						<!-- <div>
 							<p>Adjust arm height</p>
@@ -128,7 +129,7 @@
                     <a href="#configMenu" class="ui-btn ui-corner-all ui-btn-icon-left ui ui-icon-navigation">Configuration Menu</a>
                     <a href="#driveMenu" class="ui-btn ui-corner-all ui-btn-icon-left ui ui-icon-alert">Drive Menu</a>
                     <a href="#singleDriveMenu" class="ui-btn ui-corner-all ui-btn-icon-left ui ui-icon-eye">Single Camera Menu</a>                        
-                    <a onclick="setLogin()" id="#refresh" class="ui-btn ui-corner-all ui-btn-icon-left ui ui-icon-refresh" style="float:right;">Refresh</a>
+                    <a href="#" id="refresh" class="btn-refresh ui-btn ui-corner-all ui-btn-icon-left ui ui-icon-refresh" style="float:right;">Refresh</a>
                 </div>
             </div>
 
@@ -153,13 +154,13 @@
             <div role="main" class="ui-content ui-alt-icon">
                 <div class="ui-grid-a">
 
-                    <div class="ui-block-a">
+                    <div class="ui-block-a" style="overflow-y: auto; height: 400px;">
                         <label>Network Tables</label>
                         <ul data-role="collapsibleset" id="networktables">
                         </ul>
                     </div>
 
-                    <div class="ui-block-b">
+                    <div class="ui-block-b" style="overflow-y: auto; height: 400px;">
                         <label>Commands</label>
                         <div id="stored-commands"> </div>
                         <div id="active-commands"> </div>
@@ -168,9 +169,10 @@
                 </div>
             </div>
 
-            <div data-role="footer" data-position="fixed" class="ui-bar">
+            <!--<div data-role="footer" data-position="fixed" class="ui-bar">
                 <button id="close-dashboard" class="ui-btn ui-corner-all ui-icon-delete ui-btn-icon-right">Close Dashboard</button>
             </div>
+            -->
         </div>
         <!-- *********************************************************************************-->
 
@@ -185,7 +187,7 @@
                         <a href="#driveMenu" class="ui-btn ui-corner-all ui-btn-icon-left ui ui-icon-navigation">Drive Menu</a>
                         <a href="#debugMenu" class="ui-btn ui-corner-all ui-btn-icon-left ui ui-icon-alert">Debug Menu</a>
                         <a href="#singleDriveMenu" class="ui-btn ui-corner-all ui-btn-icon-left ui ui-icon-eye">Single Camera Menu</a>                        
-                        <a onclick="setLogin()" id="#refresh" class="ui-btn ui-corner-all ui-btn-icon-left ui ui-icon-refresh" style="float:right;">Refresh</a>
+                        <a href="#" id="refresh" class="btn-refresh ui-btn ui-corner-all ui-btn-icon-left ui ui-icon-refresh" style="float:right;">Refresh</a>
                         <a href="#reset" id="reset" class="ui-btn ui-corner-all ui-btn-icon-left ui ui-icon-alert" style="float:right;">Reset</a>
 
                     </div>
@@ -232,6 +234,10 @@
                                 <label>
                                     Precise Speed
                                     <input type="number" step="1" min="0" data-key="/DriveTrain/preciseSpeed" required>
+                                </label>
+                                <label>
+                                    Max Speed
+                                    <input type="number" step="1" min="0" data-key="/DriveTrain/maxSpeed" required>
                                 </label>
                                 <label>
                                     Encoder Ticks / Inch
@@ -479,9 +485,10 @@
                     </form>
                 </div>
 
-                <div data-role="footer" data-position="fixed" class="ui-bar">
+                <!--<div data-role="footer" data-position="fixed" class="ui-bar">
                     <button id="close-dashboard" class="ui-btn ui-corner-all ui-icon-delete ui-btn-icon-right">Close Dashboard</button>
                 </div>
+                -->
             </div>
         </div>
 		<!-- *********************************************************************************-->
@@ -491,9 +498,16 @@
             <div role="main" class="ui-content">
 
                 <!-- <a href="#singleDrivePanel" class="ui-btn ui-corner-all ui-btn-icon-left ui ui-icon-navigation" style="width:10vw; float:right;">Menu</a> -->
-				<a  class="ui-btn ui-corner-all ui-btn-icon-left ui" style="float:right" href="#sideBar"><</a>
+                <!--<a  class="ui-btn ui-corner-all ui-btn-icon-left ui" style="float:right" href="#sideBar"><</a>-->
+                <div style="width: 20%; float: right;">
+
+                    <a href="#driveMenu" class="ui-btn ui-corner-all ui-btn-icon-left ui ui-icon-navigation" style="float:right;">Drive Menu</a>
+                    <a href="#" id="refresh" class="btn-refresh ui-btn ui-corner-all ui-btn-icon-left ui ui-icon-refresh" style="float:right;">Refresh</a>
+                </div>
+                
 
                 <div data-role="panel" id="sideBar"  data-display="overlay" data-position="right">
+                
                     <!-- Example button which toggles /SmartDashboard/exampleValue NetworkTables value.
                         The <p> below then says the value. -->
                     <!-- <div id="example-section">
@@ -502,6 +516,8 @@
                     </div> -->
                     
                     <!-- Autonomous selector -->
+                    <!-- remove to avoid confusion with setting network tables
+
                     <div class="select-container">
                         <select id="auto-select" style="color:black;">
                             <option value="0">Select</option>
@@ -512,10 +528,10 @@
                             <option value="LRF">Left Rocket Front</option>
                             <option value="LRB">Left Rocket Back</option>
 
-                            <!-- This gets populated by JS -->
                         </select>
                     </div>
-                    
+                    -->
+
                     <!-- <div>
                         <p>Adjust arm height</p>
                         <input id="arm-position" type="range" min="0" max="1200" value="770">
@@ -523,10 +539,9 @@
                     
                     <!--Buttons to switch between each screen. -->
                     <div id="tabSwitchButtons">
-                        <a href="#configMenu" class="ui-btn ui-corner-all ui-btn-icon-left ui ui-icon-alert">Configuration Menu</a>
-                        <a href="#debugMenu" class="ui-btn ui-corner-all ui-btn-icon-left ui ui-icon-alert">Debug Menu</a>
-                        <a href="#driveMenu" class="ui-btn ui-corner-all ui-btn-icon-left ui ui-icon-navigation">Drive Menu</a>
-                        <a onclick="setLogin()" id="#refresh" class="ui-btn ui-corner-all ui-btn-icon-left ui ui-icon-refresh" style="float:right;">Refresh</a>
+                            <a href="#configMenu" class="ui-btn ui-corner-all ui-btn-icon-left ui ui-icon-alert" style="float:right;">Configuration Menu</a><br>
+                            <a href="#debugMenu" class="ui-btn ui-corner-all ui-btn-icon-left ui ui-icon-alert" style="float:right;">Debug Menu</a><br>
+                        
                     </div>
                     
                 </div>

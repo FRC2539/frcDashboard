@@ -10,6 +10,10 @@
     display: none;
 }
 
+html {
+    overflow-y:scroll;
+}
+
 body 
 {
     font: 16px sans-serif;

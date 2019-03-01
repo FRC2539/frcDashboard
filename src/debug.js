@@ -185,6 +185,7 @@ $(document).ready(function($) {
         
         NetworkTables.putValue("/DriveTrain/normalSpeed", 2500);
         NetworkTables.putValue("/DriveTrain/preciseSpeed", 2500);
+        NetworkTables.putValue("/DriveTrain/maxSpeed", 2500);
         NetworkTables.putValue("/DriveTrain/ticksPerInch", 0);
         NetworkTables.putValue("/DriveTrain/width", 23.5);
         NetworkTables.putValue("/DriveTrain/deadband", 0.05);
@@ -215,22 +216,6 @@ $(document).ready(function($) {
         NetworkTables.putValue("/Elevator/highBalls", 135.0);
         NetworkTables.putValue("/Elevator/start", 0.0);
 
-
-
-        NetworkTables.putValue("Camera/drive/width", 0);
-        NetworkTables.putValue("Camera/drive/height", 0);
-        NetworkTables.putValue("Camera/drive/fps", 0);
-        NetworkTables.putValue("Camera/drive/quality", 0);
-        NetworkTables.putValue("Camera/drive/port", 0);
-        NetworkTables.putValue("Camera/drive/server", 0);
-
-        NetworkTables.putValue("Camera/process/width", 0);
-        NetworkTables.putValue("Camera/process/height", 0);
-        NetworkTables.putValue("Camera/process/fps", 0);
-        NetworkTables.putValue("Camera/process/quality", 0);
-        NetworkTables.putValue("Camera/process/port", 0);
-        NetworkTables.putValue("Camera/process/server", 0);
-
         NetworkTables.putValue("Arm/ground", 0);
         NetworkTables.putValue("Arm/exchange", 0);
         NetworkTables.putValue("Arm/portal", 0);
@@ -249,11 +234,24 @@ $(document).ready(function($) {
         NetworkTables.putValue("/Arm/highBalls", 70.0);
         NetworkTables.putValue("/Arm/start", 90.0);
 
+        NetworkTables.putValue("Camera/drive/width", 320);
+        NetworkTables.putValue("Camera/drive/height", 240);
+        NetworkTables.putValue("Camera/drive/fps", 30);
+        NetworkTables.putValue("Camera/drive/quality", 100);
+        NetworkTables.putValue("Camera/drive/port", 0);
+        NetworkTables.putValue("Camera/drive/server", 5801);
 
+        NetworkTables.putValue("Camera/process/width", 320);
+        NetworkTables.putValue("Camera/process/height", 240);
+        NetworkTables.putValue("Camera/process/fps", 15);
+        NetworkTables.putValue("Camera/process/quality", 100);
+        NetworkTables.putValue("Camera/process/port", 2);
+        NetworkTables.putValue("Camera/process/server", 5802);
     });
 
-    $('#refresh').click(function(e) {
-        console.log('REFRESH LOADEDED');
+    $('.btn-refresh ').click(function(e) {
+        console.log("clicked refresh")
+        window.location.reload()
     });
 
     $('#close-dashboard').click(function(e) {
