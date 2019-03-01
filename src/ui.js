@@ -110,6 +110,7 @@ ui.autoSelect.onchange = function() {
     NetworkTables.putValue('/Autonomous/autoModeSelect', this.value);
     console.log("set auto: "+this.value)
     $('#auto-result').text("Auto Set to: "+this.value+" NT value: "+NetworkTables.getValue('/Autonomous/autoModeSelect', 0))
+    NetworkTables.getKeys();
 };
 // Get value of arm height slider when it's adjusted
 //ui.armPosition.oninput = function() {

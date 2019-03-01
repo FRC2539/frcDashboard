@@ -26,7 +26,10 @@
                 <div id="tabSwitchButtons">
                     <a href="#configMenu" class="ui-btn ui-corner-all ui-btn-icon-left ui ui-icon-navigation">Configuration Menu</a>
                     <a href="#debugMenu" class="ui-btn ui-corner-all ui-btn-icon-left ui ui-icon-alert">Debug Menu</a>
-                    <a href="#singleDriveMenu" class="ui-btn ui-corner-all ui-btn-icon-left ui ui-icon-eye">Single Camera Menu</a>                        
+                    <a href="#singleDriveMenu" class="ui-btn ui-corner-all ui-btn-icon-left ui ui-icon-eye">Single Camera Menu</a>       
+
+                        
+                 
                     <a href="#" id="refresh" class="btn-refresh ui-btn ui-corner-all ui-btn-icon-left ui ui-icon-refresh" style="float:right;">Refresh</a>
                 </div>
             </div>
@@ -60,12 +63,22 @@
                     
 					
                 </div>
-				<a  class="ui-btn ui-corner-all ui-btn-icon-left ui" style="float:right" href="#sideBar"><</a>
+				<!--<a  class="ui-btn ui-corner-all ui-btn-icon-left ui" style="float:right" href="#sideBar"><</a>-->
             </header>
             
             <!-- Main dashboard body, this contains the cameras. -->
             <article scroll="no">
 
+                <select id="auto-select" style="color:black;">
+                    <option value="0">Select Auto</option>
+                    <option value="1">Right Rocket Front</option>
+                    <option value="2">Right Rocket Back</option>
+                    <option value="3">Right Cargo Front</option>
+                    <option value="4">Left Cargo Front</option>
+                    <option value="5">Left Rocket Front</option>
+                    <option value="6">Left Rocket Back</option>
+                </select>
+                <div id='auto-result'></div>
                 <!-- Live Camera feeds from robot webcams. -->
                 <div class="cameras">
                     <div id="camera1"></div>
@@ -93,21 +106,21 @@
 							<p id="example-readout">Value is undefined</p>
 						</div> -->
 						
-						<!-- Autonomous selector -->
+                        <!-- Autonomous selector -->
+                        <!--
 						<div class="select-container">
                             <select id="auto-select" style="color:black;">
                                 <option value="0">Select</option>
-                                <option value="RRF">Right Rocket Front</option>
-                                <option value="RRB">Right Rocket Back</option>
-                                <option value="RCF">Right Cargo Front</option>
-                                <option value="LCF">Left Cargo Front</option>
-                                <option value="LRF">Left Rocket Front</option>
-                                <option value="LRB">Left Rocket Back</option>
-
-								<!-- This gets populated by JS -->
+                                <option value="1">Right Rocket Front</option>
+                                <option value="2">Right Rocket Back</option>
+                                <option value="3">Right Cargo Front</option>
+                                <option value="4">Left Cargo Front</option>
+                                <option value="5">Left Rocket Front</option>
+                                <option value="6">Left Rocket Back</option>
 							</select>
                         </div>
                         <div id='auto-result'></div>
+                    -->
 						
 						<!-- <div>
 							<p>Adjust arm height</p>
@@ -128,7 +141,9 @@
                 <div id="tabSwitchButtons">
                     <a href="#configMenu" class="ui-btn ui-corner-all ui-btn-icon-left ui ui-icon-navigation">Configuration Menu</a>
                     <a href="#driveMenu" class="ui-btn ui-corner-all ui-btn-icon-left ui ui-icon-alert">Drive Menu</a>
-                    <a href="#singleDriveMenu" class="ui-btn ui-corner-all ui-btn-icon-left ui ui-icon-eye">Single Camera Menu</a>                        
+                    <a href="#singleDriveMenu" class="ui-btn ui-corner-all ui-btn-icon-left ui ui-icon-eye">Single Camera Menu</a>        
+                    
+                    
                     <a href="#" id="refresh" class="btn-refresh ui-btn ui-corner-all ui-btn-icon-left ui ui-icon-refresh" style="float:right;">Refresh</a>
                 </div>
             </div>
@@ -136,6 +151,7 @@
             <a  class="ui-btn ui-corner-all ui-btn-icon-left ui" style="float:right" href="#sideBar"><</a>
             <div data-role="panel" id="sideBar"  data-display="overlay" data-position="right">
                 <!-- Autonomous selector -->
+                <!--
                 <div class="select-container">
                     <select id="auto-select" style="color:black;">
                             <option value="0">Select</option>
@@ -146,9 +162,10 @@
                             <option value="LRF">Left Rocket Front</option>
                             <option value="LRB">Left Rocket Back</option>
 
-                        <!-- This gets populated by JS -->
+
                     </select>
                 </div>  
+                -->
             </div>
 
             <div role="main" class="ui-content ui-alt-icon">
@@ -206,19 +223,7 @@
                     <a  class="ui-btn ui-corner-all ui-btn-icon-left ui" style="float:right" href="#sideBar"><</a>
                     <div data-role="panel" id="sideBar"  data-display="overlay" data-position="right">
                         <!-- Autonomous selector -->
-                        <div class="select-container">
-                            <select id="auto-select" style="color:black;">
-                                <option value="0">Select</option>
-                                <option value="RRF">Right Rocket Front</option>
-                                <option value="RRB">Right Rocket Back</option>
-                                <option value="RCF">Right Cargo Front</option>
-                                <option value="LCF">Left Cargo Front</option>
-                                <option value="LRF">Left Rocket Front</option>
-                                <option value="LRB">Left Rocket Back</option>
-    
-                                <!-- This gets populated by JS -->
-                            </select>
-                        </div>  
+                        
                     </div>
         
                     <form id="save-config" novalidate>
