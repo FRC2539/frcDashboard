@@ -96,9 +96,9 @@ body > *
 
 header 
 {
-    width:100vw;
+    /* width:100vw;
     height: 20vh;
-    top: 0;
+    top: 0; */
 }
 
 .cameras

@@ -37,15 +37,15 @@
                 <div id="robot-state">Unknown state</div>
 				
                 <!-- Countdown timer for game -->
-                <div id="timer"><p><b>2:15</b></p></div>
+                <!-- <div id="timer"><p><b>2:15</b></p></div> -->
                 <div id="headerHolder">
                     <!-- Gyroscope -->
-                    <svg id="gyro" width="12vw" height="12vw" viewbox="0 0 166 225">
+                    <!-- <svg id="gyro" width="12vw" height="12vw" viewbox="0 0 166 225">
                         <circle cx="85" cy="85" r="83"></circle>
                         <circle cx="85" cy="85" r="50"></circle>
                         <rect id="gyro-arm" x="80" y="5" width="10" height="80"></rect>
                         <text id="gyro-number" x="90" y="115">0º</text>
-                    </svg>
+                    </svg> -->
                     
                     <!-- Example robot diagram, arm moves when encoder value changes -->
                     <!-- <svg id="robot-diagram" width="332" height="450">
@@ -97,9 +97,13 @@
 						<div class="select-container">
                             <select id="auto-select" style="color:black;">
                                 <option value="0">Select</option>
-                                <option value="HPRR11">HP RR 11</option>
-                                <option value="HPCR1">HP CR 1</option>
-                                <option value="HPLR11">HP LR 11</option>
+                                <option value="RRF">Right Rocket Front</option>
+                                <option value="RRB">Right Rocket Back</option>
+                                <option value="RCF">Right Cargo Front</option>
+                                <option value="LCF">Left Cargo Front</option>
+                                <option value="LRF">Left Rocket Front</option>
+                                <option value="LRB">Left Rocket Back</option>
+
 								<!-- This gets populated by JS -->
 							</select>
 						</div>
@@ -133,10 +137,14 @@
                 <!-- Autonomous selector -->
                 <div class="select-container">
                     <select id="auto-select" style="color:black;">
-                        <option value="0">Select</option>
-                        <option value="HPRR11">HP RR 11</option>
-                        <option value="HPCR1">HP CR 1</option>
-                        <option value="HPLR11">HP LR 11</option>
+                            <option value="0">Select</option>
+                            <option value="RRF">Right Rocket Front</option>
+                            <option value="RRB">Right Rocket Back</option>
+                            <option value="RCF">Right Cargo Front</option>
+                            <option value="LCF">Left Cargo Front</option>
+                            <option value="LRF">Left Rocket Front</option>
+                            <option value="LRB">Left Rocket Back</option>
+
                         <!-- This gets populated by JS -->
                     </select>
                 </div>  
@@ -198,10 +206,14 @@
                         <!-- Autonomous selector -->
                         <div class="select-container">
                             <select id="auto-select" style="color:black;">
-                                    <option value="0">Select</option>
-                                    <option value="HPRR11">HP RR 11</option>
-                                    <option value="HPCR1">HP CR 1</option>
-                                    <option value="HPLR11">HP LR 11</option>
+                                <option value="0">Select</option>
+                                <option value="RRF">Right Rocket Front</option>
+                                <option value="RRB">Right Rocket Back</option>
+                                <option value="RCF">Right Cargo Front</option>
+                                <option value="LCF">Left Cargo Front</option>
+                                <option value="LRF">Left Rocket Front</option>
+                                <option value="LRB">Left Rocket Back</option>
+    
                                 <!-- This gets populated by JS -->
                             </select>
                         </div>  
@@ -493,9 +505,13 @@
                     <div class="select-container">
                         <select id="auto-select" style="color:black;">
                             <option value="0">Select</option>
-                            <option value="HPRR11">HP RR 11</option>
-                            <option value="HPCR1">HP CR 1</option>
-                            <option value="HPLR11">HP LR 11</option>
+                            <option value="RRF">Right Rocket Front</option>
+                            <option value="RRB">Right Rocket Back</option>
+                            <option value="RCF">Right Cargo Front</option>
+                            <option value="LCF">Left Cargo Front</option>
+                            <option value="LRF">Left Rocket Front</option>
+                            <option value="LRB">Left Rocket Back</option>
+
                             <!-- This gets populated by JS -->
                         </select>
                     </div>
