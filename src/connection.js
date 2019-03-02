@@ -59,6 +59,9 @@ connect.onclick = () => {
   ipc.send('connect', address.value);
   address.disabled = connect.disabled = true;
   connect.textContent = 'Connecting...';
+  //set default auto of none if it doesn't exist
+  NetworkTables.putValue('/Autonomous/autoModeSelect', 0);
+  //console.log("set default nt auto")
 };
 address.onkeydown = ev => {
   if (ev.key === 'Enter') {
