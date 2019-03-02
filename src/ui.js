@@ -27,39 +27,39 @@ let ui = {
 // Key Listeners
 
 // Gyro rotation
-let updateGyro = (key, value) => {
-    ui.gyro.val = value;
-    ui.gyro.visualVal = Math.floor(ui.gyro.val - ui.gyro.offset);
-    ui.gyro.visualVal %= 360;
-    if (ui.gyro.visualVal < 0) {
-        ui.gyro.visualVal += 360;
-    }
-    ui.gyro.arm.style.transform = `rotate(${ui.gyro.visualVal}deg)`;
-    ui.gyro.number.innerHTML = ui.gyro.visualVal + 'º';
-};
-NetworkTables.addKeyListener('/SmartDashboard/drive/navx/yaw', updateGyro);
+//let updateGyro = (key, value) => {
+    //ui.gyro.val = value;
+    //ui.gyro.visualVal = Math.floor(ui.gyro.val - ui.gyro.offset);
+    //ui.gyro.visualVal %= 360;
+    //if (ui.gyro.visualVal < 0) {
+    //    ui.gyro.visualVal += 360;
+    //}
+    //ui.gyro.arm.style.transform = `rotate(${ui.gyro.visualVal}deg)`;
+    //ui.gyro.number.innerHTML = ui.gyro.visualVal + 'º';
+//};
+//NetworkTables.addKeyListener('/SmartDashboard/drive/navx/yaw', updateGyro);
 
 // The following case is an example, for a robot with an arm at the front.
-NetworkTables.addKeyListener('/SmartDashboard/arm/encoder', (key, value) => {
+//NetworkTables.addKeyListener('/SmartDashboard/arm/encoder', (key, value) => {
     // 0 is all the way back, 1200 is 45 degrees forward. We don't want it going past that.
-    if (value > 1140) {
-        value = 1140;
-    }
-    else if (value < 0) {
-        value = 0;
-    }
+    //if (value > 1140) {
+    //    value = 1140;
+    //}
+    //else if (value < 0) {
+    //    value = 0;
+    //}
     // Calculate visual rotation of arm
-    var armAngle = value * 3 / 20 - 45;
+    //var armAngle = value * 3 / 20 - 45;
     // Rotate the arm in diagram to match real arm
-    ui.robotDiagram.arm.style.transform = `rotate(${armAngle}deg)`;
-});
+    //ui.robotDiagram.arm.style.transform = `rotate(${armAngle}deg)`;
+//});
 
 // This button is just an example of triggering an event on the robot by clicking a button.
-NetworkTables.addKeyListener('/SmartDashboard/example_variable', (key, value) => {
+//NetworkTables.addKeyListener('/SmartDashboard/example_variable', (key, value) => {
     // Set class active if value is true and unset it if it is false
-    ui.example.button.classList.toggle('active', value);
-    ui.example.readout.data = 'Value is ' + value;
-});
+    //ui.example.button.classList.toggle('active', value);
+    //ui.example.readout.data = 'Value is ' + value;
+//});
 
 NetworkTables.addKeyListener('/robot/time', (key, value) => {
     // This is an example of how a dashboard could display the remaining time in a match.
@@ -68,25 +68,25 @@ NetworkTables.addKeyListener('/robot/time', (key, value) => {
 });
 
 // Load list of prewritten autonomous modes
-NetworkTables.addKeyListener('/SmartDashboard/autonomous/modes', (key, value) => {
+//NetworkTables.addKeyListener('/SmartDashboard/autonomous/modes', (key, value) => {
     // Clear previous list
-    while (ui.autoSelect.firstChild) {
-        ui.autoSelect.removeChild(ui.autoSelect.firstChild);
-    }
+    //while (ui.autoSelect.firstChild) {
+    //    ui.autoSelect.removeChild(ui.autoSelect.firstChild);
+    //}
     // Make an option for each autonomous mode and put it in the selector
-    for (let i = 0; i < value.length; i++) {
-        var option = document.createElement('option');
-        option.appendChild(document.createTextNode(value[i]));
-        ui.autoSelect.appendChild(option);
-    }
+    //for (let i = 0; i < value.length; i++) {
+    //    var option = document.createElement('option');
+    //    option.appendChild(document.createTextNode(value[i]));
+    //    ui.autoSelect.appendChild(option);
+    //}
     // Set value to the already-selected mode. If there is none, nothing will happen.
-    ui.autoSelect.value = NetworkTables.getValue('/SmartDashboard/currentlySelectedMode');
-});
+    //ui.autoSelect.value = NetworkTables.getValue('/SmartDashboard/currentlySelectedMode');
+//});
 
 // Load list of prewritten autonomous modes
-NetworkTables.addKeyListener('/SmartDashboard/autonomous/selected', (key, value) => {
-    ui.autoSelect.value = value;
-});
+//NetworkTables.addKeyListener('/SmartDashboard/autonomous/selected', (key, value) => {
+//    ui.autoSelect.value = value;
+//});
 
 // The rest of the doc is listeners for UI elements being clicked on
 //ui.example.button.onclick = function() {
@@ -102,8 +102,8 @@ NetworkTables.addKeyListener('/SmartDashboard/autonomous/selected', (key, value)
 //};
 
 //set default auto of none if it doesn't exist
-NetworkTables.putValue('/Autonomous/autoModeSelect', 0);
-console.log("set default nt auto")
+//NetworkTables.putValue('/Autonomous/autoModeSelect', 0);
+//console.log("set default nt auto")
 
 // Update NetworkTables when autonomous selector is changed
 ui.autoSelect.onchange = function() {

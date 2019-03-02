@@ -30,11 +30,10 @@ function onRobotConnection(connected) {
   console.log(state);
   ui.robotState.textContent = state;
 
-/*   buttonConnect.onclick = () => {
+  buttonConnect.onclick = () => {
     document.body.classList.toggle('login', true);
     loginShown = true;
-  }; */
-  
+  };
   if (connected) {
     // On connect hide the connect popup
     document.body.classList.toggle('login', false);
@@ -46,19 +45,17 @@ function onRobotConnection(connected) {
 function setLogin() {
   // Add Enter key handler
   // Enable the input and the button
-  //address.disabled = connect.disabled = false;
-  //connect.textContent = 'Connect';
-  // Add the default address and select 2539
-  console.log('setLogin has run')
-  address.value = 'roborio-2539-frc.local';
+  address.disabled = connect.disabled = false;
+  connect.textContent = 'Connect';
+  // Add the default address and select xxxx
+  //address.value = 'roborio-xxxx-frc.local';
+  address.value = '10.25.39.2';
   //address.focus();
   //address.setSelectionRange(8, 12);
-  ipc.send('connect', address.value);
-  address.disabled = connect.disabled = true;
-  connect.textContent = 'Connecting...';
 }
 // On click try to connect and disable the input and the button
 connect.onclick = () => {
+  console.log("connecting");
   ipc.send('connect', address.value);
   address.disabled = connect.disabled = true;
   connect.textContent = 'Connecting...';
@@ -72,6 +69,5 @@ address.onkeydown = ev => {
 };
 
 // Show login when starting
-document.body.classList.toggle('login', false);
+document.body.classList.toggle('login', true);
 setLogin();
-

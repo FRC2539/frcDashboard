@@ -38,6 +38,7 @@
             <header>
                 <!-- Tells whether robot is connected to dashboard. -->
                 <div id="robot-state">Unknown state</div>
+                <button id="connect-button">Connect</button>
 				
                 <!-- Countdown timer for game -->
                 <!-- <div id="timer"><p><b>2:15</b></p></div> -->
@@ -95,7 +96,7 @@
             
             <div id="login">
                 <input id="connect-address" type="text" value="localhost" disabled>
-                <button id="connect" disabled>Connecting</button>
+                <button style="width:200px" id="connect" disabled>Connecting</button>
             </div>
             <!-- The sidebar of the dashboard. Designed for smaller control elements like selection boxes and small buttons. -->
 					<div data-role="panel" id="sideBar"  data-display="overlay" data-position="right">
@@ -408,17 +409,17 @@
 
                                     <label>
                                         Quality
-                                        <input type="number" step="1" data-key="/Camera/proccess/quality" required>
+                                        <input type="number" step="1" data-key="/Camera/process/quality" required>
                                     </label>
 
                                     <label>
                                         Port
-                                        <input type="number" step="1" data-key="/Camera/proccess/port" required>
+                                        <input type="number" step="1" data-key="/Camera/process/port" required>
                                     </label>
 
                                     <label>
                                         Server
-                                        <input type="number" step="1" data-key="/Camera/proccess/server" required>
+                                        <input type="number" step="1" data-key="/Camera/process/server" required>
                                     </label>
                             </div>
 
