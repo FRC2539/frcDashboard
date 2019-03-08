@@ -109,7 +109,7 @@ NetworkTables.addKeyListener('/robot/time', (key, value) => {
 ui.autoSelect.onchange = function() {
     NetworkTables.putValue('/Autonomous/autoModeSelect', this.value);
     console.log("set auto: "+this.value)
-    $('#auto-result').text("Auto Set to: "+this.value+" NT value: "+NetworkTables.getValue('/Autonomous/autoModeSelect', 0))
+    $('#auto-result').text("Auto Set to: "+this.value+" NT value: "+NetworkTables.getValue('/Autonomous/autoModeSelect', 'None'))
     NetworkTables.getKeys();
 };
 // Get value of arm height slider when it's adjusted

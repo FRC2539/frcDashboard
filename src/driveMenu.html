@@ -38,7 +38,8 @@
             <header>
                 <!-- Tells whether robot is connected to dashboard. -->
                 <div id="robot-state">Unknown state</div>
-                <button id="connect-button">Connect</button>
+                <!--<button id="connect-button">Connect</button>-->
+				<!--<button id="clearauto-button">Clear Auto</button>-->
 				
                 <!-- Countdown timer for game -->
                 <!-- <div id="timer"><p><b>2:15</b></p></div> -->
@@ -71,19 +72,19 @@
             <article scroll="no">
 
                 <select id="auto-select" style="color:black;">
-                    <option value="0">Select Auto</option>
-                    <option value="1">Right Rocket Front</option>
-                    <option value="2">Right Rocket Back</option>
-                    <option value="3">Right Cargo Front</option>
-                    <option value="4">Left Cargo Front</option>
-                    <option value="5">Left Rocket Front</option>
-                    <option value="6">Left Rocket Back</option>
+                    <option value="None">Select Auto</option>
+                    <option value="RRF">Right Rocket Front</option>
+                    <option value="RRB">Right Rocket Back</option>
+                    <option value="RCF">Right Cargo Front</option>
+                    <!--<option value="4">Left Cargo Front</option>-->
+                    <option value="LRF">Left Rocket Front</option>
+                    <option value="LRB">Left Rocket Back</option>
                 </select>
-                <div id='auto-result'></div>
+                <div style="display: none" id='auto-result'></div>
                 <!-- Live Camera feeds from robot webcams. -->
                 <div class="cameras">
                     <div id="camera1"></div>
-                    <div id="camera2"></div>
+                    <!--<div id="camera2"></div>-->
                 </div>
                 
                 <!-- <div id="elevator">
