@@ -187,6 +187,7 @@ $(document).ready(function($) {
         NetworkTables.putValue("/DriveTrain/preciseSpeed", 2500);
         NetworkTables.putValue("/DriveTrain/maxSpeed", 2500);
         NetworkTables.putValue("/DriveTrain/ticksPerInch", 350);
+        NetworkTables.putValue("/DriveTrain/strafeTicksPerInch", 258);
         NetworkTables.putValue("/DriveTrain/width", 23.5);
         NetworkTables.putValue("/DriveTrain/deadband", 0.05);
 
@@ -247,6 +248,33 @@ $(document).ready(function($) {
         NetworkTables.putValue("/Camera/process/quality", 100);
         NetworkTables.putValue("/Camera/process/port", 2);
         NetworkTables.putValue("/Camera/process/server", 5802);
+    });
+
+    var orientation = NetworkTables.getValue('DriveTrain/orientation');
+    if(orientation == "Field") 
+    {
+        console.log("Switched To Field Orientation");
+        document.body.style.backgroundColor = "red";
+    }
+    else
+    {
+        console.log("Switched To Robot Orientation");
+        document.body.style.backgroundColor = "#d66621";
+    }
+
+    NetworkTables.addKeyListener('DriveTrain/orientation', (key, value) => 
+    {
+        if("Field") 
+        {
+            console.log("Switched To Field Orientation");
+            document.body.style.backgroundColor = "red";
+        }
+        else
+        {
+            console.log("Switched To Robot Orientation");
+            document.body.style.backgroundColor = "#d66621";
+        }
+
     });
 
     $('.btn-refresh ').click(function(e) {
