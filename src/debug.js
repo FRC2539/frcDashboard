@@ -15,82 +15,92 @@ $(document).ready(function($) {
         );
     }
 
-    NetworkTables.addGlobalListener(function(key, value, isNew) {
-        if (key.substring(0, 12) == '/LiveWindow/')
-        {
-            return
-        }
-        key = key.split('/');
-        key.shift();
-        //console.log('Global Listener has fired...');
-        var id = 'nt';
-        var $parent = $('#networktables');
-        for (var i in key)
-        {
-            var last = (i == key.length - 1);
-            if (last && Array.isArray(value))
-            {
-                last = false;
-            }
-            id += '-' + key[i].replace(/ /g, '_').replace(/~/g, '');
-            if ($('#' + id).length == 0)
-            {
-                if (i != 0)
-                {
-                    var set = $parent.prop('id') + '-set';
-                    if ($('#' + set).length == 0)
-                    {
-                        $parent.append(
-                            $('<ul data-role="collapsibleset" data-inset="false">')
-                                .prop('id', set)
-                        );
-                    }
-                    addItem($('#' + set), id, key[i], last);
-                }
-                else
-                {
-                    addItem($parent, id, key[i], last);
-                }
-            }
-            $parent = $('#' + id);
-        }
+	var timeout = 0
+    
+	//function loadDebug(){
+	NetworkTables.addGlobalListener(function(key, value, isNew) {
+		//console.log("to: " + timeout);
+		if (timeout >= 1){
+			//console.log("updating debug");
+			timeout = 0;
+			if (key.substring(0, 12) == '/LiveWindow/')
+			{
+				return
+			}
+			key = key.split('/');
+			key.shift();
+			//console.log('Global Listener has fired...');
+			var id = 'nt';
+			var $parent = $('#networktables');
+			for (var i in key)
+			{
+				var last = (i == key.length - 1);
+				if (last && Array.isArray(value))
+				{
+					last = false;
+				}
+				id += '-' + key[i].replace(/ /g, '_').replace(/~/g, '');
+				if ($('#' + id).length == 0)
+				{
+					if (i != 0)
+					{
+						var set = $parent.prop('id') + '-set';
+						if ($('#' + set).length == 0)
+						{
+							$parent.append(
+								$('<ul data-role="collapsibleset" data-inset="false">')
+									.prop('id', set)
+							);
+						}
+						addItem($('#' + set), id, key[i], last);
+					}
+					else
+					{
+						addItem($parent, id, key[i], last);
+					}
+				}
+				$parent = $('#' + id);
+			}
 
-        if (Array.isArray(value))
-        {
-            var output = '';
-            for (var i in value)
-            {
-                output += '<li>' + value[i] + '</li>';
-            }
+			if (Array.isArray(value))
+			{
+				var output = '';
+				for (var i in value)
+				{
+					output += '<li>' + value[i] + '</li>';
+				}
 
-            if ($('#' + id + '-val').length)
-            {
-                $('#' + id + '-val').html(output);
-            }
-            else
-            {
-                $parent.append(
-                    $('<ul id="' + id + '-val">' + output + '</ul>')
-                );
-            }
-        }
-        else
-        {
-            if ($('#' + id + '-val').length)
-            {
-                $('#' + id + '-val').html(value);
-            }
-            else
-            {
-                $parent.find('h3').append(
-                    $('<span id="' + id + '-val">' + value + '</span>')
-                );
-            }
-        }
-        $('#networktables').trigger('create');
-
+				if ($('#' + id + '-val').length)
+				{
+					$('#' + id + '-val').html(output);
+				}
+				else
+				{
+					$parent.append(
+						$('<ul id="' + id + '-val">' + output + '</ul>')
+					);
+				}
+			}
+			else
+			{
+				if ($('#' + id + '-val').length)
+				{
+					$('#' + id + '-val').html(value);
+				}
+				else
+				{
+					$parent.find('h3').append(
+						$('<span id="' + id + '-val">' + value + '</span>')
+					);
+				}
+			}
+			$('#networktables').trigger('create');
+		}
+	timeout += 1
     }, true);
-
+	//}
+	
+	
     var commands=[];
 
     NetworkTables.addGlobalListener(function(key, value, isNew) {
@@ -261,25 +271,41 @@ $(document).ready(function($) {
         console.log("Switched To Robot Orientation");
         document.body.style.backgroundColor = "#d66621";
     }
+	
+	//NetworkTables.addKeyListener('/SmartDashboard/autonomous/selected', (key, value) => {
+	//    ui.autoSelect.value = value;
+	//});
 
-    NetworkTables.addKeyListener('DriveTrain/orientation', (key, value) => 
+    NetworkTables.addKeyListener('/DriveTrain/orientation', (key, value) => 
     {
-        if("Field") 
+		//console.log("added network listener")
+        if(value == "Robot") 
         {
             console.log("Switched To Field Orientation");
-            document.body.style.backgroundColor = "red";
+            //document.body.style.backgroundColor = "red";
+			$("#driveMenu").css("cssText", "background-color: red !Important;");
+			$("body").css("cssText", "background-color: red !Important;");
         }
+		
         else
         {
+			
             console.log("Switched To Robot Orientation");
-            document.body.style.backgroundColor = "#d66621";
+            //document.body.style.backgroundColor = "#d66621";
+			$("#driveMenu").css("cssText", "background-color: #d66621 !Important;");
+			$("body").css("cssText", "background-color: #d66621 !Important;");
         }
 
     });
 
-    $('.btn-refresh ').click(function(e) {
+    $('.btn-refresh').click(function(e) {
         console.log("clicked refresh")
         window.location.reload()
+    });
+
+	$('#refreshDebug').click(function(e) {
+        console.log("clicked refresh debug")
+        loadDebug()
     });
 
     $('#close-dashboard').click(function(e) {

@@ -79,6 +79,9 @@
                     <!--<option value="4">Left Cargo Front</option>-->
                     <option value="LRF">Left Rocket Front</option>
                     <option value="LRB">Left Rocket Back</option>
+					
+					<option value="LCB">Left Cargo Ball</option>
+                    <option value="RCB">Right Cargo Ball</option>
                 </select>
                 <div style="display: none" id='auto-result'></div>
                 <!-- Live Camera feeds from robot webcams. -->
@@ -171,6 +174,7 @@
             </div>
 
             <div role="main" class="ui-content ui-alt-icon">
+				<a href="#" id="refreshDebug" class="btn-refresh-debug ui-btn ui-corner-all ui-btn-icon-left ui ui-icon-refresh" style="float:right;">Refresh Debug</a>
                 <div class="ui-grid-a">
 
                     <div class="ui-block-a" style="overflow-y: auto; height: 400px;">
@@ -263,6 +267,10 @@
                                 <label>
                                     Deadband Value
                                     <input type="number" step="0.01" min="0" data-key="/DriveTrain/deadband" required>
+                                </label>
+								<label>
+                                    Controller Layout
+                                    <input type="text" data-key="/DriveTrain/Layout" required>
                                 </label>
 
                                 <div class="ui-grid-b">
@@ -366,6 +374,26 @@
                             <div id="cameraSettings" style="overflow-x: auto;">
                                     <h2>Drive Camera Control</h2>
 
+									<label>
+                                        CamMode
+                                        <input type="number" step="1" data-key="/limelight/camMode" required>
+                                    </label>
+									
+									<label>
+                                        LEDMode
+                                        <input type="number" step="1" data-key="/limelight/ledMode" required>
+                                    </label>
+									
+									<label>
+                                        Stream
+                                        <input type="number" step="1" data-key="/limelight/stream" required>
+                                    </label>
+									
+									<label>
+                                        Snapshot
+                                        <input type="number" step="1" data-key="/limelight/snapshot" required>
+                                    </label>
+									
                                     <label>
                                         Width
                                         <input type="number" step="1" data-key="/Camera/drive/width" required>

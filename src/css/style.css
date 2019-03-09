@@ -107,7 +107,7 @@ header
 
 .cameras
 {
-    width: 81%;
+    /*width: 81%;*/
     height: 100vh;
     margin-left:.5%;
     margin-top:.5%;
@@ -118,9 +118,9 @@ header
     padding: 10;
     overflow: hidden;
     background-color: #333;
-    background-size: cover;
-    /*background-color:red; */
-    height:95%;
+    background-size: 100%;
+    
+    height:100%;
     width:100%;
 	margin: auto;
     float: left;
