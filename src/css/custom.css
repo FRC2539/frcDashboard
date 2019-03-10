@@ -17,6 +17,10 @@
     margin-bottom: 1em;
 }
 
+.ui-select option{
+	color: #000 !important;
+}
+
 .camera
 {
     margin: 0.5em;

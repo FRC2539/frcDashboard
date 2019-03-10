@@ -82,6 +82,9 @@
 					
 					<option value="LCB">Left Cargo Ball</option>
                     <option value="RCB">Right Cargo Ball</option>
+					
+					<option value="None">---</option>
+					<option value="DEMO">Demo</option>
                 </select>
                 <div style="display: none" id='auto-result'></div>
                 <!-- Live Camera feeds from robot webcams. -->
@@ -376,86 +379,46 @@
 
 									<label>
                                         CamMode
-                                        <input type="number" step="1" data-key="/limelight/camMode" required>
+                                        <!--<input type="number" step="1" data-key="/limelight/camMode" required>-->
+										<select name="camMode" data-key="/limelight/camMode">
+											<option value="0">Vision</option>
+											<option value="1">Drive</option>
+										</select>
                                     </label>
 									
 									<label>
                                         LEDMode
-                                        <input type="number" step="1" data-key="/limelight/ledMode" required>
+                                        <!--<input type="number" step="1" data-key="/limelight/ledMode" required>-->
+										<select name="ledMode" data-key="/limelight/ledMode">
+											<option value="0">Pipeline</option>
+											<option value="1">Off</option>
+											<option value="2">Blink</option>
+											<option value="3">Force On</option>
+										</select>
                                     </label>
 									
 									<label>
                                         Stream
-                                        <input type="number" step="1" data-key="/limelight/stream" required>
+                                        <!--<input type="number" step="1" data-key="/limelight/stream" required>-->
+										<select name="stream" data-key="/limelight/stream">
+											<option value="0">Standard</option>
+											<option value="1">PIP Main</option>
+											<option value="2">PIP Secondary</option>
+										</select>
                                     </label>
 									
 									<label>
                                         Snapshot
-                                        <input type="number" step="1" data-key="/limelight/snapshot" required>
+                                        <!--<input type="number" step="1" data-key="/limelight/snapshot" required>-->
+										<select name="snapshot" data-key="/limelight/snapshot">
+											<option value="0">Off</option>
+											<option value="1">On</option>
+										</select>
                                     </label>
 									
-                                    <label>
-                                        Width
-                                        <input type="number" step="1" data-key="/Camera/drive/width" required>
-                                    </label>
 
-                                    <label>
-                                        Height
-                                        <input type="number" step="1" data-key="/Camera/drive/height" required>
-                                    </label>
-
-                                    <label>
-                                        FPS
-                                        <input type="number" step="1" data-key="/Camera/drive/fps" required>
-                                    </label>
-
-                                    <label>
-                                        Quality
-                                        <input type="number" step="1" data-key="/Camera/drive/quality" required>
-                                    </label>
-
-                                    <label>
-                                        Port
-                                        <input type="number" step="1" data-key="/Camera/drive/port" required>
-                                    </label>
-
-                                    <label>
-                                        Server
-                                        <input type="number" step="1" data-key="/Camera/drive/server" required>
-                                    </label>
                                     
-<hr>
-                                    <h2>Process Camera Control</h2>
-
-                                    <label>
-                                        Width
-                                        <input type="number" step="1" data-key="/Camera/process/width" required>
-                                    </label>
-
-                                    <label>
-                                        Height
-                                        <input type="number" step="1" data-key="/Camera/process/height" required>
-                                    </label>
-
-                                    <label>
-                                        FPS
-                                        <input type="number" step="1" data-key="/Camera/process/fps" required>
-                                    </label>
-
-                                    <label>
-                                        Quality
-                                        <input type="number" step="1" data-key="/Camera/process/quality" required>
-                                    </label>
-
-                                    <label>
-                                        Port
-                                        <input type="number" step="1" data-key="/Camera/process/port" required>
-                                    </label>
-
-                                    <label>
-                                        Server
-                                        <input type="number" step="1" data-key="/Camera/process/server" required>
-                                    </label>
+   
                             </div>
 
                             <!-- Arm Settings -->

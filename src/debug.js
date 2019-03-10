@@ -15,14 +15,21 @@ $(document).ready(function($) {
         );
     }
 
-	var timeout = 0
-    
+    let lastRan
+	var initLoad = 0
+	
 	//function loadDebug(){
 	NetworkTables.addGlobalListener(function(key, value, isNew) {
 		//console.log("to: " + timeout);
-		if (timeout >= 1){
-			//console.log("updating debug");
-			timeout = 0;
+		if (!lastRan){
+			lastRan = Date.now()
+		}
+		if ((Date.now() - lastRan) >= 2000 || (initLoad < 100)){
+			lastRan = Date.now();
+			initLoad += 1;
+			
+			console.log("updating debug, init: "+initLoad);
+			
 			if (key.substring(0, 12) == '/LiveWindow/')
 			{
 				return
@@ -96,7 +103,7 @@ $(document).ready(function($) {
 			}
 			$('#networktables').trigger('create');
 		}
-	timeout += 1
+	//timeout += 1
     }, true);
 	//}
 	
