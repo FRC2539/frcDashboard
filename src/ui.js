@@ -102,14 +102,14 @@ NetworkTables.addKeyListener('/robot/time', (key, value) => {
 //};
 
 //set default auto of none if it doesn't exist
-//NetworkTables.putValue('/Autonomous/autoModeSelect', 0);
-//console.log("set default nt auto")
+NetworkTables.putValue('/Autonomous/autoModeSelect', 'None');
+console.log("set default nt auto")
 
 // Update NetworkTables when autonomous selector is changed
 ui.autoSelect.onchange = function() {
     NetworkTables.putValue('/Autonomous/autoModeSelect', this.value);
     console.log("set auto: "+this.value)
-    $('#auto-result').text("Auto Set to: "+this.value+" NT value: "+NetworkTables.getValue('/Autonomous/autoModeSelect', 'None'))
+    //$('#auto-result').text("Auto Set to: "+this.value+" NT value: "+NetworkTables.getValue('/Autonomous/autoModeSelect', 'None'))
     NetworkTables.getKeys();
 };
 // Get value of arm height slider when it's adjusted

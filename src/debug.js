@@ -24,7 +24,7 @@ $(document).ready(function($) {
 		if (!lastRan){
 			lastRan = Date.now()
 		}
-		if ((Date.now() - lastRan) >= 2000 || (initLoad < 100)){
+		if ((Date.now() - lastRan) >= 30 || (initLoad < 100)){
 			lastRan = Date.now();
 			initLoad += 1;
 			
