@@ -115,19 +115,15 @@ header
 }
 
 #camera1 
-{
-    /*padding: 10;
-    overflow: hidden;
-    */
-    background-size: 100%;
-    background-color: #333;
-    height:1100px;
-
-    width:1200px;
-    margin: auto;
+{    
+    background-size: contain;
     background-repeat: no-repeat;
-
-    float: left;
+    background-color: #333;
+    height:95%;
+    width:61%;
+    margin: 0 auto;
+    display: block;
+    
     border-radius: 10px;
 
     /* You'll need to mess with this a bit to get your camera to work. Replace the url with a live-updating image feed from your camera. Using other camera streaming systems will require some tweaking. */
@@ -136,7 +132,7 @@ header
 
 #camera2 
 {
-    padding: 10;
+    padding: 10px;
     overflow: hidden;
     background-color: #333;
     background-size: cover;
@@ -149,7 +145,7 @@ header
 
     /* You'll need to mess with this a bit to get your camera to work. Replace the url with a live-updating image feed from your camera. Using other camera streaming systems will require some tweaking. */
     /*background-image: url('http://10.25.39.8:5802?action=stream');*/
-}
+} 
 
 #cameraSingle
 {
