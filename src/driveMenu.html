@@ -3,7 +3,7 @@
     <!-- Configure the viewport and import css code.-->
     <head>
         <meta name = "viewport" content = "width = device-width, initial-scale = 1" charset="utf-8">
-        <title>Team 2539's Award Winning FRC Dashboard of Awesomeness!</title>
+        <title>Team 2539's FRC Dashboard of Awesomeness!</title>
         <link href="css/style.css" rel="stylesheet">
     
         <link rel="stylesheet" href="css/krypton-jquery-mobile-theme.css">
@@ -39,33 +39,7 @@
                 <!-- Tells whether robot is connected to dashboard. -->
                 <div id="robot-state">Unknown state</div>
                 <!--<button id="connect-button">Connect</button>-->
-				<!--<button id="clearauto-button">Clear Auto</button>-->
 				
-                <!-- Countdown timer for game -->
-                <!-- <div id="timer"><p><b>2:15</b></p></div> -->
-                <div id="headerHolder">
-                    <!-- Gyroscope -->
-                    <!-- <svg id="gyro" width="12vw" height="12vw" viewbox="0 0 166 225">
-                        <circle cx="85" cy="85" r="83"></circle>
-                        <circle cx="85" cy="85" r="50"></circle>
-                        <rect id="gyro-arm" x="80" y="5" width="10" height="80"></rect>
-                        <text id="gyro-number" x="90" y="115">0º</text>
-                    </svg> -->
-                    
-                    <!-- Example robot diagram, arm moves when encoder value changes -->
-                    <!-- <svg id="robot-diagram" width="332" height="450">
-                        <rect x="75" y="360" width="230" height="40"></rect>
-                        <rect x="85" y="370" width="210" height="40"></rect>
-                        <rect id="robot-arm" x="5" y="375" width="80" height="10"></rect>
-                        <circle cx="100" cy="410" r="25"></circle>
-                        <circle cx="260" cy="410" r="25"></circle>
-                        <rect x="60" y="380" width="250" height="30"></rect>
-                        <text id="team" x="185" y="405" text-anchor="middle">2539</text>
-                    </svg> -->
-                    
-					
-                </div>
-				<!--<a  class="ui-btn ui-corner-all ui-btn-icon-left ui" style="float:right" href="#sideBar"><</a>-->
             </header>
             
             <!-- Main dashboard body, this contains the cameras. -->
@@ -92,10 +66,6 @@
                     <!--<div id="camera2"></div>-->
                 </div>
                 
-                <!-- <div id="elevator">
-                    <p>5%</p>
-                </div> -->
-                
             </article>
             
             
@@ -106,34 +76,7 @@
             </div>
             <!-- The sidebar of the dashboard. Designed for smaller control elements like selection boxes and small buttons. -->
 					<div data-role="panel" id="sideBar"  data-display="overlay" data-position="right">
-						<!-- Example button which toggles /SmartDashboard/exampleValue NetworkTables value.
-							The <p> below then says the value. -->
-						<!-- <div id="example-section">
-							<button id="example-button">Change example value</button>
-							<p id="example-readout">Value is undefined</p>
-						</div> -->
 						
-                        <!-- Autonomous selector -->
-                        <!--
-						<div class="select-container">
-                            <select id="auto-select" style="color:black;">
-                                <option value="0">Select</option>
-                                <option value="1">Right Rocket Front</option>
-                                <option value="2">Right Rocket Back</option>
-                                <option value="3">Right Cargo Front</option>
-                                <option value="4">Left Cargo Front</option>
-                                <option value="5">Left Rocket Front</option>
-                                <option value="6">Left Rocket Back</option>
-							</select>
-                        </div>
-                        <div id='auto-result'></div>
-                    -->
-						
-						<!-- <div>
-							<p>Adjust arm height</p>
-							<input id="arm-position" type="range" min="0" max="1200" value="770">
-						</div>
-						 -->
 					</div>
         </div> 
         <!-- *********************************************************************************-->        
@@ -155,24 +98,8 @@
                 </div>
             </div>
 
-            <a  class="ui-btn ui-corner-all ui-btn-icon-left ui" style="float:right" href="#sideBar"><</a>
             <div data-role="panel" id="sideBar"  data-display="overlay" data-position="right">
-                <!-- Autonomous selector -->
-                <!--
-                <div class="select-container">
-                    <select id="auto-select" style="color:black;">
-                            <option value="0">Select</option>
-                            <option value="RRF">Right Rocket Front</option>
-                            <option value="RRB">Right Rocket Back</option>
-                            <option value="RCF">Right Cargo Front</option>
-                            <option value="LCF">Left Cargo Front</option>
-                            <option value="LRF">Left Rocket Front</option>
-                            <option value="LRB">Left Rocket Back</option>
-
-
-                    </select>
-                </div>  
-                -->
+            
             </div>
 
             <div role="main" class="ui-content ui-alt-icon">
@@ -193,11 +120,6 @@
 
                 </div>
             </div>
-
-            <!--<div data-role="footer" data-position="fixed" class="ui-bar">
-                <button id="close-dashboard" class="ui-btn ui-corner-all ui-icon-delete ui-btn-icon-right">Close Dashboard</button>
-            </div>
-            -->
         </div>
         <!-- *********************************************************************************-->
 
@@ -415,10 +337,6 @@
 											<option value="1">On</option>
 										</select>
                                     </label>
-									
-
-                                    
-   
                             </div>
 
                             <!-- Arm Settings -->
@@ -498,11 +416,6 @@
                         </div>
                     </form>
                 </div>
-
-                <!--<div data-role="footer" data-position="fixed" class="ui-bar">
-                    <button id="close-dashboard" class="ui-btn ui-corner-all ui-icon-delete ui-btn-icon-right">Close Dashboard</button>
-                </div>
-                -->
             </div>
         </div>
 		<!-- *********************************************************************************-->
@@ -511,8 +424,6 @@
         <div data-role="page" data-title="Single Camera Drive Page" id="singleDriveMenu">
             <div role="main" class="ui-content">
 
-                <!-- <a href="#singleDrivePanel" class="ui-btn ui-corner-all ui-btn-icon-left ui ui-icon-navigation" style="width:10vw; float:right;">Menu</a> -->
-                <!--<a  class="ui-btn ui-corner-all ui-btn-icon-left ui" style="float:right" href="#sideBar"><</a>-->
                 <div style="width: 20%; float: right;">
 
                     <a href="#driveMenu" class="ui-btn ui-corner-all ui-btn-icon-left ui ui-icon-navigation" style="float:right;">Drive Menu</a>
@@ -522,53 +433,19 @@
 
                 <div data-role="panel" id="sideBar"  data-display="overlay" data-position="right">
                 
-                    <!-- Example button which toggles /SmartDashboard/exampleValue NetworkTables value.
-                        The <p> below then says the value. -->
-                    <!-- <div id="example-section">
-                        <button id="example-button">Change example value</button>
-                        <p id="example-readout">Value is undefined</p>
-                    </div> -->
-                    
-                    <!-- Autonomous selector -->
-                    <!-- remove to avoid confusion with setting network tables
-
-                    <div class="select-container">
-                        <select id="auto-select" style="color:black;">
-                            <option value="0">Select</option>
-                            <option value="RRF">Right Rocket Front</option>
-                            <option value="RRB">Right Rocket Back</option>
-                            <option value="RCF">Right Cargo Front</option>
-                            <option value="LCF">Left Cargo Front</option>
-                            <option value="LRF">Left Rocket Front</option>
-                            <option value="LRB">Left Rocket Back</option>
-
-                        </select>
-                    </div>
-                    -->
-
-                    <!-- <div>
-                        <p>Adjust arm height</p>
-                        <input id="arm-position" type="range" min="0" max="1200" value="770">
-                    </div> -->
-                    
                     <!--Buttons to switch between each screen. -->
                     <div id="tabSwitchButtons">
                             <a href="#configMenu" class="ui-btn ui-corner-all ui-btn-icon-left ui ui-icon-alert" style="float:right;">Configuration Menu</a><br>
-                            <a href="#debugMenu" class="ui-btn ui-corner-all ui-btn-icon-left ui ui-icon-alert" style="float:right;">Debug Menu</a><br>
-                        
+                            <a href="#debugMenu" class="ui-btn ui-corner-all ui-btn-icon-left ui ui-icon-alert" style="float:right;">Debug Menu</a><br>  
                     </div>
                     
                 </div>
 
                 <div class="cameras">
-                    <div id="cameraSingle">
-
-                    </div> 
+                    <div id="cameraSingle"></div>
                 </div>
 
-                <!-- Countdown timer for game -->
-                <div id="timer"><p><b>2:15</b></p></div>
-
+                </div>
             </div>
         </div>
  		<!-- *********************************************************************************-->
