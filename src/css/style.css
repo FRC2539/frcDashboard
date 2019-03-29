@@ -123,10 +123,9 @@ header
     height:1100px;
     width:1200px;
     margin: auto;
-	background-repeat: no-repeat;
-	/*margin: auto;
+    background-repeat: no-repeat;
     float: left;
-    border-radius: 10px;*/
+    border-radius: 10px;
 
     /* You'll need to mess with this a bit to get your camera to work. Replace the url with a live-updating image feed from your camera. Using other camera streaming systems will require some tweaking. */
     background-image: url('http://10.25.39.11:5800/');
@@ -152,15 +151,17 @@ header
 #cameraSingle
 {
     /* padding: 10; */
-    overflow: hidden;
+    /* overflow: hidden; */
     background-color: #333;
-    background-size: cover;
+    background-repeat: no-repeat;
+    background-size: contain;
     /*background-color:red; */
     border-radius: 10px;
-    height: 82%;
-    width: 97%;
+    height: 95%;
+    width: 61%;
     margin: 0 auto;
     display: block;
+    /* object-fit: contain; */
 
     /* You'll need to mess with this a bit to get your camera to work. Replace the url with a live-updating image feed from your camera. Using other camera streaming systems will require some tweaking. */
     background-image: url('http://10.25.39.11:5800/');

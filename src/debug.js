@@ -292,8 +292,8 @@ $(document).ready(function($) {
         {
             console.log("Switched To Field Orientation");
             //document.body.style.backgroundColor = "red";
-			$("#driveMenu").css("cssText", "background-color: red !Important;");
-			$("body").css("cssText", "background-color: red !Important;");
+			$("#driveMenu").css("cssText", "background-color: aqua !Important;");
+			$("body").css("cssText", "background-color: aqua !Important;");
         }
 		
         else
