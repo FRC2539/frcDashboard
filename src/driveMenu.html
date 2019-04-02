@@ -47,12 +47,16 @@
 				<select id="auto-select" style="color:black; float: left;">
 						<option value="None">Select Auto</option>
 						<option value="RR">Right Rocket</option>
-						<option value="RCF">Right Cargo Front</option>
-						<option value="LCF">Left Cargo Front</option>
 						<option value="LR">Left Rocket</option>
 						
-						<option value="LCB">Left Cargo Ball</option>
+						<option value="RCF">Right Cargo Front</option>
+						<option value="LCF">Left Cargo Front</option>
+						
 						<option value="RCB">Right Cargo Ball</option>
+						<option value="RCH">Right Cargo Hatch</option>
+						<option value="LCB">Left Cargo Ball</option>
+						<option value="LCH">Left Cargo Hatch</option>
+						
 						
 						<option value="None">---</option>
 						<option value="DEMO">Demo</option>
@@ -293,6 +297,10 @@
                                     Elevator Start
                                     <input type="number" step="1" data-key="/Elevator/start" required>
                                 </label>
+
+								<label>
+									Cargoship Elevator Height 
+									<input type="number" step="1" data-key="/Elevator/cargoshipEleHeight" required>
                             </div>
 
                             <!-- Camera Settings -->
@@ -402,7 +410,18 @@
                                             Arm Slack Speed
                                             <input type="number" step="1" data-key="/Arm/slackSpeed" required>
                                         </label>
-                            </div>
+										
+										<label>
+											First Level Arm Height
+											<input type="number" step="1" data-key="/Arm/firstLevelHeight" required>
+										</label>
+										
+										<label>
+											Cargoship Arm Height
+											<input type="number" step="1" data-key="/Arm/cargoshipArmHeight">
+										</label>
+							</div>
+							
 
                         <!-- Save Changes -->
                         <div id="saveConfig">
