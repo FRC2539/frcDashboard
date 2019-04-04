@@ -251,8 +251,8 @@ $(document).ready(function($) {
         NetworkTables.putValue("/Arm/midBalls", 55.0);
         NetworkTables.putValue("/Arm/highBalls", 70.0);
         NetworkTables.putValue("/Arm/start", 90.0);
-		NetworkTables.putValue('/Arm/slackAdjustment', -3.0) 
-		NetworkTables.putValue('/Arm/slackSpeed', -8.0) 
+		NetworkTables.putValue('/Arm/slackAdjustment', 0.0) 
+		NetworkTables.putValue('/Arm/slackSpeed', 0.0) 
 
         NetworkTables.putValue("/Camera/drive/width", 320);
         NetworkTables.putValue("/Camera/drive/height", 240);
