@@ -50,6 +50,8 @@ function setLogin() {
   // Add the default address and select xxxx
   //address.value = 'roborio-xxxx-frc.local';
   address.value = '10.25.39.2';
+  //address.value = '10.0.0.2';
+  
   //address.focus();
   //address.setSelectionRange(8, 12);
 }

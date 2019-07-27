@@ -198,8 +198,27 @@
                                     <input type="number" step="0.01" min="0" data-key="/DriveTrain/deadband" required>
                                 </label>
 								<label>
-                                    Controller Layout
-                                    <input type="text" data-key="/DriveTrain/Layout" required>
+								
+                                    Tape Offset
+                                    <input type="number" step="0.01" min="0" data-key="/DriveTrain/tapeoffset" required>
+                                </label>
+								
+								<label>
+                                    Controller Layout (0 For Primary, 1 For Secondary)
+                                    <input type="number" data-key="/DriveTrain/Layout" required>
+                                </label>
+								
+								<label>
+                                    Tape Speedboost Multiplier (1 is no boost)
+                                    <input  type="number" step="0.01" min="0" data-key="/DriveTrain/tapespeedboost" required>
+                                </label>
+								<label>
+                                    Defense Speed Multiplier (1.3 is default) 
+                                    <input type="number" step="1" min="0" data-key="/DriveTrain/defenseSpeedMult" required>
+                                </label>
+								<label>
+                                    Drive Speed Multiplier (0.9 is default)
+                                    <input type="number" step="1" min="0" data-key="/DriveTrain/driveSpeedMult" required>
                                 </label>
 
                                 <div class="ui-grid-b">
@@ -306,6 +325,18 @@
                             <!-- Camera Settings -->
                             <div id="cameraSettings" style="overflow-x: auto;">
                                     <h2>Drive Camera Control</h2>
+
+									<label>
+                                        Pipeline
+                                        <!--<input type="number" step="1" data-key="/limelight/camMode" required>-->
+										<select name="pipeline" data-key="/limelight/pipeline">
+											<option value="0">0</option>
+											<option value="1">1</option>
+											<option value="2">2</option>
+											<option value="3">3</option>
+										</select>
+                                    </label>
+									
 
 									<label>
                                         CamMode

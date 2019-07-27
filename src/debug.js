@@ -215,6 +215,9 @@ $(document).ready(function($) {
         NetworkTables.putValue("/DriveTrain/Speed/F", 0.7);
         NetworkTables.putValue("/DriveTrain/Speed/IZone", 30);
         NetworkTables.putValue("/DriveTrain/Speed/RampRate", 0);
+		
+		NetworkTables.putValue("/DriveTrain/tapeoffset", 0);
+		NetworkTables.putValue("/DriveTrain/tapespeedboost", 1);
 
         NetworkTables.putValue("/Elevator/ground", 0.0);
         NetworkTables.putValue("/Elevator/exchange", 0.0);
@@ -281,6 +284,20 @@ $(document).ready(function($) {
         document.body.style.backgroundColor = "#d66621";
     }
 	
+	var boost = NetworkTables.getValue('DriveTrain/boost');
+	
+	if(boost == true) 
+    {
+        console.log("Switched To Boost");
+        document.body.style.backgroundColor = "green";
+    }
+    else
+    {
+        console.log("Switched To No Boost");
+        document.body.style.backgroundColor = "#d66621";
+    }
+	
+	
 	//NetworkTables.addKeyListener('/SmartDashboard/autonomous/selected', (key, value) => {
 	//    ui.autoSelect.value = value;
 	//});
@@ -300,6 +317,28 @@ $(document).ready(function($) {
         {
 			
             console.log("Switched To Robot Orientation");
+            //document.body.style.backgroundColor = "#d66621";
+			$("#driveMenu").css("cssText", "background-color: #d66621 !Important;");
+			$("body").css("cssText", "background-color: #d66621 !Important;");
+        }
+
+    });
+	
+	NetworkTables.addKeyListener('/DriveTrain/boost', (key, value) => 
+    {
+		//console.log("added network listener")
+        if(value == true) 
+        {
+            console.log("Switched To Boost");
+            //document.body.style.backgroundColor = "red";
+			$("#driveMenu").css("cssText", "background-color: green !Important;");
+			$("body").css("cssText", "background-color: green !Important;");
+        }
+		
+        else
+        {
+			
+            console.log("Switched To No Boost");
             //document.body.style.backgroundColor = "#d66621";
 			$("#driveMenu").css("cssText", "background-color: #d66621 !Important;");
 			$("body").css("cssText", "background-color: #d66621 !Important;");
