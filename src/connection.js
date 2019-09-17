@@ -49,7 +49,7 @@ function setLogin() {
   connect.textContent = 'Connect';
   // Add the default address and select xxxx
   //address.value = 'roborio-xxxx-frc.local';
-  address.value = '10.25.39.2';
+  address.value = '10.25.39';
   //address.value = '10.0.0.2';
   
   //address.focus();
@@ -58,7 +58,9 @@ function setLogin() {
 // On click try to connect and disable the input and the button
 connect.onclick = () => {
   console.log("connecting");
-  ipc.send('connect', address.value);
+  ipc.send('connect', address.value + ".2");
+  //over-ride css background
+  $('#camera1').css("background-image", "url('http://"+address.value + "." + $('#camera-port').val() +":5800/')")
   address.disabled = connect.disabled = true;
   connect.textContent = 'Connecting...';
   //set default auto of none if it doesn't exist

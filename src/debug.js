@@ -28,7 +28,7 @@ $(document).ready(function($) {
 			lastRan = Date.now();
 			initLoad += 1;
 			
-			console.log("updating debug, init: "+initLoad);
+			//console.log("updating debug, init: "+initLoad);
 			
 			if (key.substring(0, 12) == '/LiveWindow/')
 			{
