@@ -14,6 +14,7 @@ let ui = {
         arm: document.getElementById('robot-arm')
     },
     autoSelect: document.getElementById('auto-select'),
+    toggleWideBtn: document.getElementById('toggleWideBtn'),
     armPosition: document.getElementById('arm-position'),
     _autoModeSelect: document.getElementById('/Autonomous/autoModeSelect', this.value),
     get autoModeSelect() {
@@ -119,4 +120,21 @@ ui.autoSelect.onchange = function() {
 
 addEventListener('error',(ev)=>{
     ipc.send('windowError',{mesg:ev.message,file:ev.filename,lineNumber:ev.lineno})
+})
+
+// Toggle widescren camera when button is pressed.
+ui.toggleWideBtn.addEventListener('click', () => {
+    if ($('#toggleWideBtn').html() == "View Wide") {
+
+        $('#toggleWideBtn').html("View Smaller")
+
+        $('#camera1').css("background-size","cover")
+        $('#camera1').css("width","90%")
+    } else {
+        $('#toggleWideBtn').html("View Wide")
+
+        $('#camera1').css("background-size","contain")
+        $('#camera1').css("width","61%")
+    }
+    
 })

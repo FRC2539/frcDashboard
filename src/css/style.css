@@ -106,6 +106,18 @@ header
     top: 0; */
 }
 
+.ui-select {
+    width:50%;
+    display: inline-block;
+    float:left;
+}
+
+#toggleWideBtn {
+    width:50%;
+    display: block;
+    border-radius: 0.3125em;
+}
+
 .cameras
 {
     /*width: 81%;*/
