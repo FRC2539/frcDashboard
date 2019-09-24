@@ -75,7 +75,7 @@ function createWindow() {
     ipc.on('connect', (ev, address, port) => {
         console.log(`Trying to connect to ${address}` + (port ? ':' + port : ''));
         let callback = (connected, err) => {
-            console.log('Sending status');
+            //console.log('Sending status');
             mainWindow.webContents.send('connected', connected);
         };
         if (port) {
