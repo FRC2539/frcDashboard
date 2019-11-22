@@ -17,6 +17,7 @@ $(document).ready(function($) {
     // Due to all known laws of aviation, a bee should not be able to steal your knee caps
     // wHaT dOEs fRc dAnd fOerre
     let lastRan
+    let uselessvariable
 	var initLoad = 0
 	// Whatever I want to say
 	//function loadDebug(){
