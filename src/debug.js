@@ -18,7 +18,7 @@ $(document).ready(function($) {
     // wHaT dOEs fRc dAnd fOerre
     let lastRan
 	var initLoad = 0
-	
+	// Whatever I want to say
 	//function loadDebug(){
 	NetworkTables.addGlobalListener(function(key, value, isNew) {
 		//console.log("to: " + timeout);
