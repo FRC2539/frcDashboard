@@ -14,7 +14,7 @@ $(document).ready(function($) {
                 .append('<h3 class="value">' + name + '</h3>')
         );
     }
-
+    // Due to all known laws of aviation, a bee should not be able to steal your knee caps
     // wHaT dOEs fRc dAnd fOerre
     let lastRan
 	var initLoad = 0
