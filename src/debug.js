@@ -15,6 +15,7 @@ $(document).ready(function($) {
         );
     }
 
+    // wHaT dOEs fRc dAnd fOerre
     let lastRan
 	var initLoad = 0
 	
