@@ -2,6 +2,7 @@
 let ui = {
     timer: document.getElementById('timer'),
     robotState: document.getElementById('robot-state').firstChild,
+    armState: document.getElementById('arm-state').firstChild,
     gyro: {
         container: document.getElementById('gyro'),
         val: 0,
@@ -15,6 +16,7 @@ let ui = {
     },
     autoSelect: document.getElementById('auto-select'),
     toggleWideBtn: document.getElementById('toggleWideBtn'),
+    toggleRobotSwitch: document.getElementById('toggleRobotSwitch'),
     armPosition: document.getElementById('arm-position'),
     _autoModeSelect: document.getElementById('/Autonomous/autoModeSelect', this.value),
     get autoModeSelect() {
@@ -62,11 +64,11 @@ let ui = {
     //ui.example.readout.data = 'Value is ' + value;
 //});
 
-NetworkTables.addKeyListener('/robot/time', (key, value) => {
-    // This is an example of how a dashboard could display the remaining time in a match.
-    // We assume here that value is an integer representing the number of seconds left.
-    ui.timer.innerHTML = value < 0 ? '0:00' : Math.floor(value / 60) + ':' + (value % 60 < 10 ? '0' : '') + value % 60;
-});
+// NetworkTables.addKeyListener('/robot/time', (key, value) => {
+//     // This is an example of how a dashboard could display the remaining time in a match.
+//     // We assume here that value is an integer representing the number of seconds left.
+//     ui.timer.innerHTML = value < 0 ? '0:00' : Math.floor(value / 60) + ':' + (value % 60 < 10 ? '0' : '') + value % 60;
+// });
 
 // Load list of prewritten autonomous modes
 //NetworkTables.addKeyListener('/SmartDashboard/autonomous/modes', (key, value) => {
@@ -113,6 +115,8 @@ ui.autoSelect.onchange = function() {
     //$('#auto-result').text("Auto Set to: "+this.value+" NT value: "+NetworkTables.getValue('/Autonomous/autoModeSelect', 'None'))
     NetworkTables.getKeys();
 };
+
+
 // Get value of arm height slider when it's adjusted
 //ui.armPosition.oninput = function() {
 //    NetworkTables.putValue('/SmartDashboard/arm/encoder', parseInt(this.value));
@@ -136,5 +140,6 @@ ui.toggleWideBtn.addEventListener('click', () => {
         $('#camera1').css("background-size","contain")
         $('#camera1').css("width","61%")
     }
+
     
 })

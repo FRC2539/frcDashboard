@@ -5,6 +5,16 @@
     padding: 0;
 }
 
+.side-bar-btn{
+    margin-left: 10px;
+    width: 90%;
+    float: right;
+}
+
+.ui-btn-icon-left:after {
+    background-color: #737373 !important;
+}
+
 ::-webkit-scrollbar 
 {
     display: none;
@@ -240,11 +250,13 @@ text
    /* right: 1vw; */
 }
 
-#robot-arm 
+#arm-state 
 {
-    -webkit-transform-origin: right;
+    /*-webkit-transform-origin: right;
     -ms-transform-origin: right;
-    transform-origin: right;
+    transform-origin: right;*/
+    color:white !important;
+    font-size: 28px;
 }
 
 #robot-state
@@ -333,3 +345,55 @@ h2
 {
     color:white !important;
 }
+
+.GaugeMeter {
+    position: Relative;
+    text-align: Center;
+    overflow: Hidden;
+    cursor: Default;
+    display: inline-block;
+  }
+  
+  .GaugeMeter SPAN, .GaugeMeter B {
+    width: 54%;
+    position: Absolute;
+    text-align: Center;
+    display: Inline-Block;
+    color: RGBa(0,0,0,.8);
+    font-weight: 100;
+    font-family: "Open Sans", Arial;
+    overflow: Hidden;
+    white-space: NoWrap;
+    text-overflow: Ellipsis;
+    margin: 0 23%;
+  }
+  
+  .GaugeMeter[data-style="Semi"] B {
+    width: 80%;
+    margin: 0 10%;
+  }
+  
+  .GaugeMeter S, .GaugeMeter U {
+    text-decoration: None;
+    font-size: .60em;
+    font-weight: 200;
+    opacity: .6;
+  }
+  
+  .GaugeMeter B {
+    color: #000;
+    font-weight: 200;
+    opacity: .8;
+  }
+
+  #toggleRobotSwitch{
+    /* width: 25%; */
+    float:right;
+    margin-right: 2%;
+  }
+
+  /* Robot Toggle  */
+  .ui-slider{
+      width: 175px !important;
+      font-color:black;
+  }

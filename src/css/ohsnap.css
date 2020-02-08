@@ -27,3 +27,18 @@ border-color: #666666;
 color: white;
 background-color: #ff8300;
 }
+.divider {
+    font-size: 0%;
+    border-bottom: 4px solid black;
+    margin: 2.5% -5% 2.5% -5%
+}
+.header {
+    font-size: 200%; 
+    font-weight: bolder;
+    font-family: Verdana, Geneva, Tahoma, sans-serif; 
+    text-align: center; 
+    border-bottom: 2px solid black; 
+    color: black; 
+    overflow: hidden; 
+    text-overflow: ellipsis;
+}

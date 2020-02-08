@@ -1,5 +1,10 @@
 $(document).ready(function($) {
     //console.log('Debug Javascript File has loaded...');
+    $("#toggleRobotSwitch").change(function(){
+        NetworkTables.putValue('/DriveTrain/toggleRobotSwitch', this.value);
+        //console.log("set robot toggle to: " + this.value);
+        NetworkTables.getKeys();
+    })
 
     function addItem($container, id, name, last) {
         var li = '<li';
@@ -17,14 +22,16 @@ $(document).ready(function($) {
 
     let lastRan
 	var initLoad = 0
-	
-	//function loadDebug(){
+    
+    loadDebug();
+
+	function loadDebug(){
 	NetworkTables.addGlobalListener(function(key, value, isNew) {
 		//console.log("to: " + timeout);
 		if (!lastRan){
 			lastRan = Date.now()
 		}
-		if ((Date.now() - lastRan) >= 100 || (initLoad < 100)){
+		if ((Date.now() - lastRan) >= 0 || (initLoad < 100)){
 			lastRan = Date.now();
 			initLoad += 1;
 			
@@ -105,7 +112,7 @@ $(document).ready(function($) {
 		}
 	//timeout += 1
     }, true);
-	//}
+	}
 	
 	
     var commands=[];
@@ -345,6 +352,30 @@ $(document).ready(function($) {
         }
 
     });
+
+    NetworkTables.addKeyListener('/limelight/tv', (key, value) => 
+    {
+		//console.log("added network listener")
+        console.log("tape/tv: "+value)
+        //ui.armState.textContent = "Arm: " + value;
+        if(value == 1) 
+        {
+            ui.armState.textContent = "Tape: Yes";
+        }else{
+            ui.armState.textContent = "Tape: Noe";
+        }
+    });
+
+    NetworkTables.addKeyListener('/DriveTrain/ShooterRPM', (key, value) => 
+    {
+        outVal = Math.floor((value/6000)*100)
+        console.log("ShooterRPM: "+outVal)
+        document.getElementById("duoah").innerHTML = Math.floor(outVal)
+
+        $("#GaugeMeter1").data( "used", outVal );
+        $("#GaugeMeter1").gaugeMeter();
+    });
+    
 
     $('.btn-refresh').click(function(e) {
         console.log("clicked refresh")

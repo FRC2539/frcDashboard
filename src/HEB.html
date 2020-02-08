@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+    <!-- Configure the viewport and import css code.-->
+    <head>
+        <meta name = "viewport" content = "width = device-width, initial-scale = 1" charset="utf-8">
+        <title>Kieren's Hypertext Wasteland</title>
+        <link href="css/style.css" rel="stylesheet">
+    
+        <link rel="stylesheet" href="css/krypton-jquery-mobile-theme.css">
+        <link rel="stylesheet" href="css/jquery.mobile.icons.min.css">
+        <link rel="stylesheet" href="js/jquery.mobile-1.4.5/jquery.mobile.structure-1.4.5.min.css">
+        <link rel="stylesheet" href="css/ohsnap.css">
+        <link rel="stylesheet" href="css/custom.css">
+        <script src="networktables/networktables.js"></script>
+
+    </head>
+
+    <!-- Create the Main Body of the Dashboard. Each page is contained within its own jqm div.-->
+            <body>
+        <div data-role="page" data-title="Kieren's Hypertext Wasteland" id="wasteland">
+            <div role="main" class="ui-content">
+
+                <!--<div style="width: 20%; float: right;">
+
+                    <a href="#driveMenu" class="ui-btn ui-corner-all ui-btn-icon-left ui ui-icon-navigation side-bar-btn">Drive Menu</a>
+                    <a href="#" id="refresh" class="btn-refresh ui-btn ui-corner-all ui-btn-icon-left ui ui-icon-refresh side-bar-btn">Refresh</a>
+                </div>
+                
+
+                <div data-role="panel" id="sideBar"  data-display="overlay" data-position="right">
+                
+                    Buttons to switch between each screen.
+                    <div id="tabSwitchButtons">
+                            <a href="#configMenu" class="ui-btn ui-corner-all ui-btn-icon-left ui ui-icon-alert side-bar-btn">Configuration Menu</a><br>
+                            <a href="#debugMenu" class="ui-btn ui-corner-all ui-btn-icon-left ui ui-icon-alert side-bar-btn">Debug Menu</a><br>  
+                    </div>
+                    
+                </div>-->
+
+                <div style="width: 18%; float: left;">
+                    <div class="header">Auto</div>
+                    <div id="heck boy"></div>
+                </div>
+
+                <div style="width: 18%; float: right;">
+                    <div class="header">RPM</div>
+                    <div id="duoah" style="font-size:300%;font-family:Verdana, Geneva, Tahoma, sans-serif;text-align:center;color:black;overflow: hidden; text-overflow: ellipsis;"></div>
+                    <div class="divider"></div>
+                    <div class="header">Angle</div>
+                    <div id="duoahe" style="font-size:300%;font-family:Verdana, Geneva, Tahoma, sans-serif;text-align:center;color:black;overflow: hidden; text-overflow: ellipsis;"></div>
+                </div>
+
+                <div class="cameras" style="width:100%">
+                    <div id="cameraSingle"></div>
+                </div>
+
+                </div>
+            </div>
+        </div>
+
+        <!-- Insert this line above script imports  -->
+		<script>if (typeof module === 'object') {window.module = module; module = undefined;}</script>
+
+        <!-- normal script imports etc  -->	
+        
+        <script src="js/jquery-3.1.1.min.js"></script>
+        <script src="js/GaugeMeter.js"></script>
+		<script src="js/jquery-migrate-3.0.0.min.js"></script>
+		<script src="js/jquery.mobile-1.4.5/jquery.mobile-1.4.5.min.js"></script>
+		<script src="js/configure-jquery-mobile.js"></script>
+        <script src="ui.js"></script>
+        <script src="debug.js"></script>
+        <script src="connection.js"></script>
+        <script src="js/bruh.js"></script>
+
+        <script src="js/config.js"></script>
+        <script src="js/tools.js"></script>
+
+	
+		<!-- Insert this line after script imports -->
+        <script>
+            if (window.module) module = window.module;
+            
+            $("#GaugeMeter1").gaugeMeter();
+
+        </script>
+
+    </body>
+</html>

@@ -3,7 +3,7 @@
     <!-- Configure the viewport and import css code.-->
     <head>
         <meta name = "viewport" content = "width = device-width, initial-scale = 1" charset="utf-8">
-        <title>Team 2539's FRC Dashboard of Awesomeness!</title>
+        <title>Team 2539's FRC Dashboard of Awesomeness! 2020 🤖</title>
         <link href="css/style.css" rel="stylesheet">
     
         <link rel="stylesheet" href="css/krypton-jquery-mobile-theme.css">
@@ -27,7 +27,7 @@
                     <a href="#configMenu" class="ui-btn ui-corner-all ui-btn-icon-left ui ui-icon-navigation">Configuration Menu</a>
                     <a href="#debugMenu" class="ui-btn ui-corner-all ui-btn-icon-left ui ui-icon-alert">Debug Menu</a>
                     <a href="#singleDriveMenu" class="ui-btn ui-corner-all ui-btn-icon-left ui ui-icon-eye">Single Camera Menu</a>       
-
+                    <a href="#wasteland" class="ui-btn ui-corner-all ui-btn-icon-left ui-icon-forbidden">Kieren's Hypertext Wasteland</a>
                     
                  
                     <a href="#" id="refresh" class="btn-refresh ui-btn ui-corner-all ui-btn-icon-left ui ui-icon-refresh" style="float:right;">Refresh</a>
@@ -39,11 +39,20 @@
                 <!-- Tells whether robot is connected to dashboard. -->
                 <div id="robot-state">Unknown state</div>
                 <!--<button id="connect-button">Connect</button>-->
-				
+                <div id="arm-state">Arm: </div>
+                
+                <div id="GaugeMeter1" class="GaugeMeter" data-total="100" data-percent="0" data-label="%" data-animationstep="0"></div>
+	
+                <select id="toggleRobotSwitch" style="width:600px !Important;" data-role="slider">
+                    <option value="robotToggleMain">Main Robot</option>
+                    <option value="robotTogglePractice">Practice Robot</option>
+                </select>
+
             </header>
             
             <!-- Main dashboard body, this contains the cameras. -->
             <article scroll="no">
+
 				<select id="auto-select" style="color:black; float: left;">
 						<option value="None">Select Auto</option>
 						<option value="RR">Right Rocket</option>
@@ -64,6 +73,7 @@
 					</select>
                 <button id="toggleWideBtn" class="ui-btn">View Wide</button>
                 <div style="display: none" id='auto-result'></div>
+                0
                 <!-- Live Camera feeds from robot webcams. -->
                 <div class="cameras">
                     <div id="camera1"></div>
@@ -98,7 +108,7 @@
                     <a href="#configMenu" class="ui-btn ui-corner-all ui-btn-icon-left ui ui-icon-navigation">Configuration Menu</a>
                     <a href="#driveMenu" class="ui-btn ui-corner-all ui-btn-icon-left ui ui-icon-alert">Drive Menu</a>
                     <a href="#singleDriveMenu" class="ui-btn ui-corner-all ui-btn-icon-left ui ui-icon-eye">Single Camera Menu</a>        
-                    
+                    <a href="#wasteland" class="ui-btn ui-corner-all ui-btn-icon-left ui-icon-forbidden">Kieren's Hypertext Wasteland of Doom!</a>
                     
                     <a href="#" id="refresh" class="btn-refresh ui-btn ui-corner-all ui-btn-icon-left ui ui-icon-refresh" style="float:right;">Refresh</a>
                 </div>
@@ -140,6 +150,7 @@
                         <a href="#driveMenu" class="ui-btn ui-corner-all ui-btn-icon-left ui ui-icon-navigation">Drive Menu</a>
                         <a href="#debugMenu" class="ui-btn ui-corner-all ui-btn-icon-left ui ui-icon-alert">Debug Menu</a>
                         <a href="#singleDriveMenu" class="ui-btn ui-corner-all ui-btn-icon-left ui ui-icon-eye">Single Camera Menu</a>                        
+                        <a href="#wasteland" class="ui-btn ui-corner-all ui-btn-icon-left ui-icon-forbidden">Kieren's Hypertext Wasteland of Doom!</a>
                         <a href="#" id="refresh" class="btn-refresh ui-btn ui-corner-all ui-btn-icon-left ui ui-icon-refresh" style="float:right;">Refresh</a>
                         <a href="#reset" id="reset" class="ui-btn ui-corner-all ui-btn-icon-left ui ui-icon-alert" style="float:right;">Reset</a>
 
@@ -470,55 +481,127 @@
                 </div>
             </div>
         </div>
-		<!-- *********************************************************************************-->
 
-		<!-- *********************************************************************************-->
+        <!-- *********************************************************************************-->
+        <!-- Create the Single Camera Drive Menu Page.-->
         <div data-role="page" data-title="Single Camera Drive Page" id="singleDriveMenu">
             <div role="main" class="ui-content">
 
                 <div style="width: 20%; float: right;">
 
-                    <a href="#driveMenu" class="ui-btn ui-corner-all ui-btn-icon-left ui ui-icon-navigation" style="float:right;">Drive Menu</a>
-                    <a href="#" id="refresh" class="btn-refresh ui-btn ui-corner-all ui-btn-icon-left ui ui-icon-refresh" style="float:right;">Refresh</a>
+                    <!-- Display Naviagation and Refresh Sidebar. -->
+                    <a href="#driveMenu" class="ui-btn ui-corner-all ui-btn-icon-left ui ui-icon-navigation side-bar-btn">Drive Menu</a>
+                    <a href="#" id="refresh" class="btn-refresh ui-btn ui-corner-all ui-btn-icon-left ui ui-icon-refresh side-bar-btn">Refresh</a>
                 </div>
                 
-
-                <div data-role="panel" id="sideBar"  data-display="overlay" data-position="right">
-                
-                    <!--Buttons to switch between each screen. -->
-                    <div id="tabSwitchButtons">
-                            <a href="#configMenu" class="ui-btn ui-corner-all ui-btn-icon-left ui ui-icon-alert" style="float:right;">Configuration Menu</a><br>
-                            <a href="#debugMenu" class="ui-btn ui-corner-all ui-btn-icon-left ui ui-icon-alert" style="float:right;">Debug Menu</a><br>  
-                    </div>
-                    
-                </div>
-
+                <!-- Display the camera feed. -->
                 <div class="cameras">
                     <div id="cameraSingle"></div>
                 </div>
 
                 </div>
+        </div>
+        <!-- *********************************************************************************-->
+
+</div>
+        <!-- *********************************************************************************-->
+        <!-- Create Kieren's Hypertext Wasteland Page Thingy. -->
+        <div data-role="page" data-title="Kieren's Hypertext Wasteland 🤯" id="wasteland">
+            <div data-role="header" data-position="fixed" class="ui-bar">
+                <div id="tabSwitchButtons">
+                    <a href="#driveMenu" class="ui-btn ui-corner-all ui-btn-icon-left ui-icon-navigation">Drive</a>
+                    <a href="#configMenu" class="ui-btn ui-corner-all ui-btn-icon-left ui-icon-gear">Configuration</a>
+                    <a href="#debugMenu" class="ui-btn ui-corner-all ui-btn-icon-left ui-icon-alert">Debug</a>
+                    <a href="#singleDriveMenu" class="ui-btn ui-corner-all ui-btn-icon-left ui-icon-eye">Single Camera</a>
+                    <a href="#wasteland" class="ui-btn ui-corner-all ui-btn-icon-left ui-icon-forbidden" style="background-color:orangered;border-width:3px;border-color:yellow;color:yellow;">Kieren's Hypertext Wasteland 🤯</a>
+                    
+                    <a href="#" id="refresh" class="btn-refresh ui-btn ui-corner-all ui-btn-icon-left ui ui-icon-refresh" style="float:right;">Refresh</a>
+                </div>
+            </div>
+
+            <article scroll="no" style="padding:1%">
+                
+                <div style="width: 18%; float: left;">
+                    <div class="header">Auto</div>
+                    <div id="heck boy"></div>
+                </div>
+
+                <div style="width: 18%; float: right;">
+                    <div class="header">RPM</div>
+                    <div id="GaugeMeter1" class="GaugeMeter" data-total="100" data-percent="0" data-label="%" data-animationstep="0"></div>
+                    <div id="duoah" style="font-size:40px;font-family:Verdana, Geneva, Tahoma, sans-serif; text-align:center; color:black;overflow: hidden; text-overflow: ellipsis;"></div>
+                    <div id="increaserpm" style="font-size:150%;font-family:Verdana, Geneva, Tahoma, sans-serif;color:black;">
+                        <div id="rpmIncrDown" class="ui-btn ui-corner-all" style="width: 23.5%; height: 100%; float: left; text-align:center; font-size:50%;">-Incr</div>
+                        <div id="rpmIncrUp" class="ui-btn ui-corner-all" style="width: 23.5%; height: 100%; float: right; text-align:center; font-size:50%;">+Incr</div>
+                        <div id="rpmUp" class="ui-btn ui-corner-all" style="width: 10%; height: 100%; float: left; text-align:center; font-size:50%;">-</div>
+                        <div id="rpmDown" class="ui-btn ui-corner-all" style="width: 10%; height: 100%; float: right; text-align:center; font-size:50%;">+</div>
+                        <div id="rpmBoi" style="text-align: center; font-size:115%;">1</div>
+                    </div>
+                    <div style="height:10px;"></div>
+                    <div class="divider"></div>
+                    <div class="header">Turret</div>
+                    <div>
+                        <div id="duoahe" style="font-size:160%;font-family:Verdana, Geneva, Tahoma, sans-serif;text-align:center;color:maroon;overflow: hidden; text-overflow: ellipsis; float: left;"></div>
+                        <div id="duoaher" style="font-size:160%;font-family:Verdana, Geneva, Tahoma, sans-serif;text-align:center;color:navy;overflow: hidden; text-overflow: ellipsis; text-align: right;"></div>
+                    </div>
+                    <div id="increaseHang" style="font-size:130%;">
+                        <div id="hangIncrDown" class="ui-btn ui-corner-all" style="width: 23.5%; height: 100%; float: left; text-align:center; font-size:50%;">-Incr</div>
+                        <div id="hangIncrUp" class="ui-btn ui-corner-all" style="width: 23.5%; height: 100%; float: right; text-align:center; font-size:50%;">+Incr</div>
+                        <div id="hangUp" class="ui-btn ui-corner-all" style="width: 10%; height: 100%; float: left; text-align:center; font-size:50%;">-</div>
+                        <div id="hangDown" class="ui-btn ui-corner-all" style="width: 10%; height: 100%; float: right; text-align:center; font-size:50%;">+</div>
+                        <div id="hangBoi" style="text-align: center; font-size:115%; color:maroon;">1</div>
+                    </div>
+                    <div style="height:10px;"></div>
+                    <div id="increaseDang" style="font-size:130%;">
+                        <div id="dangIncrDown" class="ui-btn ui-corner-all" style="width: 25%; height: 100%; float: left; font-size:50%;">-Incr</div>
+                        <div id="dangIncrUp" class="ui-btn ui-corner-all" style="width: 25%; height: 100%; float: right; font-size:50%;">+Incr</div>
+                        <div id="dangUp" class="ui-btn ui-corner-all" style="width: 10%; height: 100%; float: left; font-size:50%;">-</div>
+                        <div id="dangDown" class="ui-btn ui-corner-all" style="width: 10%; height: 100%; float: right; font-size:50%;">+</div>
+                        <div id="dangBoi" style="text-align: center; font-size:115%; color:navy;">1</div>
+                    </div>
+                </div>
+
+                <div class="cameras" style="width:100%">
+                    <div id="cameraSingle"></div>
+                </div>
+
+        </div>
+
             </div>
         </div>
- 		<!-- *********************************************************************************-->
+		<!-- *********************************************************************************-->
+
 
 		<!-- Insert this line above script imports  -->
 		<script>if (typeof module === 'object') {window.module = module; module = undefined;}</script>
 
-		<!-- normal script imports etc  -->	
-		<script src="js/jquery-3.1.1.min.js"></script>
+        <!-- normal script imports etc  -->	
+        
+        <script src="js/jquery-3.1.1.min.js"></script>
+        <script src="js/GaugeMeter.js"></script>
 		<script src="js/jquery-migrate-3.0.0.min.js"></script>
 		<script src="js/jquery.mobile-1.4.5/jquery.mobile-1.4.5.min.js"></script>
 		<script src="js/configure-jquery-mobile.js"></script>
         <script src="ui.js"></script>
         <script src="debug.js"></script>
         <script src="connection.js"></script>
+        <script src="js/bruh.js"></script>
 
         <script src="js/config.js"></script>
         <script src="js/tools.js"></script>
+
 	
 		<!-- Insert this line after script imports -->
-		<script>if (window.module) module = window.module;</script>
+        <script>
+            if (window.module) module = window.module;
+            
+            $("#GaugeMeter1").gaugeMeter();
+
+            $('#toggleRobotSwitch').slider();	
+
+        </script>
+        
+
     </body>
 
 </html>
