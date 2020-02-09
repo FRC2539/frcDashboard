@@ -1,8 +1,8 @@
 // Define UI elements
 let ui = {
     timer: document.getElementById('timer'),
-    robotState: document.getElementById('robot-state').firstChild,
-    armState: document.getElementById('arm-state').firstChild,
+    //robotState: document.getElementById('robot-state').firstChild,
+    //armState: document.getElementById('arm-state').firstChild,
     gyro: {
         container: document.getElementById('gyro'),
         val: 0,
@@ -109,12 +109,12 @@ NetworkTables.putValue('/Autonomous/autoModeSelect', 'None');
 console.log("set default nt auto")
 
 // Update NetworkTables when autonomous selector is changed
-ui.autoSelect.onchange = function() {
-    NetworkTables.putValue('/Autonomous/autoModeSelect', this.value);
-    console.log("set auto: "+this.value)
-    //$('#auto-result').text("Auto Set to: "+this.value+" NT value: "+NetworkTables.getValue('/Autonomous/autoModeSelect', 'None'))
-    NetworkTables.getKeys();
-};
+// ui.autoSelect.onchange = function() {
+//     NetworkTables.putValue('/Autonomous/autoModeSelect', this.value);
+//     console.log("set auto: "+this.value)
+//     //$('#auto-result').text("Auto Set to: "+this.value+" NT value: "+NetworkTables.getValue('/Autonomous/autoModeSelect', 'None'))
+//     NetworkTables.getKeys();
+// };
 
 
 // Get value of arm height slider when it's adjusted
@@ -127,19 +127,19 @@ addEventListener('error',(ev)=>{
 })
 
 // Toggle widescren camera when button is pressed.
-ui.toggleWideBtn.addEventListener('click', () => {
-    if ($('#toggleWideBtn').html() == "View Wide") {
+// ui.toggleWideBtn.addEventListener('click', () => {
+//     if ($('#toggleWideBtn').html() == "View Wide") {
 
-        $('#toggleWideBtn').html("View Smaller")
+//         $('#toggleWideBtn').html("View Smaller")
 
-        $('#camera1').css("background-size","cover")
-        $('#camera1').css("width","90%")
-    } else {
-        $('#toggleWideBtn').html("View Wide")
+//         $('#camera1').css("background-size","cover")
+//         $('#camera1').css("width","90%")
+//     } else {
+//         $('#toggleWideBtn').html("View Wide")
 
-        $('#camera1').css("background-size","contain")
-        $('#camera1').css("width","61%")
-    }
+//         $('#camera1').css("background-size","contain")
+//         $('#camera1').css("width","61%")
+//     }
 
     
-})
+// })

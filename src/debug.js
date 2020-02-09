@@ -358,24 +358,25 @@ $(document).ready(function($) {
 		//console.log("added network listener")
         console.log("tape/tv: "+value)
         //ui.armState.textContent = "Arm: " + value;
-        if(value == 1) 
-        {
-            ui.armState.textContent = "Tape: Yes";
-        }else{
-            ui.armState.textContent = "Tape: Noe";
-        }
+        // if(value == 1) 
+        // {
+        //     ui.armState.textContent = "Tape: Yes";
+        // }else{
+        //     ui.armState.textContent = "Tape: Noe";
+        // }
     });
 
     NetworkTables.addKeyListener('/DriveTrain/ShooterRPM', (key, value) => 
     {
-        outVal = Math.floor((value/6000)*100)
+        //outVal = Math.floor((value/6000)*100)
+        outVal = value;
         console.log("ShooterRPM: "+outVal)
         document.getElementById("duoah").innerHTML = Math.floor(outVal)
 
-        $("#GaugeMeter1").data( "used", outVal );
-        $("#GaugeMeter1").gaugeMeter();
+        //("#GaugeMeter1").data( "used", outVal );
+        //$("#GaugeMeter1").gaugeMeter();
     });
-    
+ 
 
     $('.btn-refresh').click(function(e) {
         console.log("clicked refresh")

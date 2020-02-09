@@ -20,68 +20,71 @@
         <!-- *********************************************************************************-->
         <!--  Create the page for the drive menu.-->
         <div data-role = "page" id = "driveMenu">   
-            <!-- Create the header bar at the top of the page.-->
             <div data-role="header" data-position="fixed" class="ui-bar">
-                <!--Buttons to switch between each screen. -->
                 <div id="tabSwitchButtons">
-                    <a href="#configMenu" class="ui-btn ui-corner-all ui-btn-icon-left ui ui-icon-navigation">Configuration Menu</a>
-                    <a href="#debugMenu" class="ui-btn ui-corner-all ui-btn-icon-left ui ui-icon-alert">Debug Menu</a>
-                    <a href="#singleDriveMenu" class="ui-btn ui-corner-all ui-btn-icon-left ui ui-icon-eye">Single Camera Menu</a>       
-                    <a href="#wasteland" class="ui-btn ui-corner-all ui-btn-icon-left ui-icon-forbidden">Kieren's Hypertext Wasteland</a>
+                    <a href="#driveMenu" class="ui-btn ui-corner-all ui-btn-icon-left ui-icon-navigation">Drive</a>
+                    <a href="#configMenu" class="ui-btn ui-corner-all ui-btn-icon-left ui-icon-gear">Configuration</a>
+                    <a href="#debugMenu" class="ui-btn ui-corner-all ui-btn-icon-left ui-icon-alert">Debug</a>
+                    <a href="#singleDriveMenu" class="ui-btn ui-corner-all ui-btn-icon-left ui-icon-eye">Single Camera</a>
+                    <a href="#wasteland" class="ui-btn ui-corner-all ui-btn-icon-left ui-icon-forbidden" style="background-color:orangered;border-width:3px;border-color:yellow;color:yellow;">Kieren's Hypertext Wasteland 🤯</a>
                     
-                 
                     <a href="#" id="refresh" class="btn-refresh ui-btn ui-corner-all ui-btn-icon-left ui ui-icon-refresh" style="float:right;">Refresh</a>
                 </div>
             </div>
 
-            <!-- Header at the top of the screen, contains timer, gyroscope, and robot model diagram. -->
-            <header>
-                <!-- Tells whether robot is connected to dashboard. -->
-                <div id="robot-state">Unknown state</div>
-                <!--<button id="connect-button">Connect</button>-->
-                <div id="arm-state">Arm: </div>
+            <article scroll="no" style="padding:1%">
                 
-                <div id="GaugeMeter1" class="GaugeMeter" data-total="100" data-percent="0" data-label="%" data-animationstep="0"></div>
-	
-                <select id="toggleRobotSwitch" style="width:600px !Important;" data-role="slider">
-                    <option value="robotToggleMain">Main Robot</option>
-                    <option value="robotTogglePractice">Practice Robot</option>
-                </select>
-
-            </header>
-            
-            <!-- Main dashboard body, this contains the cameras. -->
-            <article scroll="no">
-
-				<select id="auto-select" style="color:black; float: left;">
-						<option value="None">Select Auto</option>
-						<option value="RR">Right Rocket</option>
-						<option value="LR">Left Rocket</option>
-						
-						<option value="RCF">Right Cargo Front</option>
-						<option value="LCF">Left Cargo Front</option>
-						
-						<option value="RCB">Right Cargo Ball</option>
-						<option value="RCH">Right Cargo Hatch</option>
-						<option value="LCB">Left Cargo Ball</option>
-						<option value="LCH">Left Cargo Hatch</option>
-						
-						
-						<option value="None">---</option>
-						<option value="DEMO">Demo</option>
-						<option value="TEST">Test</option>
-					</select>
-                <button id="toggleWideBtn" class="ui-btn">View Wide</button>
-                <div style="display: none" id='auto-result'></div>
-                0
-                <!-- Live Camera feeds from robot webcams. -->
-                <div class="cameras">
-                    <div id="camera1"></div>
-                    <!--<div id="camera2"></div>-->
+                <div style="width: 18%; float: left;">
+                    <div class="header">Auto</div>
+                    <div id="heck boy"></div>
+                    <select id="toggleRobotSwitch" style="width:600px !Important;" data-role="slider">
+                        <option value="robotToggleMain">Main Robot</option>
+                        <option value="robotTogglePractice">Practice Robot</option>
+                    </select>
                 </div>
+
+                <div style="width: 18%; float: right;">
+                    <div class="header">RPM</div>
+                    <!--<div id="GaugeMeter1" class="GaugeMeter" data-style="Semi" data-total="6000" data-label=" RPM" data-animationstep="0"></div>-->
+                    <div id="duoah" style="font-size:40px;font-family:Verdana, Geneva, Tahoma, sans-serif; text-align:center; color:black;overflow: hidden; text-overflow: ellipsis;"></div>
+                    <!--<div id="increaserpm" style="font-size:150%;font-family:Verdana, Geneva, Tahoma, sans-serif;color:black;"> 
+                        <div id="rpmIncrDown" class="ui-btn ui-corner-all" style="width: 23.5%; height: 100%; float: left; text-align:center; font-size:50%;">-Incr</div>
+                        <div id="rpmIncrUp" class="ui-btn ui-corner-all" style="width: 23.5%; height: 100%; float: right; text-align:center; font-size:50%;">+Incr</div>
+                        <div id="rpmUp" class="ui-btn ui-corner-all" style="width: 10%; height: 100%; float: left; text-align:center; font-size:50%;">-</div>
+                        <div id="rpmDown" class="ui-btn ui-corner-all" style="width: 10%; height: 100%; float: right; text-align:center; font-size:50%;">+</div>
+                        <div id="rpmBoi" style="text-align: center; font-size:115%;">1</div>
+                    </div>-->
+                    <div style="height:10px;"></div>
+                    <div class="divider"></div>
+                    <div class="header">Turret</div>
+                    <div>
+                        <div id="duoahe" style="font-size:160%;font-family:Verdana, Geneva, Tahoma, sans-serif;text-align:center;color:maroon;overflow: hidden; text-overflow: ellipsis; float: left;"></div>
+                        <div id="duoaher" style="font-size:160%;font-family:Verdana, Geneva, Tahoma, sans-serif;text-align:center;color:navy;overflow: hidden; text-overflow: ellipsis; text-align: right;"></div>
+                    </div>
+                    <!--<div id="increaseHang" style="font-size:130%;">
+                        <div id="hangIncrDown" class="ui-btn ui-corner-all" style="width: 23.5%; height: 100%; float: left; text-align:center; font-size:50%;">-Incr</div>
+                        <div id="hangIncrUp" class="ui-btn ui-corner-all" style="width: 23.5%; height: 100%; float: right; text-align:center; font-size:50%;">+Incr</div>
+                        <div id="hangUp" class="ui-btn ui-corner-all" style="width: 10%; height: 100%; float: left; text-align:center; font-size:50%;">-</div>
+                        <div id="hangDown" class="ui-btn ui-corner-all" style="width: 10%; height: 100%; float: right; text-align:center; font-size:50%;">+</div>
+                        <div id="hangBoi" style="text-align: center; font-size:115%; color:maroon;">1</div>
+                    </div>
+                    <div style="height:10px;"></div>
+                    <div id="increaseDang" style="font-size:130%;">
+                        <div id="dangIncrDown" class="ui-btn ui-corner-all" style="width: 25%; height: 100%; float: left; font-size:50%;">-Incr</div>
+                        <div id="dangIncrUp" class="ui-btn ui-corner-all" style="width: 25%; height: 100%; float: right; font-size:50%;">+Incr</div>
+                        <div id="dangUp" class="ui-btn ui-corner-all" style="width: 10%; height: 100%; float: left; font-size:50%;">-</div>
+                        <div id="dangDown" class="ui-btn ui-corner-all" style="width: 10%; height: 100%; float: right; font-size:50%;">+</div>
+                        <div id="dangBoi" style="text-align: center; font-size:115%; color:navy;">1</div>
+                    </div>-->
+                </div>
+
+                <div class="cameras" style="width:100%">
+                    <div id="cameraSingle"></div>
+                </div>
+
                 
-                
-            </article>
+            
+            
             
             
             
@@ -506,64 +509,8 @@
 </div>
         <!-- *********************************************************************************-->
         <!-- Create Kieren's Hypertext Wasteland Page Thingy. -->
-        <div data-role="page" data-title="Kieren's Hypertext Wasteland 🤯" id="wasteland">
-            <div data-role="header" data-position="fixed" class="ui-bar">
-                <div id="tabSwitchButtons">
-                    <a href="#driveMenu" class="ui-btn ui-corner-all ui-btn-icon-left ui-icon-navigation">Drive</a>
-                    <a href="#configMenu" class="ui-btn ui-corner-all ui-btn-icon-left ui-icon-gear">Configuration</a>
-                    <a href="#debugMenu" class="ui-btn ui-corner-all ui-btn-icon-left ui-icon-alert">Debug</a>
-                    <a href="#singleDriveMenu" class="ui-btn ui-corner-all ui-btn-icon-left ui-icon-eye">Single Camera</a>
-                    <a href="#wasteland" class="ui-btn ui-corner-all ui-btn-icon-left ui-icon-forbidden" style="background-color:orangered;border-width:3px;border-color:yellow;color:yellow;">Kieren's Hypertext Wasteland 🤯</a>
-                    
-                    <a href="#" id="refresh" class="btn-refresh ui-btn ui-corner-all ui-btn-icon-left ui ui-icon-refresh" style="float:right;">Refresh</a>
-                </div>
-            </div>
-
-            <article scroll="no" style="padding:1%">
-                
-                <div style="width: 18%; float: left;">
-                    <div class="header">Auto</div>
-                    <div id="heck boy"></div>
-                </div>
-
-                <div style="width: 18%; float: right;">
-                    <div class="header">RPM</div>
-                    <div id="GaugeMeter1" class="GaugeMeter" data-total="100" data-percent="0" data-label="%" data-animationstep="0"></div>
-                    <div id="duoah" style="font-size:40px;font-family:Verdana, Geneva, Tahoma, sans-serif; text-align:center; color:black;overflow: hidden; text-overflow: ellipsis;"></div>
-                    <div id="increaserpm" style="font-size:150%;font-family:Verdana, Geneva, Tahoma, sans-serif;color:black;">
-                        <div id="rpmIncrDown" class="ui-btn ui-corner-all" style="width: 23.5%; height: 100%; float: left; text-align:center; font-size:50%;">-Incr</div>
-                        <div id="rpmIncrUp" class="ui-btn ui-corner-all" style="width: 23.5%; height: 100%; float: right; text-align:center; font-size:50%;">+Incr</div>
-                        <div id="rpmUp" class="ui-btn ui-corner-all" style="width: 10%; height: 100%; float: left; text-align:center; font-size:50%;">-</div>
-                        <div id="rpmDown" class="ui-btn ui-corner-all" style="width: 10%; height: 100%; float: right; text-align:center; font-size:50%;">+</div>
-                        <div id="rpmBoi" style="text-align: center; font-size:115%;">1</div>
-                    </div>
-                    <div style="height:10px;"></div>
-                    <div class="divider"></div>
-                    <div class="header">Turret</div>
-                    <div>
-                        <div id="duoahe" style="font-size:160%;font-family:Verdana, Geneva, Tahoma, sans-serif;text-align:center;color:maroon;overflow: hidden; text-overflow: ellipsis; float: left;"></div>
-                        <div id="duoaher" style="font-size:160%;font-family:Verdana, Geneva, Tahoma, sans-serif;text-align:center;color:navy;overflow: hidden; text-overflow: ellipsis; text-align: right;"></div>
-                    </div>
-                    <div id="increaseHang" style="font-size:130%;">
-                        <div id="hangIncrDown" class="ui-btn ui-corner-all" style="width: 23.5%; height: 100%; float: left; text-align:center; font-size:50%;">-Incr</div>
-                        <div id="hangIncrUp" class="ui-btn ui-corner-all" style="width: 23.5%; height: 100%; float: right; text-align:center; font-size:50%;">+Incr</div>
-                        <div id="hangUp" class="ui-btn ui-corner-all" style="width: 10%; height: 100%; float: left; text-align:center; font-size:50%;">-</div>
-                        <div id="hangDown" class="ui-btn ui-corner-all" style="width: 10%; height: 100%; float: right; text-align:center; font-size:50%;">+</div>
-                        <div id="hangBoi" style="text-align: center; font-size:115%; color:maroon;">1</div>
-                    </div>
-                    <div style="height:10px;"></div>
-                    <div id="increaseDang" style="font-size:130%;">
-                        <div id="dangIncrDown" class="ui-btn ui-corner-all" style="width: 25%; height: 100%; float: left; font-size:50%;">-Incr</div>
-                        <div id="dangIncrUp" class="ui-btn ui-corner-all" style="width: 25%; height: 100%; float: right; font-size:50%;">+Incr</div>
-                        <div id="dangUp" class="ui-btn ui-corner-all" style="width: 10%; height: 100%; float: left; font-size:50%;">-</div>
-                        <div id="dangDown" class="ui-btn ui-corner-all" style="width: 10%; height: 100%; float: right; font-size:50%;">+</div>
-                        <div id="dangBoi" style="text-align: center; font-size:115%; color:navy;">1</div>
-                    </div>
-                </div>
-
-                <div class="cameras" style="width:100%">
-                    <div id="cameraSingle"></div>
-                </div>
+        <div data-role="page" data-title="Kieren's Hypertext Wasteland 🤯" id="driveMenu">
+            
 
         </div>
 
