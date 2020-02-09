@@ -17,8 +17,8 @@ $(document).ready(function() {
 
     function dhddhdhh() {
         document.getElementById("duoah").innerHTML = Math.floor(0)
-        document.getElementById("duoahe").innerHTML = (0) + "° Tur"
-        document.getElementById("duoaher").innerHTML = (0) + "° Dir"
+        //document.getElementById("duoahe").innerHTML = (0) + "° Tur"
+        //document.getElementById("duoaher").innerHTML = (0) + "° Dir"
 
         //document.getElementById("duoah").innerHTML = Math.floor(rpmadd)
         //document.getElementById("duoahe").innerHTML = (180 + hangadd) + "° Tur"

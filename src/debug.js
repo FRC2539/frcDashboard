@@ -390,17 +390,17 @@ $(document).ready(function($) {
         //$("#GaugeMeter1").gaugeMeter();
     });
  
-    NetworkTables.addKeyListener('/Hood/ShooterRPM', (key, value) => 
+    NetworkTables.addKeyListener('/Hood/HoodAngle', (key, value) => 
     {
         outVal = value;
         console.log("ShooterRPM: "+outVal)
-        document.getElementById("duoah").innerHTML = Math.floor(outVal)
+        document.getElementById("duoahe").innerHTML = Math.floor(outVal)
     });
 
-    NetworkTables.addKeyListener('/Hood/DesiredShooterRPM', (key, value) => 
+    NetworkTables.addKeyListener('/Hood/DesiredHoodAngle', (key, value) => 
     {
         outVal = value;
-        document.getElementById("duoah2").innerHTML = Math.floor(outVal)
+        document.getElementById("duoahe2").innerHTML = Math.floor(outVal)
     });
 
 
