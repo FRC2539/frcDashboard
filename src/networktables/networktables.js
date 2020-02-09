@@ -167,7 +167,7 @@ var NetworkTables =
              * @returns True if the websocket is open, False otherwise
              */
             putValue(key, value) {
-                console.log("value placed" + key + " " + value);
+                //console.log("value placed" + key + " " + value);
                 if(typeof key != 'string') return new Error('Invalid Argument')
 
                 if (typeof keys[key] != 'undefined') {

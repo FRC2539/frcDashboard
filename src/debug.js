@@ -27,6 +27,7 @@ $(document).ready(function($) {
 
 	function loadDebug(){
 	NetworkTables.addGlobalListener(function(key, value, isNew) {
+        console.log("global listener")
 		//console.log("to: " + timeout);
 		if (!lastRan){
 			lastRan = Date.now()
@@ -252,6 +253,8 @@ $(document).ready(function($) {
         NetworkTables.putValue("/Arm/hang", 0);
 
         NetworkTables.putValue("/Arm/floor", 0.0);
+
+
         NetworkTables.putValue("/Arm/aboveFloor", 5.0);
         NetworkTables.putValue("/Arm/lowHatches", 31.0);
         NetworkTables.putValue("/Arm/midHatches", 40.0);
@@ -366,7 +369,7 @@ $(document).ready(function($) {
         // }
     });
 
-    NetworkTables.addKeyListener('/DriveTrain/ShooterRPM', (key, value) => 
+    NetworkTables.addKeyListener('/Shooter/ShooterRPM', (key, value) => 
     {
         //outVal = Math.floor((value/6000)*100)
         outVal = value;
@@ -376,7 +379,30 @@ $(document).ready(function($) {
         //("#GaugeMeter1").data( "used", outVal );
         //$("#GaugeMeter1").gaugeMeter();
     });
+
+    NetworkTables.addKeyListener('/Shooter/DesiredShooterRPM', (key, value) => 
+    {
+        //outVal = Math.floor((value/6000)*100)
+        outVal = value;
+        document.getElementById("duoah2").innerHTML = Math.floor(outVal)
+
+        //("#GaugeMeter1").data( "used", outVal );
+        //$("#GaugeMeter1").gaugeMeter();
+    });
  
+    NetworkTables.addKeyListener('/Hood/ShooterRPM', (key, value) => 
+    {
+        outVal = value;
+        console.log("ShooterRPM: "+outVal)
+        document.getElementById("duoah").innerHTML = Math.floor(outVal)
+    });
+
+    NetworkTables.addKeyListener('/Hood/DesiredShooterRPM', (key, value) => 
+    {
+        outVal = value;
+        document.getElementById("duoah2").innerHTML = Math.floor(outVal)
+    });
+
 
     $('.btn-refresh').click(function(e) {
         console.log("clicked refresh")
