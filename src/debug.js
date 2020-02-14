@@ -372,9 +372,12 @@ $(document).ready(function($) {
     NetworkTables.addKeyListener('/Shooter/ShooterRPM', (key, value) => 
     {
         //outVal = Math.floor((value/6000)*100)
-        outVal = value;
-        console.log("ShooterRPM: "+outVal)
-        document.getElementById("duoah").innerHTML = Math.floor(outVal)
+        if(value != 0){
+            outVal = value;
+            console.log("ShooterRPM: "+outVal)
+            document.getElementById("duoah").innerHTML = Math.floor(outVal)
+        }
+        
 
         //("#GaugeMeter1").data( "used", outVal );
         //$("#GaugeMeter1").gaugeMeter();
@@ -403,6 +406,11 @@ $(document).ready(function($) {
         document.getElementById("duoahe2").innerHTML = Math.floor(outVal)
     });
 
+    NetworkTables.addKeyListener('/DriveTrain/distance', (key, value) => 
+    {
+        outVal = value; //Math.floor(outVal)
+        document.getElementById("dtown").innerHTML = outVal;
+    });
 
     $('.btn-refresh').click(function(e) {
         console.log("clicked refresh")
