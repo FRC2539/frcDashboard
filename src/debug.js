@@ -372,11 +372,11 @@ $(document).ready(function($) {
     NetworkTables.addKeyListener('/Shooter/ShooterRPM', (key, value) => 
     {
         //outVal = Math.floor((value/6000)*100)
-        if(value != 0){
+        //if(value !== 0){
             outVal = value;
             console.log("ShooterRPM: "+outVal)
             document.getElementById("duoah").innerHTML = Math.floor(outVal)
-        }
+        //}
         
 
         //("#GaugeMeter1").data( "used", outVal );

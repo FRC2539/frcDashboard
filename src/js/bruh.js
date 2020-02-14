@@ -16,7 +16,7 @@ $(document).ready(function() {
     document.getElementById("heck boy").innerHTML = (textstring)
 
     function dhddhdhh() {
-        document.getElementById("duoah").innerHTML = Math.floor(0)
+        //document.getElementById("duoah").innerHTML = Math.floor(0)
         //document.getElementById("duoahe").innerHTML = (0) + "° Tur"
         //document.getElementById("duoaher").innerHTML = (0) + "° Dir"
 
