@@ -400,6 +400,13 @@ $(document).ready(function($) {
         document.getElementById("duoahe").innerHTML = Math.floor(outVal)
     });
 
+    NetworkTables.addKeyListener('/Hood/LaunchAngle', (key, value) => 
+    {
+        outVal = value;
+        console.log("ShooterRPM: "+outVal)
+        document.getElementById("duoahe3").innerHTML = "LA: "+ Math.floor(outVal)
+    });
+
     NetworkTables.addKeyListener('/Hood/DesiredHoodAngle', (key, value) => 
     {
         outVal = value;
