@@ -5,6 +5,15 @@
     padding: 0;
 }
 
+.ui-mobile [data-role=page], .ui-mobile [data-role=dialog], .ui-page{
+    height: 100vh !important;
+    top: auto !important;
+    left: auto !important;
+    width: auto !important;
+    min-height: auto !important;
+    border: auto !important;
+}
+
 .side-bar-btn{
     margin-left: 10px;
     width: 90%;
@@ -184,6 +193,28 @@ header
     width: 61%;
     margin: 0 auto;
     display: block;
+    /* object-fit: contain; */
+
+    /* You'll need to mess with this a bit to get your camera to work. Replace the url with a live-updating image feed from your camera. Using other camera streaming systems will require some tweaking. */
+
+    background-image: url('http://10.25.39.11:5800/');
+
+}
+
+#cameraWide
+{
+    /* padding: 10; */
+    /* overflow: hidden; */
+    background-color: #333;
+    background-repeat: no-repeat;
+    background-size: contain;
+    /*background-color:red; */
+    border-radius: 10px;
+    height: 70%;
+    width: 80%;
+    margin: 0 auto;
+    display: block;
+    margin-left: 250px;
     /* object-fit: contain; */
 
     /* You'll need to mess with this a bit to get your camera to work. Replace the url with a live-updating image feed from your camera. Using other camera streaming systems will require some tweaking. */
