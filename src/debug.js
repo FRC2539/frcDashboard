@@ -8,11 +8,11 @@ $(document).ready(function($) {
 
     
 
-    NetworkTables.addKeyListener('/Autonomous/autoModes', (key, value) => 
-    {
+    //NetworkTables.addKeyListener('/Autonomous/autoModes', (key, value) => 
+    //{
         //console.log("tape/tv: "+value)
-        console.log("got automodes: "+value)
-        var ebbgb = value + ""; //"beans eat  hab 3 climb  left rocket  ultimate destruction  fjkasdhgfkjhab  udlifkygauyso8dy7USFEO8RT6YUH jhgfhjdg".split("  ")
+        console.log("got automodes: "+NetworkTables.getValue('/Autonomous/autoModes'))
+        var ebbgb = NetworkTables.getValue('/Autonomous/autoModes') + ""; //"beans eat  hab 3 climb  left rocket  ultimate destruction  fjkasdhgfkjhab  udlifkygauyso8dy7USFEO8RT6YUH jhgfhjdg".split("  ")
         if (ebbgb == undefined){
             alert("undefined")
         }else{
@@ -28,7 +28,7 @@ $(document).ready(function($) {
         document.getElementById("heck boy").innerHTML = (textstring)
 
         $('.autoOpt').click('button', function(e){
-            $('.autoOpt').css("background-color","gray");
+            $('.autoOpt').css("background-color","#f2f2f2");
             $('#'+this.id).css("background-color","white");
             NetworkTables.putValue('/Autonomous/autoModeSelect', $('#'+this.id).text());
             console.log("set auto: "+$('#'+this.id).text())
@@ -36,7 +36,7 @@ $(document).ready(function($) {
             NetworkTables.getKeys();
             //console.log('clicked auto opt: ' + $('#'+this.id).text());
         });
-    });
+    //});
 
     
     
@@ -454,6 +454,24 @@ $(document).ready(function($) {
     {
         outVal = value.toFixed(2); //Math.floor(outVal)
         document.getElementById("dtown").innerHTML = outVal;
+    });
+
+    NetworkTables.addKeyListener('/BallSystem/LowerConveyorStatus', (key, value) => 
+    {
+        outVal = value.toFixed(2); //Math.floor(outVal)
+        document.getElementById("lcstown").innerHTML = outVal;
+    });
+
+    NetworkTables.addKeyListener('/BallSystem/UpperConveyorStatus', (key, value) => 
+    {
+        outVal = value.toFixed(2); //Math.floor(outVal)
+        document.getElementById("ucstown").innerHTML = outVal;
+    });
+
+    NetworkTables.addKeyListener('/Intake/IntakeStatus', (key, value) => 
+    {
+        outVal = value.toFixed(2); //Math.floor(outVal)
+        document.getElementById("istown").innerHTML = outVal;
     });
 
     $('.btn-refresh').click(function(e) {

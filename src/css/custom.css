@@ -129,7 +129,9 @@
 
 #networktables h3 span
 {
-    float: right;
+    /*float: right;*/
+    margin-left: 4px;
+    color: slategray;
 }
 
 .value
