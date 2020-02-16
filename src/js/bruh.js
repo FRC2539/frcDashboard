@@ -1,5 +1,5 @@
 $(document).ready(function() {
-    const ebbgb = "beans eat  hab 3 climb  left rocket  ultimate destruction  fjkasdhgfkjhab  udlifkygauyso8dy7USFEO8RT6YUH jhgfhjdg".split("  ")
+    //const ebbgb = "beans eat  hab 3 climb  left rocket  ultimate destruction  fjkasdhgfkjhab  udlifkygauyso8dy7USFEO8RT6YUH jhgfhjdg".split("  ")
     var textstring = ""
     var rpminc = 100
     var rpmadd = 0
@@ -8,12 +8,14 @@ $(document).ready(function() {
     var danginc = 15
     var dangadd = 0
 
-    var i;
-    for (i = 0; i < ebbgb.length; i++) {
-        textstring = textstring + '<p class="ui-btn ui-corner-all" style="font-size: 80%; margin: 2.5%; width: 95%;">' + (i+1) + ": " + ebbgb[i] + '</p>'
-    }
+    // var i;
+    // for (i = 0; i < ebbgb.length; i++) {
+    //     textstring = textstring + '<p class="ui-btn ui-corner-all autoOpt" style="font-size: 80%; margin: 2.5%; width: 95%;" id="auto'+(i+1)+'">' + (i+1) + ": " + ebbgb[i] + '</p>'
+    // }
 
-    document.getElementById("heck boy").innerHTML = (textstring)
+    
+
+    // document.getElementById("heck boy").innerHTML = (textstring)
 
     function dhddhdhh() {
         //document.getElementById("duoah").innerHTML = Math.floor(0)

@@ -6,6 +6,41 @@ $(document).ready(function($) {
         NetworkTables.getKeys();
     })
 
+    
+
+    NetworkTables.addKeyListener('/Autonomous/autoModes', (key, value) => 
+    {
+        //console.log("tape/tv: "+value)
+        console.log("got automodes: "+value)
+        var ebbgb = value + ""; //"beans eat  hab 3 climb  left rocket  ultimate destruction  fjkasdhgfkjhab  udlifkygauyso8dy7USFEO8RT6YUH jhgfhjdg".split("  ")
+        if (ebbgb == undefined){
+            alert("undefined")
+        }else{
+            
+            ebbgb = ebbgb.split("$")
+        }
+        
+        var textstring = ""
+        var i;
+        for (i = 0; i < ebbgb.length; i++) {
+            textstring = textstring + '<p class="ui-btn ui-corner-all autoOpt" style="font-size: 80%; margin: 2.5%; width: 95%;" id="auto'+(i+1)+'">' + ebbgb[i] + '</p>'
+        }
+        document.getElementById("heck boy").innerHTML = (textstring)
+
+        $('.autoOpt').click('button', function(e){
+            $('.autoOpt').css("background-color","gray");
+            $('#'+this.id).css("background-color","white");
+            NetworkTables.putValue('/Autonomous/autoModeSelect', $('#'+this.id).text());
+            console.log("set auto: "+$('#'+this.id).text())
+            //$('#auto-result').text("Auto Set to: "+this.value+" NT value: "+NetworkTables.getValue('/Autonomous/autoModeSelect', 'None'))
+            NetworkTables.getKeys();
+            //console.log('clicked auto opt: ' + $('#'+this.id).text());
+        });
+    });
+
+    
+    
+
     function addItem($container, id, name, last) {
         var li = '<li';
         if ( ! last)
@@ -27,7 +62,7 @@ $(document).ready(function($) {
 
 	function loadDebug(){
 	NetworkTables.addGlobalListener(function(key, value, isNew) {
-        console.log("global listener")
+        //console.log("global listener")
 		//console.log("to: " + timeout);
 		if (!lastRan){
 			lastRan = Date.now()
@@ -203,6 +238,8 @@ $(document).ready(function($) {
             [id]
         );
     });
+
+    
 
     $('#reset').click(function(e) {
         // console.log("Reset hath been tttriggered")

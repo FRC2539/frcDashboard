@@ -5,6 +5,11 @@
     padding: 0;
 }
 
+#networktables{
+    min-width: 1000px;
+    margin-right: 10px;
+}
+
 .ui-mobile [data-role=page], .ui-mobile [data-role=dialog], .ui-page{
     height: 100vh !important;
     top: auto !important;
