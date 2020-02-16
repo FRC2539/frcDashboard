@@ -7,6 +7,8 @@ var NetworkTables =
         ipc.on('connected', (ev, con) => {
             connected = con;
             connectionListeners.map(e => e(con));
+
+            
         });
         ipc.on('add', (ev, mesg) => {
             keys[mesg.key] = { val: mesg.val, valType: mesg.valType, id: mesg.id, flags: mesg.flags, new: true };
@@ -168,15 +170,18 @@ var NetworkTables =
              */
             putValue(key, value) {
                 //console.log("value placed" + key + " " + value);
-                if(typeof key != 'string') return new Error('Invalid Argument')
+                //if (key.indexOf('limelight') === -1) {
+                    if(typeof key != 'string') return new Error('Invalid Argument')
 
-                if (typeof keys[key] != 'undefined') {
-                    keys[key].val = value;
-                    ipc.send('update', { key, val: value, id: keys[key].id, flags: keys[key].flags });
-                }
-                else {
-                    ipc.send('add', { key, val: value, flags: 0 });
-                }
+                    if (typeof keys[key] != 'undefined') {
+                        keys[key].val = value;
+                        ipc.send('update', { key, val: value, id: keys[key].id, flags: keys[key].flags });
+                    }
+                    else {
+                        ipc.send('add', { key, val: value, flags: 0 });
+                    }
+                //}
+                
                 return connected;
             },
             /**

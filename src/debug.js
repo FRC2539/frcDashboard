@@ -29,7 +29,7 @@ $(document).ready(function($) {
 
         $('.autoOpt').click('button', function(e){
             $('.autoOpt').css("background-color","#f2f2f2");
-            $('#'+this.id).css("background-color","white");
+            $('#'+this.id).css("background-color","yellow");
             NetworkTables.putValue('/Autonomous/autoModeSelect', $('#'+this.id).text());
             console.log("set auto: "+$('#'+this.id).text())
             //$('#auto-result').text("Auto Set to: "+this.value+" NT value: "+NetworkTables.getValue('/Autonomous/autoModeSelect', 'None'))
@@ -63,11 +63,13 @@ $(document).ready(function($) {
 	function loadDebug(){
 	NetworkTables.addGlobalListener(function(key, value, isNew) {
         //console.log("global listener")
-		//console.log("to: " + timeout);
+        //console.log("to: " + timeout);
+
 		if (!lastRan){
 			lastRan = Date.now()
 		}
 		if ((Date.now() - lastRan) >= 0 || (initLoad < 100)){
+            //if ((Date.now() - lastRan) >= 1 || (initLoad < 100)){
 			lastRan = Date.now();
 			initLoad += 1;
 			
@@ -101,12 +103,17 @@ $(document).ready(function($) {
 								$('<ul data-role="collapsibleset" data-inset="false">')
 									.prop('id', set)
 							);
-						}
-						addItem($('#' + set), id, key[i], last);
+                        }
+                        if(key.indexOf('limelight') === -1){
+                            addItem($('#' + set), id, key[i], last);
+                        }
+						
 					}
 					else
 					{
-						addItem($parent, id, key[i], last);
+                        if(key.indexOf('limelight') === -1){
+                            addItem($parent, id, key[i], last);
+                        }
 					}
 				}
 				$parent = $('#' + id);
@@ -114,6 +121,7 @@ $(document).ready(function($) {
 
 			if (Array.isArray(value))
 			{
+                if(key.indexOf('limelight') === -1){
 				var output = '';
 				for (var i in value)
 				{
@@ -129,7 +137,8 @@ $(document).ready(function($) {
 					$parent.append(
 						$('<ul id="' + id + '-val">' + output + '</ul>')
 					);
-				}
+                }
+            }
 			}
 			else
 			{
