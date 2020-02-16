@@ -452,7 +452,7 @@ $(document).ready(function($) {
 
     NetworkTables.addKeyListener('/DriveTrain/distance', (key, value) => 
     {
-        outVal = value; //Math.floor(outVal)
+        outVal = value.toFixed(2); //Math.floor(outVal)
         document.getElementById("dtown").innerHTML = outVal;
     });
 
