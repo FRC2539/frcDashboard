@@ -77,6 +77,7 @@ function createWindow() {
         let callback = (connected, err) => {
             //console.log('Sending status');
             mainWindow.webContents.send('connected', connected);
+            
         };
         if (port) {
             client.start(callback, address, port);

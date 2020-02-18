@@ -8,6 +8,31 @@ var NetworkTables =
             connected = con;
             connectionListeners.map(e => e(con));
 
+            console.log("got automodes: "+NetworkTables.getValue('/Autonomous/autoModes'))
+                var ebbgb = NetworkTables.getValue('/Autonomous/autoModes') + ""; //"beans eat  hab 3 climb  left rocket  ultimate destruction  fjkasdhgfkjhab  udlifkygauyso8dy7USFEO8RT6YUH jhgfhjdg".split("  ")
+                if (ebbgb == undefined){
+                    alert("undefined")
+                }else{
+                    
+                    ebbgb = ebbgb.split("$")
+                }
+                
+                var textstring = ""
+                var i;
+                for (i = 0; i < ebbgb.length; i++) {
+                    textstring = textstring + '<p class="ui-btn ui-corner-all autoOpt" style="font-size: 80%; margin: 2.5%; width: 95%;" id="auto'+(i+1)+'">' + ebbgb[i] + '</p>'
+                }
+                document.getElementById("heck boy").innerHTML = (textstring)
+
+                $('.autoOpt').click('button', function(e){
+                    $('.autoOpt').css("background-color","#f2f2f2");
+                    $('#'+this.id).css("background-color","yellow");
+                    NetworkTables.putValue('/Autonomous/autoModeSelect', $('#'+this.id).text());
+                    console.log("set auto: "+$('#'+this.id).text())
+                    //$('#auto-result').text("Auto Set to: "+this.value+" NT value: "+NetworkTables.getValue('/Autonomous/autoModeSelect', 'None'))
+                    NetworkTables.getKeys();
+                    //console.log('clicked auto opt: ' + $('#'+this.id).text());
+                });
             
         });
         ipc.on('add', (ev, mesg) => {
@@ -161,6 +186,7 @@ var NetworkTables =
              */
             isRobotConnected() {
                 return connected;
+                
             },
             /**
              * Sets the value in NetworkTables. If the websocket is not connected, the value will be discarded.

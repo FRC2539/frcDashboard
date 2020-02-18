@@ -483,6 +483,12 @@ $(document).ready(function($) {
         document.getElementById("istown").innerHTML = outVal;
     });
 
+    NetworkTables.addKeyListener('/Turret/TurretPosition', (key, value) => 
+    {
+        outVal = value.toFixed(2); //Math.floor(outVal)
+        document.getElementById("duoaher").innerHTML = outVal;
+    });
+
     $('.btn-refresh').click(function(e) {
         console.log("clicked refresh")
         window.location.reload()
