@@ -6,6 +6,7 @@ $(document).ready(function($) {
         NetworkTables.getKeys();
     })
 
+
     
 
     //NetworkTables.addKeyListener('/Autonomous/autoModes', (key, value) => 
@@ -268,7 +269,7 @@ $(document).ready(function($) {
 
         NetworkTables.putValue("/DriveTrain/Speed/F", 0.7);
         NetworkTables.putValue("/DriveTrain/Speed/IZone", 30);
-        NetworkTables.putValue("/DriveTrain/Speed/RampRate", 0);
+        //NetworkTables.putValue("/DriveTrain/Speed/RampRate", 0);
 		
 		NetworkTables.putValue("/DriveTrain/tapeoffset", 0);
 		NetworkTables.putValue("/DriveTrain/tapespeedboost", 1);
@@ -488,6 +489,8 @@ $(document).ready(function($) {
         outVal = value.toFixed(2); //Math.floor(outVal)
         document.getElementById("duoaher").innerHTML = outVal;
     });
+
+
 
     $('.btn-refresh').click(function(e) {
         console.log("clicked refresh")

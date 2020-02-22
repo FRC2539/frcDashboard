@@ -38,9 +38,10 @@
                     <div class="header">Auto</div>
                     <div id="heck boy"></div>
                     <select id="toggleRobotSwitch" style="width:100% !Important;" data-role="slider">
-                        <option value="robotToggleMain">Comp Robot</option>
-                        <option value="robotTogglePractice">Practice Robot</option>
+                        <option value="1">Comp Robot</option>
+                        <option value="0">Practice Robot</option>
                     </select>
+                    
                 </div>
 
                 <div class="cameras" style="width:100%">
@@ -148,8 +149,8 @@
                     <div data-role="navbar">
                         <ul>
                             <li><a href="#driveTrainSettings">Drive Train</a></li>
-                            <li><a href="#elevatorSettings">Elevator</a></li>
-                            <li><a href="#armSettings">Arm</a></li>
+                            <li><a href="#shooterturretSettings">Shooter/Turret</a></li>
+                            <!--<li><a href="#armSettings">Arm</a></li>-->
                             <li><a href="#cameraSettings">Camera</a></li>
                         </ul>
                     </div>
@@ -264,7 +265,7 @@
                             </div>
                             
                             <!-- Elevator Settings -->
-                            <div id="elevatorSettings" style="overflow-x: auto;">
+                            <!--<div id="elevatorSettings" style="overflow-x: auto;">
                                 <h2>Elevator Levels</h2>
 
                                 <label>
@@ -320,7 +321,7 @@
 								<label>
 									Cargoship Elevator Height 
 									<input type="number" step="1" data-key="/Elevator/cargoshipEleHeight" required>
-                            </div>
+                            </div>-->
 
                             <!-- Camera Settings -->
                             <div id="cameraSettings" style="overflow-x: auto;">
@@ -379,10 +380,14 @@
                             </div>
 
                             <!-- Arm Settings -->
-                            <div id="armSettings" style="overflow-x: auto;">
-                                    <h2>Arm Levels</h2>
+                            <div id="shooterturretSettings" style="overflow-x: auto;">
+                                    <h2>Shooter/Turret</h2>
+                                    <label>
+                                        Hood Modifier
+                                        <input type="number" step="1" data-key="/Hood/HoodModifier" required>
+                                    </label>
 
-                                        <label>
+                                        <!--<label>
                                             Arm Floor
                                             <input type="number" step="1" data-key="/Arm/floor" required>
                                         </label>
@@ -450,7 +455,8 @@
 										<label>
 											Cargoship Arm Height
 											<input type="number" step="1" data-key="/Arm/cargoshipArmHeight">
-										</label>
+                                        </label>-->
+                                        
 							</div>
 							
 
