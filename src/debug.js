@@ -1,4 +1,5 @@
 $(document).ready(function($) {
+    //$('#driveMenu').addClass('blink');
     //console.log('Debug Javascript File has loaded...');
     $("#toggleRobotSwitch").change(function(){
         NetworkTables.putValue('/DriveTrain/toggleRobotSwitch', this.value);
@@ -29,6 +30,7 @@ $(document).ready(function($) {
         document.getElementById("heck boy").innerHTML = (textstring)
 
         $('.autoOpt').click('button', function(e){
+            
             $('.autoOpt').css("background-color","#f2f2f2");
             $('#'+this.id).css("background-color","yellow");
             NetworkTables.putValue('/Autonomous/autoModeSelect', $('#'+this.id).text());
@@ -36,6 +38,8 @@ $(document).ready(function($) {
             //$('#auto-result').text("Auto Set to: "+this.value+" NT value: "+NetworkTables.getValue('/Autonomous/autoModeSelect', 'None'))
             NetworkTables.getKeys();
             //console.log('clicked auto opt: ' + $('#'+this.id).text());
+            $('#driveMenu').removeClass('blink');
+            
         });
     //});
 
@@ -488,6 +492,30 @@ $(document).ready(function($) {
     {
         outVal = value.toFixed(2); //Math.floor(outVal)
         document.getElementById("duoaher").innerHTML = outVal;
+    });
+
+    NetworkTables.addKeyListener('/Field/Color', (key, value) => 
+    {
+        theColor = value;
+        switch (theColor == ""){
+            case "red":
+                theColor = "<span style='color: red;'>Red</span>"
+                break;
+            case "green":
+                    theColor = "<span style='color: green;'>Green</span>"
+                    break;
+            case "blue":
+                    theColor = "<span style='color: blue;'>Blue</span>"
+                    break;
+            case "yellow":
+                    theColor = "<span style='color: yellow;'>Yellow</span>"
+                    break;
+
+            default:
+                theColor = "<span style='color: black;'>No Color</span>"
+                break;
+        }
+        document.getElementById("theCW").innerHTML = theColor;
     });
 
 

@@ -47,7 +47,7 @@ body
     user-select: none;
     color: white;
     overflow: hidden;
-    background-color: #d66621 !important;
+    /*background-color: #d66621 !important;*/
     padding-bottom: 0;
 	margin-bottom: 0;
 }
@@ -380,6 +380,20 @@ label
 h2
 {
     color:white !important;
+}
+
+.blink{
+    /* background-color: pink !important; */
+    animation: pulse 1s infinite;
+}
+
+@keyframes pulse {
+    0% {
+        background-color: white;
+    }
+    100% {
+        background-color: #d66621;
+    }
 }
 
 .GaugeMeter {
