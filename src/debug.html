@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+    <!-- Configure the viewport and import css code.-->
+    <head>
+        <meta name = "viewport" content = "width = device-width, initial-scale = 1" charset="utf-8">
+        <title>Team 2539's FRC Debug of Awesomeness! 2020 🤖</title>
+
+        <script>
+            var page = "debug";
+        </script>
+
+        <link rel="stylesheet" href="css/jquery.mobile.icons.min.css">
+        <link rel="stylesheet" href="js/jquery.mobile-1.4.5/jquery.mobile.structure-1.4.5.min.css">
+    
+        <script>if (typeof module === 'object') {window.module = module; module = undefined;}</script>
+        <script src="js/jquery-3.1.1.min.js"></script>
+        <!--<script src="js/jquery-migrate-3.0.0.min.js"></script>
+        <script src="js/jquery.mobile-1.4.5/jquery.mobile-1.4.5.min.js"></script>-->
+        <script src="networktables/networktables.js"></script>
+        <script src="debug.js"></script>
+        
+        <script>
+
+            ipc.send('connect', roboAddy);
+
+        </script>
+    </head>
+
+    <body>
+        <div>Debug</div><a href="driveMenu.html">Drive</a><br>
+        <button onclick="window.location.reload();">Refresh</button>
+
+        <div role="main" class="ui-content ui-alt-icon">
+                <div class="ui-grid-a">
+                <div class="ui-block-a">
+                    <label>Network Tables</label>
+                    <ul data-role="collapsibleset" id="networktables">
+                    </ul>
+                </div>
+                <div class="ui-block-b">
+                    <label>Commands</label>
+                    <div id="stored-commands">
+                    </div>
+                    <div id="active-commands">
+                    </div>
+                </div>
+                </div>
+            </div>
+    </body>
+
+</html>

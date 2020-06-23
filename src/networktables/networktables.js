@@ -1,38 +1,51 @@
 ﻿let ipc = require('electron').ipcRenderer;
+let roboAddy = "10.25.39.2";
+
 
 var NetworkTables =
     (() => {
-        let keys = {}, connectionListeners = [], connected = false, globalListeners = [], keyListeners = {}, robotAddress = '10.95.39.2';
+        let keys = {}, connectionListeners = [], connected = false, globalListeners = [], keyListeners = {}, robotAddress = roboAddy;
+        
         ipc.send('ready');
+        
         ipc.on('connected', (ev, con) => {
+            //console.log("Robot Connected")
+            //console.log(NetworkTables)
             connected = con;
             connectionListeners.map(e => e(con));
 
-            console.log("got automodes: "+NetworkTables.getValue('/Autonomous/autoModes'))
-                var ebbgb = NetworkTables.getValue('/Autonomous/autoModes') + ""; //"beans eat  hab 3 climb  left rocket  ultimate destruction  fjkasdhgfkjhab  udlifkygauyso8dy7USFEO8RT6YUH jhgfhjdg".split("  ")
-                if (ebbgb == undefined){
-                    alert("undefined")
+            if (page == "drive"){
+                var currentAutoMode = NetworkTables.getValue('/Autonomous/autoModeSelect') + "";
+                document.getElementById("currentAuto").innerHTML = currentAutoMode
+
+                //console.log("got automodes: "+NetworkTables.getValue('/Autonomous/autoModes'))
+                var autoModes = NetworkTables.getValue('/Autonomous/autoModes') + ""; //"beans eat  hab 3 climb  left rocket  ultimate destruction  fjkasdhgfkjhab  udlifkygauyso8dy7USFEO8RT6YUH jhgfhjdg".split("  ")
+                if (autoModes === 'undefined'){
+                    window.location.reload()
                 }else{
-                    
-                    ebbgb = ebbgb.split("$")
+                    autoModes = autoModes.split("$")
                 }
                 
                 var textstring = ""
                 var i;
-                for (i = 0; i < ebbgb.length; i++) {
-                    textstring = textstring + '<p class="ui-btn ui-corner-all autoOpt" style="font-size: 80%; margin: 2.5%; width: 95%;" id="auto'+(i+1)+'">' + ebbgb[i] + '</p>'
+                for (i = 0; i < autoModes.length; i++) {
+                    textstring = textstring + '<button id="auto'+(i+1)+'" class="autoOpt">' + autoModes[i] + '</button>'
                 }
-                document.getElementById("heck boy").innerHTML = (textstring)
+                document.getElementById("autoOpts").innerHTML = (textstring)
 
-                $('.autoOpt').click('button', function(e){
-                    $('.autoOpt').css("background-color","#f2f2f2");
-                    $('#'+this.id).css("background-color","yellow");
-                    NetworkTables.putValue('/Autonomous/autoModeSelect', $('#'+this.id).text());
-                    console.log("set auto: "+$('#'+this.id).text())
-                    //$('#auto-result').text("Auto Set to: "+this.value+" NT value: "+NetworkTables.getValue('/Autonomous/autoModeSelect', 'None'))
-                    NetworkTables.getKeys();
-                    //console.log('clicked auto opt: ' + $('#'+this.id).text());
-                });
+                
+                var autoButtons = document.getElementsByClassName("autoOpt");
+                
+                for (var i=0; i < autoButtons.length; i++){
+                    autoButtons[i].addEventListener("click", function(){
+                        NetworkTables.putValue('/Autonomous/autoModeSelect', this.innerHTML);
+                        currentAutoMode = NetworkTables.getValue('/Autonomous/autoModeSelect') + "";
+                        document.getElementById("currentAuto").innerHTML = currentAutoMode;
+                    })
+
+                }  
+            }
+            
             
         });
         ipc.on('add', (ev, mesg) => {
@@ -49,16 +62,23 @@ var NetworkTables =
             delete keys[mesg.key];
         });
         ipc.on('update', (ev, mesg) => {
-            let temp = keys[mesg.key];
-            temp.flags = mesg.flags;
-            temp.val = mesg.val;
-            globalListeners.map(e => e(mesg.key, temp.val, temp.new));
-            if (globalListeners.length > 0)
-                keys[mesg.key].new = false;
-            if (mesg.key in keyListeners) {
-                keyListeners[mesg.key].map(e => e(mesg.key, temp.val, temp.new));
-                temp.new = false;
+            try{
+                let temp = keys[mesg.key];
+                temp.flags = mesg.flags;
+                temp.val = mesg.val;
+                globalListeners.map(e => e(mesg.key, temp.val, temp.new));
+                if (globalListeners.length > 0)
+                    keys[mesg.key].new = false;
+                if (mesg.key in keyListeners) {
+                    keyListeners[mesg.key].map(e => e(mesg.key, temp.val, temp.new));
+                    temp.new = false;
+                }
             }
+            catch(err){
+                console.log("error on ipc update, reloading")
+                window.location.reload()
+            }
+            
         });
         ipc.on('flagChange', (ev, mesg) => {
             keys[mesg.key].flags = mesg.flags;
@@ -232,4 +252,24 @@ var NetworkTables =
                 return encodeURIComponent(key).replace(/([;&,\.\+\*\~':"\!\^#$%@\[\]\(\)=>\|])/g, '\\$1');
             }
         }
-    })();
+    })(
+        
+
+    );
+
+    
+    
+    
+    // NetworkTables.addRobotConnectionListener(onRobotConnection, false);
+    
+    // function onRobotConnection(connected) {
+    //     //console.log("con:"+connected)
+    //     var state = connected ? 'Robot connected!' : 'Robot disconnected.';
+    //     //console.log(state);
+    //     if (connected) {
+    //         console.log("Connection Succeeded")
+    //     } else{
+    //         console.log("Connection Failed")
+    //     }
+    //   }
+   
