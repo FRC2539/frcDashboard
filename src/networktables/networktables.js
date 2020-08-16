@@ -1,27 +1,28 @@
 ﻿let ipc = require('electron').ipcRenderer;
 let roboAddy = "10.25.39.2";
 
-
 var NetworkTables =
     (() => {
         let keys = {}, connectionListeners = [], connected = false, globalListeners = [], keyListeners = {}, robotAddress = roboAddy;
         
         ipc.send('ready');
+        console.log("ready");
         
         ipc.on('connected', (ev, con) => {
-            //console.log("Robot Connected")
+            console.log("Robot Connected")
             //console.log(NetworkTables)
             connected = con;
             connectionListeners.map(e => e(con));
 
-            if (page == "drive"){
+            if (typeof page !== 'undefined'){
+            if (page == "drive" ){
                 var currentAutoMode = NetworkTables.getValue('/Autonomous/autoModeSelect') + "";
-                document.getElementById("currentAuto").innerHTML = currentAutoMode
+                document.getElementById("currentAuto").innerHTML = "<b>Current Auto:</b> " + currentAutoMode
 
                 //console.log("got automodes: "+NetworkTables.getValue('/Autonomous/autoModes'))
                 var autoModes = NetworkTables.getValue('/Autonomous/autoModes') + ""; //"beans eat  hab 3 climb  left rocket  ultimate destruction  fjkasdhgfkjhab  udlifkygauyso8dy7USFEO8RT6YUH jhgfhjdg".split("  ")
                 if (autoModes === 'undefined'){
-                    window.location.reload()
+                    //window.location.reload()
                 }else{
                     autoModes = autoModes.split("$")
                 }
@@ -29,7 +30,7 @@ var NetworkTables =
                 var textstring = ""
                 var i;
                 for (i = 0; i < autoModes.length; i++) {
-                    textstring = textstring + '<button id="auto'+(i+1)+'" class="autoOpt">' + autoModes[i] + '</button>'
+                    textstring = textstring + '<button id="auto'+(i+1)+'" class="autoOpt beaner">' + autoModes[i] + '</button>'
                 }
                 document.getElementById("autoOpts").innerHTML = (textstring)
 
@@ -40,11 +41,40 @@ var NetworkTables =
                     autoButtons[i].addEventListener("click", function(){
                         NetworkTables.putValue('/Autonomous/autoModeSelect', this.innerHTML);
                         currentAutoMode = NetworkTables.getValue('/Autonomous/autoModeSelect') + "";
-                        document.getElementById("currentAuto").innerHTML = currentAutoMode;
+                        document.getElementById("currentAuto").innerHTML = "<b>Current Auto:</b> " + currentAutoMode;
                     })
 
                 }  
+
+                function heheeh() {
+                    
+                    var speed = Math.floor(Math.random()*99) //NetworkTables.getValue('/Intake/IntakeStatus') + "";
+                    //document.getElementById("speed").innerHTML = "Speed: " + speed
+                    //document.getElementById("nottheparent").style.width = speed + "%"
+                    beems = "info"
+                    if (speed > 66) {
+                        beems = "danger"
+                    } else if (speed > 33) {
+                        beems = "success"
+                    }
+                    document.getElementById("progressthing").innerHTML = '<div id="nottheparent" class="progress-bar progress-bar-striped bg-' + beems + '" style="text-align:left; vertical-align:center; width:' + speed + '%;height:100%" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"> <span style="transform:translateY(50%);"> Speed: ' + speed + '</span> </div>'
+                    var rpm = NetworkTables.getValue('/Shooter/ShooterRPM') + "";
+                    document.getElementById("rpm").innerHTML = "<b>Shooter RPM:</b> " + rpm
+
+                    var count = NetworkTables.getValue('/Shooter/BallCount') + "";
+                    document.getElementById("balls").innerHTML = "<b>Ball Count:</b> " + count
+
+                    var angle = NetworkTables.getValue('/Turret/TurretPosition') + "";
+                    document.getElementById("ang").innerHTML = "<b>Turret Angle:</b> " + angle
+
+                    var him = NetworkTables.getValue('/Intake/IntakeStatus') + "";
+                    document.getElementById("intake").innerHTML = "<b>Intake Status:</b> " + him
+
+                    setTimeout(heheeh,10)
+                }
+                heheeh()
             }
+        }
             
             
         });
@@ -76,7 +106,12 @@ var NetworkTables =
             }
             catch(err){
                 console.log("error on ipc update, reloading")
-                window.location.reload()
+                if (typeof page !== 'undefined'){
+                    if (page == "drive" ){
+                        //window.location.reload()
+                    }
+                }
+                
             }
             
         });

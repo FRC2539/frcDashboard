@@ -3,39 +3,116 @@
     <!-- Configure the viewport and import css code.-->
     <head>
         <meta name = "viewport" content = "width = device-width, initial-scale = 1" charset="utf-8">
-        <title>Team 2539's FRC Debug of Awesomeness! 2020 🤖</title>
+        <title id="titletest">Team 2539's FRC Debug of Awesomeness! 2020 🤖</title>
 
         <script>
+            //console.log("debug");
             var page = "debug";
+            global.jQuery = require('jquery');
+            require('popper.js');
+            require('bootstrap');
+            
         </script>
 
-        <link rel="stylesheet" href="css/jquery.mobile.icons.min.css">
-        <link rel="stylesheet" href="js/jquery.mobile-1.4.5/jquery.mobile.structure-1.4.5.min.css">
-    
-        <script>if (typeof module === 'object') {window.module = module; module = undefined;}</script>
-        <script src="js/jquery-3.1.1.min.js"></script>
-        <!--<script src="js/jquery-migrate-3.0.0.min.js"></script>
-        <script src="js/jquery.mobile-1.4.5/jquery.mobile-1.4.5.min.js"></script>-->
+        <link rel="stylesheet" href="bootstrap/css/bootstrap.css">
+        <script src="bootstrap/js/jquery.min.js"></script>
+        <script src="bootstrap/js/popper.js"></script>
+        <script src="bootstrap/js/bootstrap.js"></script>
+
+
+        <script src="bootstrap/js/jquery.min.js"></script>
         <script src="networktables/networktables.js"></script>
         <script src="debug.js"></script>
         
         <script>
 
             ipc.send('connect', roboAddy);
+            console.log("connect sent")
+
 
         </script>
+
+        <style>
+            body {
+                background-color: orange;
+                /*color:black;
+                font-family:Verdana, Georgia, serif;
+                font-size:large;*/
+            }
+        </style>
     </head>
 
     <body>
-        <div>Debug</div><a href="driveMenu.html">Drive</a><br>
-        <button onclick="window.location.reload();">Refresh</button>
+            <nav class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0 shadow">
+        <a class="navbar-brand col-md-3 col-lg-2 mr-0 px-3" href="#">2539 Drive</a>
+        <button class="navbar-toggler position-absolute d-md-none collapsed" type="button" data-toggle="collapse" data-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <ul class="navbar-nav px-3">
+            <li class="nav-item text-nowrap">
+                <a href="driveMenu.html" class="btn btn-outline-info" style="padding: 2px;">Drive</a>
+            </li>
+        </ul>
+        <ul class="navbar-nav px-3">
+            <li class="nav-item text-nowrap">
+                <a class="nav-link" href="#" onclick="window.location.reload();">Refresh</a>
+            </li>
+        </ul>
+        </nav>
 
         <div role="main" class="ui-content ui-alt-icon">
                 <div class="ui-grid-a">
                 <div class="ui-block-a">
                     <label>Network Tables</label>
-                    <ul data-role="collapsibleset" id="networktables">
-                    </ul>
+
+                    <!--<div class="accordion" id="accordionExample">
+                        <div class="card">
+                          <div class="card-header" id="headingOne">
+                            <h2 class="mb-0">
+                              <button class="btn btn-link btn-block text-left" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                Collapsible Group Item #1
+                              </button>
+                            </h2>
+                          </div>
+                      
+                          <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
+                            <div class="card-body">
+                              Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+                            </div>
+                          </div>
+                        </div>
+                        <div class="card">
+                          <div class="card-header" id="headingTwo">
+                            <h2 class="mb-0">
+                              <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                Collapsible Group Item #2
+                              </button>
+                            </h2>
+                          </div>
+                          <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
+                            <div class="card-body">
+                              Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+                            </div>
+                          </div>
+                        </div>
+                        <div class="card">
+                          <div class="card-header" id="headingThree">
+                            <h2 class="mb-0">
+                              <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                Collapsible Group Item #3
+                              </button>
+                            </h2>
+                          </div>
+                          <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
+                            <div class="card-body">
+                              Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+                            </div>
+                          </div>
+                        </div>
+                      </div>-->
+
+
+                    <div class="accordion" id="networktables"></div>
                 </div>
                 <div class="ui-block-b">
                     <label>Commands</label>

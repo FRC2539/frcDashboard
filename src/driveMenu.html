@@ -4,30 +4,143 @@
     <head>
         <meta name = "viewport" content = "width = device-width, initial-scale = 1" charset="utf-8">
         <title>Team 2539's FRC Dashboard of Awesomeness! 2020 🤖</title>
-    
+
+        <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.min.css">
+        <script src="../node_modules/jquery/dist/jquery.js"></script>
+        <script src="../node_modules/popper.js/dist/umd/popper.js"></script>
+        <script src="../node_modules/bootstrap/dist/js/bootstrap.js"></script>
+
         <script>
-            var page = "drive";
+            var page = "drive"
+            global.jQuery = require('jquery');
+            require('popper.js');
+            require('bootstrap');
+        </script>
+
+        <script>
+            // macanerna
+
+            var macarenaProgress = 0
+
+            function david() {
+                if (document.getElementById("macarena") && macarenaProgress < 100 && macarenaProgress != "Ready") {
+                    document.getElementById("macarena").innerHTML = "<b>Macarena:</b> Preparing... [" + Math.floor(macarenaProgress*10)/10 + "%]"
+                    macarenaProgress += 0.01
+                } else if (document.getElementById("macarena") && macarenaProgress != "Ready") {
+                    function dbebeb(coloer) {
+                        document.getElementById("macarena").innerHTML = "<b>Macarena:</b> <span style='color:" + color + "'>Preparing... [100%]</span>"
+                        if (color == rgb(255,255,255)) {
+
+                        }
+                    }
+                    macarenaProgress = "Ready"
+                    const macMessages = ["Unleash the beast.","Nothing can stop it.","The enemy shall fall."]
+                    document.getElementById("macarena").innerHTML = "<b>Macarena:</b> <b style='color:black; text-shadow: 0 0 5px red; animation: this 2.5s ease-in-out 0s infinite alternate;'>" + macMessages[Math.floor(Math.random()*2.999)] + "</b>"
+                }
+                setTimeout(david,10)
+            }
+            david()
+
+            //no more camacera
         </script>
 
         <script>if (typeof module === 'object') {window.module = module; module = undefined;}</script>
         <script src="networktables/networktables.js"></script>
         
-        <script>
+        <script> ipc.send('connect', roboAddy); </script>
 
-            ipc.send('connect', roboAddy);
-
- 
-        </script>
+        <style>
+            html {
+                background-color: orange;
+                background-image: linear-gradient(rgb(255, 184, 41), rgb(235, 118, 28));
+            }
+            body {
+                /*color:black;
+                font-family:Verdana, Georgia, serif;
+                font-size:large;*/
+            }
+            .stupid {
+                font-size: x-large;
+                padding: 5px;
+            }
+            .beaner {
+                border-color: rgb(255, 94, 0);
+                background-color:rgb(128, 60, 0);
+                background-image: linear-gradient(to bottom right, rgb(255, 94, 0) 0%,rgb(43, 16, 0) 35%, rgb(43, 16, 0) 65%, rgb(255, 94, 0) 100%);
+                border-width: 1px 6px 1px 6px;
+                border-radius: 12px 32px;
+                margin: 1.5px;
+                color: white;
+            }
+            .beanerinverted {
+                border-color: rgb(0,0,0);
+                background-color:rgb(255, 94, 0);
+                background-image: linear-gradient(to bottom right, rgb(43, 16, 0) 0%,rgb(255, 94, 0) 35%, rgb(255, 94, 0) 65%, rgb(43, 16, 0) 100%);
+                border-width: 4px 1px 4px 1px;
+                border-radius: 24px 8px;
+                margin: 1px;
+                color: black;
+            }
+            @keyframes this {
+                from {text-shadow: 0 0 5px red; color: black;}
+                to {text-shadow: 0 0 25px red; color: maroon;}
+            }
+        </style>
     </head>
 
     <body>
-        <div>Drive</div><a href="debug.html">Debug</a><br>
-        <button onclick="window.location.reload();">Refresh</button>
-        <br><br>
-        Auto Options: <div id="autoOpts"></div>
-        Current Auto: <span id="currentAuto"></span>
-        <br><br>
-        <div style="width: 300px; height: 300px; background-size: contain; background-repeat: no-repeat; background-image: url('http://10.25.39.11:5800/');">--video--</div>
+        <nav class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0 shadow">
+        <a class="navbar-brand col-md-3 col-lg-2 mr-0 px-1" href="#">2539 Drive</a>
+        <button class="navbar-toggler position-absolute d-md-none collapsed" type="button" data-toggle="collapse" data-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <ul class="navbar-nav px-5">
+            <li class="nav-item text-nowrap">
+                <a href="debug.html" class="btn btn-outline-danger" style="padding: 2px;">Debug</a>
+            </li>
+        </ul>
+        <ul class="navbar-nav px-3">
+            <li class="nav-item text-nowrap">
+                <a class="nav-link" href="#" onclick="window.location.reload();">Refresh</a>
+            </li>
+        </ul>
+        </nav>
+
+        <div id="sidebar" style="width:30%; float: left;"> <!-- the thing on the left -->
+            <div class="stupid">
+                <ul class="list-group">
+                    <li id="rpm" class="list-group-item list-group-item-dark beaner"><b>Shooter RPM:</b> 5000</li>
+                    <li id="ang" class="list-group-item list-group-item-dark beaner"><b>Turret Angle:</b> 39</li>
+                    <li id="balls" class="list-group-item list-group-item-dark beaner"><b>Ball Count:</b> 6</li>
+                    <li id="intake" class="list-group-item list-group-item-dark beaner"><b>Intake Status:</b> Deceased</li>
+                </ul>
+            
+                <br>
+                <!--<div id="whateverthisis" class="stupid">
+                    <div id="Temp" style="text-align:center;text-decoration:underline;"><b>Temperature</b></div>
+                    <div id="XXXX1"><b>|</b> XXXX</div>
+                    <div id="XXXX2"><b>|</b> XXXX</div>
+                    <div id="XXXX3"><b>|</b> XXXX</div>
+                    <div id="XXXX4"><b>|</b> XXXX</div>
+                </div>-->
+
+                <div class="card beaner">
+                    <b>Auto Options:</b> <div id="autoOpts"></div>
+                    <span id="currentAuto"><b>Current Auto:</b> </span>
+                </div>
+                <br><br>
+                <div id="macarena"><b>Macarena:</b> Preparing... [0%]</div><br>
+             </div>
+        </div>
+        <div id="main" style="width:70%; float: right;"> <!-- the thing on the right -->
+            <div style="border-radius: 24px 64px; height: 450px; background-color: black; background-size: contain; background-repeat: no-repeat; background-image: url('http://10.25.39.11:5800/'); color: lime;"></div>
+            <!--<div id="speed" style="font-size:xx-large">Speed: 671,000,000 mph</div>
+            <div id="progressthing" class="progress">
+                <div id="nottheparent" class="progress-bar bg-danger" style="width:75%;" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
+            </div>-->
+            <div id="progressthing" class="progress" style="padding:2px;margin:2px;height:32px;"></div>
+            <div id="readiness" style="background:black; width:fit-content; height:fit-content; color:red; padding:10px;">Not Ready</div>
+        </div>
         
     </body>
 

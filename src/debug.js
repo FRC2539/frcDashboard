@@ -1,15 +1,27 @@
 $(document).ready(function($) {
+    //console.log("doc ready")
+
+    function heheeh() {
+        var whewoew = Math.floor(Math.random()*9999999)
+        document.getElementById("titletest").innerHTML = "Team 2539's FRC Debug of Awesomeness! א" + whewoew + " 🤖"
+        setTimeout(heheeh,10)
+    }
+    heheeh()
+
     function addItem($container, id, name, last) {
-        var li = '<li';
+        var li = '<div class="card"';
         if ( ! last)
         {
             li += ' data-role="collapsible"';
         }
         li += '>';
         $container.append(
+            //<button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
             $(li)
                 .prop('id', id)
-                .append('<h3 class="value">' + name + '</h3>')
+                .append('<div class="card-header" id="ch_'+id+'"> <h3 class="value"> <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapsey' + id + '" aria-expanded="false" aria-controls="collapsey'+id+'">' + name + '</button> </h3> </div>')
+                .append(('<div id="collapsey'+id+'" class="collapse" aria-labelledby="stuff" data-parent="#networktables"><div id="stuffey'+id+'" class="card-body"></div>'))
+                //<div class="card-body">Stuff in here.</div>
         );
     }
 
@@ -38,9 +50,10 @@ $(document).ready(function($) {
                     var set = $parent.prop('id') + '-set';
                     if ($('#' + set).length == 0)
                     {
-                        $parent.append(
-                            $('<ul data-role="collapsibleset" data-inset="false">')
-                                .prop('id', set)
+                        //console.log("append c content to #stuffey" + key[0])
+                        $('#stuffeynt-' + key[0]).append(
+                            //collapseynt-SmartDashboard
+                            $('<div id="collapseynt-'+key[0]+'" class="collapse" aria-labelledby="bebans" data-role="collapsibleset" data-inset="false"><div class="card-body">'+key+' - '+value+'</div>')
                         );
                     }
                     addItem($('#' + set), id, key[i], last);
@@ -58,9 +71,8 @@ $(document).ready(function($) {
             var output = '';
             for (var i in value)
             {
-                output += '<li>' + value[i] + '</li>';
+                output += '<div class="card">' + value[i] + '</div>';
             }
-
             if ($('#' + id + '-val').length)
             {
                 $('#' + id + '-val').html(output);
